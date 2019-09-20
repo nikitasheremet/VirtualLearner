@@ -24,7 +24,7 @@ CREATE TABLE resources (
   url VARCHAR(255) NOT NULL,
   title VARCHAR(255) NOT NULL,
   description TEXT,
-category_id INTEGER NOT NULL REFERENCES categories(id) ON DELETE CASCADE,
+  category_id INTEGER NOT NULL REFERENCES categories(id) ON DELETE CASCADE,
   thumbnail_photo VARCHAR (255)
 );
 
