@@ -13,9 +13,6 @@ const queryUserCategories = (user_id) => {
     ;`,values)
   .then(res => {
     return res.rows;
-    // for (let cat of res.rows) {
-    //   console.log(generateTemplate(cat.name));
-    // }
   })
 }
 
