@@ -1,31 +1,45 @@
 const userID = {
   user_id: 1
 };
+const myCategoriesList = $("#my-categories-list");
 
-const outputCatg = () => {
+const ajaxCategories = () => {
 return $.ajax({
     method: "POST",
     url: "/db/categories",
     data: userID
   });
 }
+const ajaxCategoryResources = (res) => {
+return $.ajax({
+    method: "POST",
+    url: `/db/categories/results`,
+    data: {user_id: userID.user_id,
+    category: res}
+  });
+}
 
-const generateTemplate = (categoryName) => {
+const generateTemplateCategory = (categoryName) => {
   return `
   <article>
     <div>
-      <p>${categoryName}</p>
+      <a href="#">${categoryName}</a>
     </div>
   </article>
   `
 }
 
-outputCatg().then(res => {
+ajaxCategories().then(res => {
   let output = "";
   for (let cat of res) {
-    output += generateTemplate(cat.name);
+    output += generateTemplateCategory(cat.name);
   }
-  $("#my-categories-list").append(output);
+  myCategoriesList.append(output);
 });
 
-
+myCategoriesList.on("click", (data) => {
+  ajaxCategoryResources(data.target.childNodes[0].data).then(res => {
+    console.log(res);
+  })
+  // console.log(data.target.childNodes[0].data);
+})
