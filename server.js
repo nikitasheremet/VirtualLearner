@@ -1,3 +1,5 @@
+const database = require("./db/dbQueries");
+const databaseRoutes = require("./routes/databaseRoutes")
 // load .env data into process.env
 require('dotenv').config();
 
@@ -29,6 +31,7 @@ app.use("/styles", sass({
   debug: true,
   outputStyle: 'expanded'
 }));
+
 app.use(express.static("public"));
 
 // Separated Routes for each Resource
@@ -48,6 +51,11 @@ app.use("/register", registerRoutes);
 app.use("/register", registerRoutes);
 app.use("/home", homeRoutes);
 // Note: mount other resources here, using the same pattern above
+
+// dbQuery Endpoints
+const dbRouter = express.Router();
+databaseRoutes(dbRouter, database);
+app.use('/db', dbRouter);
 
 
 // Home page
