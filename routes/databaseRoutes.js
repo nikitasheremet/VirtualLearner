@@ -9,4 +9,11 @@ module.exports = function(router, database) {
       res.send(queryResult);
     })
   })
+
+  router.post('/categories/results', (req, res) => {
+    console.log(req.body);
+    database.queryUserCategories(req.body.user_id).then(queryResult => {
+      res.send(queryResult);
+    })
+  })
 }
