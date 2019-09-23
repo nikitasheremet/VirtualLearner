@@ -102,13 +102,7 @@ module.exports = (db) => {
 // $result = db.query("SELECT * FROM registration WHERE email='$email' AND password='$password'");
 // $data = db.num_rows($result);
 //   if($data == 1){
-<<<<<<< HEAD
-//     alert (Successfully Logged in);
-//   } else {
-//     alert (Email or Password is wrong!);
-=======
 //     alert ("Successfully Logged in");
 //   } else {
 //     alert ("Email or Password is wrong!");
->>>>>>> cbaf9496d002ce2090569a57366ac3cbe0bf67e5
 //   }

@@ -1,18 +1,17 @@
 
-const ajaxResources = () => {
+const ajaxResources = (res) => {
   return $.ajax({
       method: "GET",
-      url: "/db/resources"
+      url: `/db/${res}`
     });
   }
 
-
-const createResource = data => {
+const createResource = resource => {
   return (
-`<h3>${findAllResources(data).title}</h3>
+`<h3>${resource.title}</h3>
   <div>
     <article>
-      <p>${findAllResources(data).url}</p>
+      <p>${resource.url}</p>
     </article>
   </div>`
   )}
@@ -23,21 +22,15 @@ const renderResource = data => {
 }
 
 
-ajaxResources().then(res => {
+$("#search-all-resources").submit( event => {
+event.preventDefault()
+console.log("SEARCH");
+const input = $("#search").val()
+console.log(input)
+
+ajaxResources(input).then(res => {
   for (let resource of res) {
     renderResource(resource);
   }
 });
-
-
-$(document).ready(() => {
-  renderResource('Horoscope')
-});
-
-
-$("#resource_found").on("click", (data) => {
-  console.log("heard a click");
-  ajaxResources(data.target.childNodes[0].data).then(res => {
-    console.log(res);
-  })
 })
