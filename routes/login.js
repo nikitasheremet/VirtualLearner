@@ -74,7 +74,7 @@ const getUserByEmail = function(email, db) {
 //   });
 
 
-// $result = db.query("SELECT * FROM registration WHERE email='$email' AND password='$password'");
+// $result = db.query("SELECT * FROM users WHERE email='$email' AND password='$password'");
 // $data = db.num_rows($result);
 //   if($data == 1){
 //     alert ("Successfully Logged in");
