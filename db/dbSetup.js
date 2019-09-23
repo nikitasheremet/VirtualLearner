@@ -1,3 +1,6 @@
+//! Please note database name. This should be the name of your local database
+
+
 const { Pool } = require("pg");
 
 const pool = new Pool({

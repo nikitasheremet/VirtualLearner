@@ -1,21 +1,16 @@
-const userID = {
-  user_id: 1
-};
 const myCategoriesList = $("#my-categories-list");
 
 const ajaxCategories = () => {
 return $.ajax({
-    method: "POST",
-    url: "/db/categories",
-    data: userID
+    method: "GET",
+    url: "/db/categories"
   });
 }
 const ajaxCategoryResources = (res) => {
+  console.log("in AJAX");
 return $.ajax({
-    method: "POST",
-    url: `/db/categories/results`,
-    data: {user_id: userID.user_id,
-    category: res}
+    method: "GET",
+    url: `/db/categories/${res}`
   });
 }
 
@@ -29,6 +24,10 @@ const generateTemplateCategory = (categoryName) => {
   `
 }
 
+const generateResourcesForCat = (resource) => {
+
+}
+
 ajaxCategories().then(res => {
   let output = "";
   for (let cat of res) {
@@ -38,8 +37,8 @@ ajaxCategories().then(res => {
 });
 
 myCategoriesList.on("click", (data) => {
+  console.log("heard a click");
   ajaxCategoryResources(data.target.childNodes[0].data).then(res => {
     console.log(res);
   })
-  // console.log(data.target.childNodes[0].data);
 })

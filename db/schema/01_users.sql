@@ -7,10 +7,9 @@ DROP TABLE IF EXISTS categories CASCADE;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY NOT NULL,
-  username VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
   password VARCHAR(500) NOT NULL,
-  profiel_pic VARCHAR (255)
+  profile_pic VARCHAR (255)
 );
 
 CREATE TABLE categories (
