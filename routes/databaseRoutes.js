@@ -25,4 +25,10 @@ module.exports = function(router, database) {
       res.send(queryResult);
     })
   })
+
+  router.get('/:title', (req, res) => {
+    database.findAllResourcesByTitle(req.params.title).then(queryResult => {
+      res.send(queryResult);
+    })
+  })
 }
