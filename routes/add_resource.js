@@ -1,3 +1,18 @@
+const express = require('express');
+const router  = express.Router();
+
+
+module.exports = (db) => {
+  router.get("/", (req, res) => {
+    res.render("register");
+  })
+  return router;
+}
+
+const bcrypt = require("bcrypt");
+
+
+
 $(document).ready(function() {
   $('textarea').keyup(function() {
     var remaining = 150 - jQuery(this).val().length;
@@ -7,7 +22,7 @@ $(document).ready(function() {
       $(".counter").css({"color": "red"});
     } else if (remaining >= 0){
       jQuery('.counter').text(remaining);
-      $(".counter").css({"color": "#444E3B"});
+      // $(".counter").css({"color": ""});
     }
   });
 });
@@ -23,3 +38,6 @@ app.post("add_resource", (req, res) => {
     res.render("add_resource", templateVars);
   }
 });
+
+
+//
