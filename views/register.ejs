@@ -1,12 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+    <title>Register Page</title>
+
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+    <!-- Link to add Bootstrap (can remove after changing back to .ejs file) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
-<body>
-  <p>Hello Register!</p>
+
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="https://i.ibb.co/r3f0KCp/Screen-Shot-2019-09-22-at-8-20-34-PM.png"" width="50" height="50" class="d-inline-block align-top" alt="">
+      Virtual Learner
+    </a>
+  </nav>
+
+  <body style="background-color: #f6f7fd">
+      <main class="login-form">
+          <div class="container">
+              <div class="row justify-content-center">
+                  <div class="col-md-8">
+                      <div class="card">
+                          <div class="card-header">New User</div>
+                          <div class="card-body">
+                              <form action="" method="">
+                                  <div class="form-group row">
+                                      <label for="firstname" class="col-md-4 col-form-label text-md-right">First Name</label>
+                                      <div class="col-md-6">
+                                          <input type="text"  id="first_name" class="form-control" name="first_name" required>
+                                      </div>
+                                  </div>
+                                  <div class="form-group row">
+                                      <label for="lastname" class="col-md-4 col-form-label text-md-right">Last Name</label>
+                                      <div class="col-md-6">
+                                          <input type="text"  id="last_name" class="form-control" name="last_name" required>
+                                      </div>
+                                  </div>
+                                  <div class="form-group row">
+                                      <label for="email_address" class="col-md-4 col-form-label text-md-right">Email Address</label>
+                                      <div class="col-md-6">
+                                          <input type="text" id="email_address" class="form-control" name="email-address" required autofocus>
+                                      </div>
+                                  </div>
+
+                                  <div class="form-group row">
+                                      <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
+                                      <div class="col-md-6">
+                                          <input type="password"  id="password" class="form-control" name="password" required>
+                                      </div>
+                                  </div>
+
+                                  <div class="col-md-6 offset-md-4">
+                                      <button type="submit" class="btn btn-primary">
+                                          Create Account
+                                      </button>
+                                  </div>
+                          </div>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          </div>
+      </main>
 </body>
 </html>
