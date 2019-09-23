@@ -5,9 +5,8 @@ const queryUserCategories = (user_id) => {
   // console.log(user_id);
   values = [user_id]
   return pool.query(`
-    SELECT DISTINCT(cat.name)
-    FROM categories cat
-    JOIN resources res ON res.category_id = cat.id
+    SELECT DISTINCT(res.category)
+    FROM resources res
     JOIN users ON res.user_id = users.id
     WHERE users.id = $1
     ;`,values)
@@ -24,9 +23,8 @@ const queryMyCategory = (data) => {
   return pool.query(`
     SELECT res.*
     FROM resources res
-    JOIN categories cat ON res.category_id = cat.id
     JOIN users ON res.user_id = users.id
-    WHERE users.id = $1 AND cat.name = $2
+    WHERE users.id = $1 AND res.category = $2
     ;`,values)
   .then(res => {
     return res.rows;
@@ -50,13 +48,12 @@ exports.findAllResourcesByTitle = findAllResourcesByTitle;
 const queryMyLikes = (data) => {
   console.log("in the queries now!!!");
   // console.log(user_id);
-  values = [data.user_id,data.category]
+  values = [data]
+  console.log(values);
   return pool.query(`
     SELECT res.*
-    FROM users
-    JOIN likes ON likes.user_id = users.id
+    FROM likes
     JOIN resources res ON res.id = likes.resource_id
-    JOIN categories cat ON res.category_id = cat.id
     WHERE likes.user_id = $1
     ;`,values)
   .then(res => {

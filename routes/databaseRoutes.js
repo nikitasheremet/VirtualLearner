@@ -6,9 +6,7 @@ const userID = {
 };
 
 module.exports = function(router, database) {
-  // Pull all categories belonging to a user
   router.get('/categories', (req, res) => {
-    // console.log(req.body);
     database.queryUserCategories(userID.user_id).then(queryResult => {
       res.send(queryResult);
     })
@@ -20,28 +18,34 @@ module.exports = function(router, database) {
       user_id: userID.user_id,
       category: req.params.category
     }
-    const results = {};
+
     database.queryMyCategory(data).then(queryResult => {
-      results.myResources = queryResult;
-      // database.queryMyLikes(data).then(queryResult2 => {
-      //   results.myLikes = queryResult2
-        res.send(results);
-      // })
-      // res.send(queryResult);
+        res.send(queryResult);
     })
   })
-
+  const results = {};
   router.get('/resources/all', (req, res) => {
     // console.log(req.body);
     console.log("here");
     database.queryMyAll(userID.user_id).then(queryResult => {
-      console.log(queryResult);
-      res.send(queryResult);
+      // console.log(queryResult);
+      results.myResources = queryResult;
+      database.queryMyLikes(userID.user_id).then(queryResult2 => {
+        results.myLikes = queryResult2
+        // console.log(results);
+        res.send(results);
+      })
+      // res.send(queryResult);
     })
   })
 
   router.get('/:title', (req, res) => {
     database.findAllResourcesByTitle(req.params.title).then(queryResult => {
+      res.send(queryResult);
+    })
+  })
+   router.get('/resources/liked', (req, res) => {
+    database.queryMyLikes(userID.user_id).then(queryResult => {
       res.send(queryResult);
     })
   })

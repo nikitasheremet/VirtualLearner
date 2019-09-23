@@ -17,3 +17,10 @@ const ajaxAllResources = () => {
     url: "/db/resources/all"
   });
 }
+
+const ajaxLikedResources = () => {
+  return $.ajax({
+    method: "GET",
+    url: "/db/resources/liked"
+  });
+}
