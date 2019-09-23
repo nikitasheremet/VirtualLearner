@@ -21,17 +21,20 @@
   <% include ./partials/_header %>
   <br>
   <section class="container">
-      <h3>My Resources</h3>
+    <!-- <div class="my-resources"> -->
+      <!-- <h3>My Resources</h3> -->
+
+    <!-- </div> -->
     <section id="my-resources">
-      <!-- <div id="my-categories-list">
-      </div> -->
-  <section id="my-resources">
-    <h3>My Resources</h3>
-    <div id="my-categories-list">
-    </div>
+      <div class="header">
+        <h3>My Resources</h3>
+
+      </div>
+      <div id="my-categories-list">
+      </div>
 
 
-      <div class="card">
+      <!-- <div class="card">
         <img src="/images/science_icon.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Science</h5>
@@ -42,7 +45,7 @@
         <div class="card-body">
           <h5 class="card-title">Baking</h5>
         </div>
-      </div>
+      </div> -->
     </section>
   </section>
 
@@ -50,19 +53,22 @@
   <br>
 
   <section class="container">
-    <form id = "search-all-resources" class="form-inline" >
-        <input class="form-control mb-2" type="text" placeholder="Search All Resources" id="search">
-        <button type="submit" class="btn btn-primary">Search</button>
-    </form>
+    <div class= "search-form">
+      <form id = "search-all-resources" >
+        <input type="text" placeholder="Search All Resources" id="search">
+        <button type="submit" class="btn btn-light">Search</button>
+      </form>
+    </div>
     <section id = "resources_found" >
 
         <div class="card">
           <div class="card-header">
-              <h5 class="card-title">Card title</h5>
+              <h5 class="card-title">Async/await</h5>
           </div>
-          <img src="..." class="card-img-top" alt="...">
+          <img src="https://img.youtube.com/vi/568g8hxJJp4/hqdefault.jpg" class="card-img-top" alt="...">
           <div class="card-body">
             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+
             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
           </div>
         </div>
