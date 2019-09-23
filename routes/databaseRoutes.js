@@ -23,9 +23,11 @@ module.exports = function(router, database) {
     const results = {};
     database.queryMyCategory(data).then(queryResult => {
       results.myResources = queryResult;
-
+      // database.queryMyLikes(data).then(queryResult2 => {
+      //   results.myLikes = queryResult2
+        res.send(results);
+      // })
       // res.send(queryResult);
     })
   })
-
 }

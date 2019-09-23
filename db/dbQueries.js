@@ -44,7 +44,7 @@ const queryMyLikes = (data) => {
     SELECT res.*
     FROM users
     JOIN likes ON likes.user_id = users.id
-    JOIN resources res ON res.id = likes.property_id
+    JOIN resources res ON res.id = likes.resource_id
     JOIN categories cat ON res.category_id = cat.id
     WHERE likes.user_id = $1 AND cat.name = $2
     ;`,values)
