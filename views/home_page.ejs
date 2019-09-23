@@ -8,8 +8,11 @@
   <!-- JQuery -->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
 
-  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <title>Home</title>
 </head>
+
 <body>
   <% include ./partials/_header %>
   <br>
@@ -26,6 +29,8 @@
   </section>
   <br>
   <br>
+
+
   <div>
     <p>Search Form Everything</p>
   </div>
@@ -34,12 +39,17 @@
       <button type="submit">Search</button>
   </form>
   <section id = "resources_found" >
-    <h3>Search Results</h3>
-    <div>
-      <article>
-        <p>Category X</p>
-      </article>
-    </div>
+
+      <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Card title</h5>
+        </div>
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
   </section>
 
 </body>

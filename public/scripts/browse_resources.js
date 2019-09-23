@@ -7,26 +7,29 @@ const ajaxResources = (res) => {
   }
 
 const createResource = resource => {
+  console.log(resource.url)
   return (
-`<h3>${resource.title}</h3>
-  <div>
-    <article>
-      <p>${resource.url}</p>
-    </article>
-  </div>`
+  `<div class="card">
+  <div class="card-header">
+      <h5 class="card-title">${resource.title}</h5>
+  </div>
+  <img src="${resource.url}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text">${resource.description}</p>
+    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+  </div>
+</div>`
   )}
 
 const renderResource = data => {
   const wall = $("#resources_found");
-  wall.append(createResource(data));
+  wall.html(createResource(data));
 }
 
 
 $("#search-all-resources").submit( event => {
 event.preventDefault()
-console.log("SEARCH");
 const input = $("#search").val()
-console.log(input)
 
 ajaxResources(input).then(res => {
   for (let resource of res) {
