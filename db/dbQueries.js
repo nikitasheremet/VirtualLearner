@@ -37,8 +37,8 @@ const queryMyCategory = (data) => {
 exports.queryMyCategory = queryMyCategory;
 
 const findAllResourcesByTitle = (input) => {
-  const queryString = `SELECT * FROM resources WHERE title LIKE $1;`;
-  const queryParams = [`%${input}%`];
+  const queryString = `SELECT * FROM resources WHERE lower(title) LIKE $1;`;
+  const queryParams = [`%${input.toLowerCase()}%`];
 
   return pool.query(queryString, queryParams)
     .then(res => {
