@@ -8,8 +8,13 @@ module.exports = (db) => {
   router.post("/", (req, res) => {
     registerUser(req, res, db);
   });
+    router.get("/", (req, res) => {
+    res.render("register");
+  });
     return router;
   };
+
+
 
 function registerUser(req, res, db) {
 
