@@ -6,9 +6,7 @@ const userID = {
 };
 
 module.exports = function(router, database) {
-  // Pull all categories belonging to a user
   router.get('/categories', (req, res) => {
-    // console.log(req.body);
     database.queryUserCategories(userID.user_id).then(queryResult => {
       res.send(queryResult);
     })
@@ -22,12 +20,7 @@ module.exports = function(router, database) {
     }
 
     database.queryMyCategory(data).then(queryResult => {
-      // results.myResources = queryResult;
-      // database.queryMyLikes(data).then(queryResult2 => {
-      //   results.myLikes = queryResult2
         res.send(queryResult);
-      // })
-      // res.send(queryResult);
     })
   })
   const results = {};
@@ -48,6 +41,11 @@ module.exports = function(router, database) {
 
   router.get('/:title', (req, res) => {
     database.findAllResourcesByTitle(req.params.title).then(queryResult => {
+      res.send(queryResult);
+    })
+  })
+   router.get('/resources/liked', (req, res) => {
+    database.queryMyLikes(userID.user_id).then(queryResult => {
       res.send(queryResult);
     })
   })
