@@ -30,7 +30,7 @@
                       <div class="card">
                           <div class="card-header">New Resource</div>
                           <div class="card-body">
-                              <form action="" method="">
+                              <form action="POST" method="/add_resource">
                                   <div class="form-group row">
                                       <label for="firstname" class="col-md-4 col-form-label text-md-right">URL</label>
                                       <div class="col-md-6">
@@ -55,6 +55,7 @@
                                       <label for="password" class="col-md-4 col-form-label text-md-right">Category</label>
                                       <div class="col-md-6">
                                           <select id = "myList">
+                                            <option value = "0">Select Category</option>
                                             <option value = "1">Language</option>
                                             <option value = "2">Music</option>
                                             <option value = "3">Travel</option>
@@ -69,13 +70,13 @@
                                             <option value = "12">Project Management</option>
                                             <option value = "12">Other</option>
                                       </div>
-                                      <div class="col-md-6 offset-md-4">
-                                          <button type="submit" class="btn btn-primary">
-                                              <a href="/home" style= "color: #f6f7fd">Create New Resource</a>
-                                          </button>
-                                      </div>
                                   </div>
 
+                                  <div class="col-md-6 offset-md-4">
+                                      <button type="submit" class="btn btn-primary">
+                                          <a href="/home" style= "color: #f6f7fd">Create New Resource</a>
+                                      </button>
+                                  </div>
                           </div>
                           </form>
                       </div>

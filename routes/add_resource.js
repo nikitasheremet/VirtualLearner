@@ -11,3 +11,15 @@ $(document).ready(function() {
     }
   });
 });
+
+
+// Route to show the new resource page
+app.post("add_resource", (req, res) => {
+  let theirResource = req.session.theirResource;
+  if (theirResource === undefined) {
+    res.redirect("/home");
+  } else {
+    let templateVars = { resource: resources, user : db[theirResource]};
+    res.render("add_resource", templateVars);
+  }
+});
