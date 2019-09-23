@@ -20,9 +20,14 @@ module.exports = function(router, database) {
       user_id: userID.user_id,
       category: req.params.category
     }
-    // console.log(data);
+    const results = {};
     database.queryMyCategory(data).then(queryResult => {
-      res.send(queryResult);
+      results.myResources = queryResult;
+      // database.queryMyLikes(data).then(queryResult2 => {
+      //   results.myLikes = queryResult2
+        res.send(results);
+      // })
+      // res.send(queryResult);
     })
   })
 }
