@@ -30,11 +30,11 @@
                         <div class="card">
                             <div class="card-header">Existing User</div>
                             <div class="card-body">
-                                <form action="" method="">
+                                <form action="POST" method="/api/login">
                                     <div class="form-group row">
                                         <label for="email_address" class="col-md-4 col-form-label text-md-right">Email Address</label>
                                         <div class="col-md-6">
-                                            <input type="text" id="email_address" class="form-control" name="email-address" required autofocus>
+                                            <input type="text" id="email_address" class="form-control" name="email_address" required autofocus>
                                         </div>
                                     </div>
 
@@ -69,7 +69,7 @@
 
                                     <div class="col-md-6 offset-md-4">
                                         <button type="submit" class="btn btn-primary">
-                                            Create New Account
+                                            <a href="/register">Create New Account</a>
                                         </button>
                                     </div>
                             </div>

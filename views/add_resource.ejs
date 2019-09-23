@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Register Page</title>
+    <title>Add Resource Page</title>
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/add_resource.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/routes/add_resource.js"></script>
     <!-- Link to add Bootstrap (can remove after changing back to .ejs file) -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
@@ -26,38 +28,52 @@
               <div class="row justify-content-center">
                   <div class="col-md-8">
                       <div class="card">
-                          <div class="card-header">New User</div>
+                          <div class="card-header">New Resource</div>
                           <div class="card-body">
-                              <form action="POST" method="/api/register>
+                              <form action="" method="">
                                   <div class="form-group row">
-                                      <label for="firstname" class="col-md-4 col-form-label text-md-right">First Name</label>
+                                      <label for="firstname" class="col-md-4 col-form-label text-md-right">URL</label>
                                       <div class="col-md-6">
                                           <input type="text"  id="first_name" class="form-control" name="first_name" required>
                                       </div>
                                   </div>
                                   <div class="form-group row">
-                                      <label for="lastname" class="col-md-4 col-form-label text-md-right">Last Name</label>
+                                      <label for="lastname" class="col-md-4 col-form-label text-md-right">Title</label>
                                       <div class="col-md-6">
                                           <input type="text"  id="last_name" class="form-control" name="last_name" required>
                                       </div>
                                   </div>
                                   <div class="form-group row">
-                                      <label for="email_address" class="col-md-4 col-form-label text-md-right">Email Address</label>
+                                      <label for="email_address" class="col-md-4 col-form-label text-md-right">Description</label>
                                       <div class="col-md-6">
                                           <input type="text" id="email_address" class="form-control" name="email_address" required autofocus>
+                                          <span class="counter"> 150 </span>
                                       </div>
                                   </div>
 
                                   <div class="form-group row">
-                                      <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
+                                      <label for="password" class="col-md-4 col-form-label text-md-right">Category</label>
                                       <div class="col-md-6">
-                                          <input type="password"  id="password" class="form-control" name="password" required>
+                                          <select id = "myList">
+                                            <option value = "1">Language</option>
+                                            <option value = "2">Music</option>
+                                            <option value = "3">Travel</option>
+                                            <option value = "4">Cooking</option>
+                                            <option value = "5">Gardening</option>
+                                            <option value = "6">Coding</option>
+                                            <option value = "7">Religion</option>
+                                            <option value = "8">History</option>
+                                            <option value = "9">Health and Fitness</option>
+                                            <option value = "10">Sports</option>
+                                            <option value = "11">Home Renovations</option>
+                                            <option value = "12">Project Management</option>
+                                            <option value = "12">Other</option>
                                       </div>
                                   </div>
 
                                   <div class="col-md-6 offset-md-4">
                                       <button type="submit" class="btn btn-primary">
-                                          <a href= "/home">Create Account</a>
+                                          Create New Resource
                                       </button>
                                   </div>
                           </div>
