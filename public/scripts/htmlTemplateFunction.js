@@ -1,11 +1,11 @@
 const generateTemplateCategory = (categoryName) => {
   return `
-  <article class=my-categories>
-    <div>
-      <a href="#">${categoryName}</a>
+  <div class="my-categories">
+    <img src="/images/science_icon.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5>${categoryName}</h5>
     </div>
-  </article>
-  `
+  </div>`
 }
 
 const generateResources = (resource, color = "black") => {
