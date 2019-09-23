@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <!-- <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" /> -->
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="../styles/home.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/home.css" type="text/css" />
 
 
   <!-- JQuery -->
@@ -20,45 +20,55 @@
 <body>
   <% include ./partials/_header %>
   <br>
+  <section class="container">
+      <h3>My Resources</h3>
+    <section id="my-resources">
+      <!-- <div id="my-categories-list">
+      </div> -->
   <section id="my-resources">
     <h3>My Resources</h3>
     <div id="my-categories-list">
     </div>
 
 
-    <div class="card">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Category</h5>
-        </div>
-      </div>
-  </section>
-
-
-  <br>
-  <br>
-
-
-  <div>
-    <p>Search Form Everything</p>
-  </div>
-  <form id = "search-all-resources">
-      <input type="text" placeholder="Search All Resources" id="search">
-      <button type="submit">Search</button>
-  </form>
-  <section id = "resources_found" >
-
       <div class="card">
-        <div class="card-header">
-            <h5 class="card-title">Card title</h5>
-        </div>
-        <img src="..." class="card-img-top" alt="...">
+        <img src="/images/science_icon.jpg" class="card-img-top" alt="...">
         <div class="card-body">
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <h5 class="card-title">Science</h5>
         </div>
       </div>
+      <div class="card">
+        <img src="/images/baking_icon.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Baking</h5>
+        </div>
+      </div>
+    </section>
   </section>
+
+  <br>
+  <br>
+
+  <section class="container">
+    <form id = "search-all-resources" class="form-inline" >
+        <input class="form-control mb-2" type="text" placeholder="Search All Resources" id="search">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+    <section id = "resources_found" >
+
+        <div class="card">
+          <div class="card-header">
+              <h5 class="card-title">Card title</h5>
+          </div>
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+    </section>
+  </section>
+
 
 </body>
   <!-- JS for Ajax Functions -->
