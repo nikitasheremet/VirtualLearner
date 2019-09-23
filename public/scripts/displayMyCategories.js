@@ -63,6 +63,5 @@ myCategoriesList.on("click", myCategories,  (data) => {
     myCategoriesList.html(`
     <button class=back-button><a href="/home">BACK</a></button>${output}
     `);
-
   })
 })
