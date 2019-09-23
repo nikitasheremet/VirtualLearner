@@ -42,6 +42,7 @@ const findAllResourcesByTitle = (input) => {
 
   return pool.query(queryString, queryParams)
     .then(res => {
+      console.log(res.rows)
       return res.rows
     })
     .catch(err => console.log(err))

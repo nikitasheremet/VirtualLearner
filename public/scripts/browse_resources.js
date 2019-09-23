@@ -1,32 +1,39 @@
-const createResource = data => {
-`<h3>${findAllResources(data).title}</h3>
-  <div>
-    <article>
-      <p>${findAllResources(data).url}</p>
-    </article>
-  </div>`
-}
+
+const ajaxResources = (res) => {
+  return $.ajax({
+      method: "GET",
+      url: `/db/${res}`
+    });
+  }
+
+const createResource = resource => {
+  console.log(resource.url)
+  return (
+  `<div class="card">
+  <div class="card-header">
+      <h5 class="card-title">${resource.title}</h5>
+  </div>
+  <img src="${resource.url}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text">${resource.description}</p>
+    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+  </div>
+</div>`
+  )}
 
 const renderResource = data => {
   const wall = $("#resources_found");
-  wall.append(createResource(data));
+  wall.html(createResource(data));
 }
 
-// Currently nothing at /api/resources.
-// const loadResources = () => {
-//   $("#resources_found").empty();
-//   $.ajax({
-//     url: "/api/resources",
-//     method: "GET",
-//     dataType: "JSON",
-//   })
-//     .then(response => {
-//       renderResource(response);
-//     });
-// };
 
+$("#search-all-resources").submit( event => {
+event.preventDefault()
+const input = $("#search").val()
 
-$(document).ready(() => {
-  renderResource('Horoscope')
+ajaxResources(input).then(res => {
+  for (let resource of res) {
+    renderResource(resource);
+  }
 });
-
+})

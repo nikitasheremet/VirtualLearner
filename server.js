@@ -46,9 +46,8 @@ const homeRoutes = require("./routes/home");
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
-app.use("/login", loginRoutes);
-app.use("/register", registerRoutes);
-// app.use("/register", registerRoutes);
+app.use("/api/login", loginRoutes(db));
+app.use("/api/register", registerRoutes(db));
 app.use("/home", homeRoutes);
 // Note: mount other resources here, using the same pattern above
 
