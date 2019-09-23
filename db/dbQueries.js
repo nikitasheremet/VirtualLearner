@@ -35,3 +35,17 @@ const queryMyCategory = (data) => {
 }
 
 exports.queryMyCategory = queryMyCategory;
+
+
+const findAllResourcesByTitle = (input) => {
+  const queryString = `SELECT * FROM resources WHERE title LIKE $1;`;
+  const queryParams = [`%${input}%`];
+
+  return pool.query(queryString, queryParams)
+    .then(res => {
+      return res.rows
+    })
+    .catch(err => console.log(err))
+}
+
+exports.findAllResourcesByTitle = findAllResourcesByTitle;
