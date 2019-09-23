@@ -3,17 +3,21 @@ const router  = express.Router();
 
 const bcrypt = require("bcrypt");
 
+// handle the request to register a new user(POST to register)
 module.exports = (db) => {
-  router.get("/", (req, res) => {
+  router.post("/", (req, res) => {
     registerUser(req, res, db);
-    res.render("register");
   });
     return router;
   };
 
 function registerUser(req, res, db) {
-  let email = req.body.email.trim();
-  let password = req.body.password.trim();
+
+  //Extract registration information from form
+  let firstName = req.body.first_name.trim();
+  let lastName = req.body.last_name.trim();
+  let email = req.body.email;
+  let password = req.body.password;
 
   if (email === "" || password === "") {
     res.status(400).send('Please make sure your email and password are provided');
@@ -49,7 +53,7 @@ function registerUser(req, res, db) {
 const getUserByEmail = function(email, db) {
   let result = null;
   for (let id in db){
-    let user = database[id];
+    let user = db[id];
     if (user.email === email) {
       result = user;
       break;
