@@ -19,45 +19,31 @@ function registerUser(req, res, db) {
   let email = req.body.email;
   let password = req.body.password;
 
+  // Check that email and password are provided
   if (email === "" || password === "") {
     res.status(400).send('Please make sure your email and password are provided');
-  } else if (getUserByEmail(email, db) !== null) {
-    res.status(400).send('Email already exists');
-  // } else {
+  } else {
 
-    // hash password for security
-    const hashedPassword = bcrypt.hashSync(password,10);
+    // check wheather user already exists
+    pool.query('SELECT * FROM users WHERE email = $1'), [email], (error, results) => {
+      if (error) {
+        res.status(400).send(error.message);
+      } else {
 
-    let user = {
-      id: id,
-      email: email,
-      password: hashedPassword
-    };
+        //hash password for security
+        const hashedPassword = bcrypt.hashSync(password,10);
 
-    //adding user to database
-  }
-};
+        //Insert user into database
+        pool.quey('INSERT INTO users(email, password) VALUES ($1,$2)', [email, hashedPassword], (error, results) => {
+          if (error) {
+            res.status(400).send(error.message);
+          } else {
 
-
-// // db.query(`SELECT * FROM users;`)
-// // .then(data => {
-// //   const users = data.rows;
-// //   res.json({ users });
-// // })
-// // .catch(err => {
-// //   res
-// //     .status(500)
-// //     .json({ error: err.message });
-// // });
-
-const getUserByEmail = function(email, db) {
-  let result = null;
-  for (let id in db){
-    let user = db[id];
-    if (user.email === email) {
-      result = user;
-      break;
+            //user inserted correctly, redirect to home page
+            res.redirect('/home')
+          }
+        });
+      }
     }
-  }
-  return result;
-};
+  };
+}
