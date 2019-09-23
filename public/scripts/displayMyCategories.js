@@ -3,9 +3,11 @@ const myCategories = $(".my-categories");
 
 // Display Categories and Show All/Show Categories Buttons
 ajaxCategories().then(res => {
+  console.log("in first action");
   let output = "";
+  console.log(res);
   for (let cat of res) {
-    output += generateTemplateCategory(cat.name);
+    output += generateTemplateCategory(cat.category);
   }
   $("#my-resources h3:eq(0)").after(`<button class="show-all-resources">Show All</button><button class="show-categories">Show Categories</button>`);
   myCategoriesList.html(output);
@@ -13,9 +15,13 @@ ajaxCategories().then(res => {
 // On click For Show all Resources Button
 $("#my-resources").on("click", ".show-all-resources", (data) => {
   ajaxAllResources().then(res => {
+    console.log(res);
     let output = ""
-    for (resource of res) {
+    for (resource of res.myResources) {
       output += generateResources(resource)
+    }
+    for (resource of res.myLikes) {
+      output += generateResources(resource, "red")
     }
     myCategoriesList.html(output);
   })
@@ -25,7 +31,7 @@ $("#my-resources").on("click", ".show-categories", (data) => {
   ajaxCategories().then(res => {
   let output = "";
   for (let cat of res) {
-    output += generateTemplateCategory(cat.name);
+    output += generateTemplateCategory(cat.category);
   }
     myCategoriesList.html(output);
   })
@@ -38,7 +44,7 @@ myCategoriesList.on("click", myCategories,  (data) => {
   myCategoriesList.off();
   ajaxCategoryResources(data.target.childNodes[0].data).then(res => {
     let output = "";
-    for (let resource of res.myResources) {
+    for (let resource of res) {
       output += generateResources(resource)
     }
     $(".show-all-resources").hide();

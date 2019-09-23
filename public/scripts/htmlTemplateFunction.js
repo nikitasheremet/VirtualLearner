@@ -8,10 +8,10 @@ const generateTemplateCategory = (categoryName) => {
   `
 }
 
-const generateResources = (resource) => {
+const generateResources = (resource, color = "black") => {
 return `
 <div>
-<p>${resource.title}<p>
+<p style=color:${color}>${resource.title}<p>
 </div>
 `
 }
