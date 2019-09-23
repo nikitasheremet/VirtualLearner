@@ -31,6 +31,15 @@ module.exports = function(router, database) {
     })
   })
 
+  router.get('/resources/all', (req, res) => {
+    // console.log(req.body);
+    console.log("here");
+    database.queryMyAll(userID.user_id).then(queryResult => {
+      console.log(queryResult);
+      res.send(queryResult);
+    })
+  })
+
   router.get('/:title', (req, res) => {
     database.findAllResourcesByTitle(req.params.title).then(queryResult => {
       res.send(queryResult);
