@@ -35,3 +35,22 @@ const queryMyCategory = (data) => {
 }
 
 exports.queryMyCategory = queryMyCategory;
+
+const queryMyLikes = (data) => {
+  console.log("in the queries now!!!");
+  // console.log(user_id);
+  values = [data.user_id,data.category]
+  return pool.query(`
+    SELECT res.*
+    FROM users
+    JOIN likes ON likes.user_id = users.id
+    JOIN resources res ON res.id = likes.property_id
+    JOIN categories cat ON res.category_id = cat.id
+    WHERE likes.user_id = $1 AND cat.name = $2
+    ;`,values)
+  .then(res => {
+    return res.rows;
+  })
+}
+
+exports.queryMyLikes= queryMyLikes;

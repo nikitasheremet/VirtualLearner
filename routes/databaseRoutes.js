@@ -20,16 +20,12 @@ module.exports = function(router, database) {
       user_id: userID.user_id,
       category: req.params.category
     }
-    // console.log(data);
+    const results = {};
     database.queryMyCategory(data).then(queryResult => {
-      res.send(queryResult);
+      results.myResources = queryResult;
+
+      // res.send(queryResult);
     })
   })
 
-  router.post('/categories/results', (req, res) => {
-    console.log(req.body);
-    database.queryUserCategories(req.body.user_id).then(queryResult => {
-      res.send(queryResult);
-    })
-  })
 }
