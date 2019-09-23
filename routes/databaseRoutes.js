@@ -48,4 +48,11 @@ module.exports = function(router, database) {
       res.send(queryResult);
     })
   })
+  router.post('/likes/add', (req, res) => {
+    console.log("in database routes");
+    console.log(req.data);
+    // database.queryMyLikes(userID.user_id).then(queryResult => {
+      res.send(queryResult);
+    // })
+  })
 }

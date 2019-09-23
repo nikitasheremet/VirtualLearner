@@ -78,4 +78,20 @@ const queryMyAll = (data) => {
 }
 exports.queryMyAll= queryMyAll;
 
+const queryInsertLike = (data) => {
+  console.log("in the queries now!!!");
+  // console.log(user_id);
+  values = [data]
+  console.log(data);
+  return pool.query(`
+    SELECT res.*
+    FROM resources res
+    WHERE res.user_id = $1
+    ;`,values)
+  .then(res => {
+    return res.rows;
+  })
+}
+exports.queryMyAll= queryMyAll;
+
 

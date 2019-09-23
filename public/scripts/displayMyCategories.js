@@ -77,3 +77,5 @@ myCategoriesList.on("click", myCategories,  (data) => {
     })
   }
 })
+
+ajaxAddLike(1,3);
