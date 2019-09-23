@@ -36,10 +36,9 @@ const queryMyCategory = (data) => {
 
 exports.queryMyCategory = queryMyCategory;
 
-
 const findAllResourcesByTitle = (input) => {
-  const queryString = `SELECT * FROM resources WHERE title LIKE $1;`;
-  const queryParams = [`%${input}%`];
+  const queryString = `SELECT * FROM resources WHERE lower(title) LIKE $1;`;
+  const queryParams = [`%${input.toLowerCase()}%`];
 
   return pool.query(queryString, queryParams)
     .then(res => {
@@ -50,3 +49,41 @@ const findAllResourcesByTitle = (input) => {
 }
 
 exports.findAllResourcesByTitle = findAllResourcesByTitle;
+
+const queryMyLikes = (data) => {
+  console.log("in the queries now!!!");
+  // console.log(user_id);
+  values = [data.user_id,data.category]
+  return pool.query(`
+    SELECT res.*
+    FROM users
+    JOIN likes ON likes.user_id = users.id
+    JOIN resources res ON res.id = likes.resource_id
+    JOIN categories cat ON res.category_id = cat.id
+    WHERE likes.user_id = $1 AND cat.name = $2
+    ;`,values)
+  .then(res => {
+    return res.rows;
+  })
+}
+
+exports.queryMyLikes= queryMyLikes;
+
+const queryMyAll = (data) => {
+  console.log("in the queries now!!!");
+  // console.log(user_id);
+  values = [data]
+  console.log(data);
+  return pool.query(`
+    SELECT res.*
+    FROM resources res
+    WHERE res.user_id = $1
+    ;`,values)
+  .then(res => {
+    return res.rows;
+  })
+}
+
+exports.queryMyAll= queryMyAll;
+
+

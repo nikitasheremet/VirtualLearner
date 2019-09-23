@@ -5,10 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" /> -->
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="../styles/home.css" type="text/css" />
+
+
   <!-- JQuery -->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
   <title>Home</title>
 </head>
@@ -16,17 +20,21 @@
 <body>
   <% include ./partials/_header %>
   <br>
-  <div id="search-my-resources">
-    <form>
-      <input type="text" placeholder="Search My Resources">
-      <button type="submit">Search</button>
-    </form>
-  </div>
   <section id="my-resources">
     <h3>My Resources</h3>
     <div id="my-categories-list">
     </div>
+
+
+    <div class="card">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Category</h5>
+        </div>
+      </div>
   </section>
+
+
   <br>
   <br>
 
@@ -53,8 +61,13 @@
   </section>
 
 </body>
+  <!-- JS for Ajax Functions -->
+  <script type="text/javascript" src="/scripts/ajaxFunctions.js"></script>
+  <!-- JS for HTML Template Functions -->
+  <script type="text/javascript" src="/scripts/htmlTemplateFunction.js"></script>
   <!-- JS for Displaying all resources by title -->
   <script type="text/javascript" src="/scripts/browse_resources.js"></script>
   <!-- JS for Displaying My Resources -->
   <script type="text/javascript" src="/scripts/displayMyCategories.js"></script>
+
 </html>

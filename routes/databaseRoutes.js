@@ -20,8 +20,22 @@ module.exports = function(router, database) {
       user_id: userID.user_id,
       category: req.params.category
     }
-    // console.log(data);
+    const results = {};
     database.queryMyCategory(data).then(queryResult => {
+      results.myResources = queryResult;
+      // database.queryMyLikes(data).then(queryResult2 => {
+      //   results.myLikes = queryResult2
+        res.send(results);
+      // })
+      // res.send(queryResult);
+    })
+  })
+
+  router.get('/resources/all', (req, res) => {
+    // console.log(req.body);
+    console.log("here");
+    database.queryMyAll(userID.user_id).then(queryResult => {
+      console.log(queryResult);
       res.send(queryResult);
     })
   })
