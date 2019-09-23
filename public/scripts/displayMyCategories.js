@@ -7,7 +7,6 @@ return $.ajax({
   });
 }
 const ajaxCategoryResources = (res) => {
-  console.log("in AJAX");
 return $.ajax({
     method: "GET",
     url: `/db/categories/${res}`
@@ -25,7 +24,11 @@ const generateTemplateCategory = (categoryName) => {
 }
 
 const generateResourcesForCat = (resource) => {
-
+return `
+<div>
+<p>${resource.title}<p>
+</div>
+`
 }
 
 ajaxCategories().then(res => {
@@ -37,8 +40,11 @@ ajaxCategories().then(res => {
 });
 
 myCategoriesList.on("click", (data) => {
-  console.log("heard a click");
   ajaxCategoryResources(data.target.childNodes[0].data).then(res => {
-    console.log(res);
+    let output = "";
+    for (resource of res) {
+      output += generateResourcesForCat(resource)
+    }
+    myCategoriesList.html(output);
   })
 })
