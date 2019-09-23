@@ -52,7 +52,7 @@ $("#my-resources").on("click", ".show-categories", (data) => {
     myCategoriesList.append(generateTemplateCategory("Liked"))
     $(".my-categories").on("click",(data) => {
     clickCategory(data);
-  })
+    })
   })
 })
 
