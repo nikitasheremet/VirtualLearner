@@ -1,9 +1,13 @@
 const express = require('express');
 const router  = express.Router();
 
-router.get("/", (req, res) => {
-  res.render("login");
-})
+
+module.exports = (db) => {
+  router.get("/", (req, res) => {
+    res.render("landing_page");
+  })
+  return router;
+}
 
 // const bcrypt = require("bcrypt");
 
@@ -70,35 +74,35 @@ router.get("/", (req, res) => {
 // // }
 
 
-$(document).ready(function() {
-  $("#login").click(function() {
-  let email = $("#email").val().trim();
-  let password = $("#password").val().trim();
-    if( email =='' || password ==''){
-      alert("Please fill all fields!!");
-    } else {
-      $.post("login.ejs",{ email1: email, password1:password},
-      function(data) {
-       if(data=='Invalid Email') {
-        alert(data);
-        } else if(data=='Email or Password is wrong!!'){
-          alert(data);
-        } else if(data=='Successfully Logged in'){
-          $("form")[0].reset();
-          alert(data);
-        } else {
-          alert(data);
-        }
-     });
-    }
-  });
-  });
+// $(document).ready(function() {
+//   $("#login").click(function() {
+//   let email = $("#email").val().trim();
+//   let password = $("#password").val().trim();
+//     if( email =='' || password ==''){
+//       alert("Please fill all fields!!");
+//     } else {
+//       $.post("login.ejs",{ email1: email, password1:password},
+//       function(data) {
+//        if(data=='Invalid Email') {
+//         alert(data);
+//         } else if(data=='Email or Password is wrong!!'){
+//           alert(data);
+//         } else if(data=='Successfully Logged in'){
+//           $("form")[0].reset();
+//           alert(data);
+//         } else {
+//           alert(data);
+//         }
+//      });
+//     }
+//   });
+//   });
 
 
-$result = db.query("SELECT * FROM registration WHERE email='$email' AND password='$password'");
-$data = db.num_rows($result);
-  if($data == 1){
-    alert (Successfully Logged in);
-  } else {
-    alert (Email or Password is wrong!);
-  }
+// $result = db.query("SELECT * FROM registration WHERE email='$email' AND password='$password'");
+// $data = db.num_rows($result);
+//   if($data == 1){
+//     alert ("Successfully Logged in");
+//   } else {
+//     alert ("Email or Password is wrong!");
+//   }
