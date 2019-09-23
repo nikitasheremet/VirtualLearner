@@ -15,7 +15,6 @@ const queryUserCategories = (user_id) => {
     return res.rows;
   })
 }
-
 exports.queryUserCategories = queryUserCategories;
 
 const queryMyCategory = (data) => {
@@ -33,7 +32,6 @@ const queryMyCategory = (data) => {
     return res.rows;
   })
 }
-
 exports.queryMyCategory = queryMyCategory;
 
 const findAllResourcesByTitle = (input) => {
@@ -47,7 +45,6 @@ const findAllResourcesByTitle = (input) => {
     })
     .catch(err => console.log(err))
 }
-
 exports.findAllResourcesByTitle = findAllResourcesByTitle;
 
 const queryMyLikes = (data) => {
@@ -66,7 +63,6 @@ const queryMyLikes = (data) => {
     return res.rows;
   })
 }
-
 exports.queryMyLikes= queryMyLikes;
 
 const queryMyAll = (data) => {
@@ -83,7 +79,6 @@ const queryMyAll = (data) => {
     return res.rows;
   })
 }
-
 exports.queryMyAll= queryMyAll;
 
 
