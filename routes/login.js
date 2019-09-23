@@ -1,9 +1,13 @@
 const express = require('express');
 const router  = express.Router();
 
-router.get("/", (req, res) => {
-  res.render("login");
-})
+
+module.exports = (db) => {
+  router.get("/", (req, res) => {
+    res.render("landing_page");
+  })
+  return router;
+}
 
 //  const bcrypt = require("bcrypt");
 
@@ -98,7 +102,13 @@ router.get("/", (req, res) => {
 // $result = db.query("SELECT * FROM registration WHERE email='$email' AND password='$password'");
 // $data = db.num_rows($result);
 //   if($data == 1){
+<<<<<<< HEAD
 //     alert (Successfully Logged in);
 //   } else {
 //     alert (Email or Password is wrong!);
+=======
+//     alert ("Successfully Logged in");
+//   } else {
+//     alert ("Email or Password is wrong!");
+>>>>>>> cbaf9496d002ce2090569a57366ac3cbe0bf67e5
 //   }

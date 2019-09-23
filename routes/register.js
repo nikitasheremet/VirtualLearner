@@ -1,20 +1,22 @@
 const express = require('express');
 const router  = express.Router();
 
-
-router.get("/", (req, res) => {
-  res.render("register");
-})
-
 // const bcrypt = require("bcrypt");
 
-
 module.exports = (db) => {
-  router.post("/", (req, res) => {
-    registerUser(req, res, db);
-  });
+  router.get("/", (req, res) => {
+    res.render("register");
+  })
   return router;
-};
+}
+
+
+// module.exports = (db) => {
+//   router.post("/", (req, res) => {
+//     registerUser(req, res, db);
+//   });
+//   return router;
+// };
 
 function registerUser(req, res, db) {
   let email = req.body.email.trim();
