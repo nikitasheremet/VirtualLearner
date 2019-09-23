@@ -12,18 +12,13 @@ CREATE TABLE users (
   profile_pic VARCHAR (255)
 );
 
-CREATE TABLE categories (
-  id SERIAL PRIMARY KEY NOT NULL,
-  name VARCHAR(255) NOT NULL
-);
-
 CREATE TABLE resources (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
   url VARCHAR(255) NOT NULL,
   title VARCHAR(255) NOT NULL,
   description TEXT,
-  category_id INTEGER NOT NULL REFERENCES categories(id) ON DELETE CASCADE,
+  category VARCHAR(500) NOT NULL,
   thumbnail_photo VARCHAR (255)
 );
 
