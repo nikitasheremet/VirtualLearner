@@ -48,7 +48,6 @@ const getUserByEmail = function(email, db) {
   return result;
 };
 
-
 // $(document).ready(function() {
 //   $("#login").click(function() {
 //   let email = $("#email").val().trim();
