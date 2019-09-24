@@ -1,7 +1,7 @@
 const generateTemplateCategory = (categoryName) => {
   return `
   <div class="my-categories">
-    <img src="/images/science_icon.jpg" class="card-img-top" alt="${categoryName} icon">
+    <img src="/images/${categoryName}.png" class="card-img-top" alt="${categoryName} icon">
     <div class="card-body">
       <h5>${categoryName}</h5>
     </div>
