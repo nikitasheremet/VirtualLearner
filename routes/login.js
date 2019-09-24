@@ -1,58 +1,101 @@
 const express = require('express');
 const router  = express.Router();
 
-
-module.exports = (db) => {
-  router.get("/", (req, res) => {
-    res.render("landing_page");
-  })
-  return router;
-}
-
 const bcrypt = require("bcrypt");
 
-// display all the URLS/resources for the current logged in user
-router.get("/", (req, res) => {
-  let theirUserId = req.session.theirUserId;
-  let templateVars = { urls: urlsForUser(theirUserId), user : db[theirUserId]};
-  res.render("/home", templateVars);
-});
+// handle the request to register a new user(POST to register)
+module.exports = (db) => {
+  router.post("/", (req, res) => {
+    registerUser(req, res, db);
+  });
+    return router;
+  };
 
-// Route to process login route
-router.post("/login", (req, res) => {
 
-  // extract properties from the form body
-  let email = req.body.email.trim();
-  let password = req.body.password.trim();
 
-  let user = getUserByEmail(email, db);
-  if (user === null) {
-    res.status(403).send('User not found!');
-  } else if (bcrypt.compareSync(password, user.password) === false) {
-    res.status(403).send('Invalid password!');
+function registerUser(req, res, db) {
+
+  //Extract registration information from form
+  let firstName = req.body.first_name.trim();
+  let lastName = req.body.last_name.trim();
+  let email = req.body.email;
+  let password = req.body.password;
+
+  // Check that email and password are provided
+  if (email === "" || password === "") {
+    res.status(400).send('Please make sure your email and password are provided');
   } else {
-    req.session.theirUserId = user.id;
-    res.redirect("/home");
-  }
-});
 
-const getUserByEmail = function(email, db) {
-  let result = null;
-  for (let id in db){
-    let user = db[id];
-    if (user.email === email) {
-      result = user;
-      break;
+    // check wheather user already exists
+    pool.query('SELECT * FROM users WHERE email = $1'), [email], (error, results) => {
+      if (error) {
+          res.status(400).send(error.message);
+      } else {
+          user = results[0];
+
+            //user inserted correctly, redirect to home page
+            res.redirect('/home')
+          }
+        };
+      }
     }
-  }
-  return result;
-};
 
-//logout
-router.post("/logout", (req, res) => {
-  req.session.theirUserId = undefined;
-  res.redirect("/landing_page");
-});
+
+// const express = require('express');
+// const router  = express.Router();
+
+
+// module.exports = (db) => {
+//   router.get("/", (req, res) => {
+//     res.render("landing_page");
+//   })
+//   return router;
+// }
+
+// const bcrypt = require("bcrypt");
+
+// // display all the URLS/resources for the current logged in user
+// router.get("/", (req, res) => {
+//   let theirUserId = req.session.theirUserId;
+//   let templateVars = { urls: urlsForUser(theirUserId), user : db[theirUserId]};
+//   res.render("/home", templateVars);
+// });
+
+// // Route to process login route
+// router.post("/login", (req, res) => {
+
+//   // extract properties from the form body
+//   let email = req.body.email.trim();
+//   let password = req.body.password.trim();
+
+//   let user = getUserByEmail(email, db);
+//   if (user === null) {
+//     res.status(403).send('User not found!');
+//   } else if (bcrypt.compareSync(password, user.password) === false) {
+//     res.status(403).send('Invalid password!');
+//   } else {
+//     req.session.theirUserId = user.id;
+//     res.redirect("/home");
+//   }
+// });
+
+// const getUserByEmail = function(email, db) {
+//   let result = null;
+//   for (let id in db){
+//     let user = db[id];
+//     if (user.email === email) {
+//       result = user;
+//       break;
+//     }
+//   }
+//   return result;
+// };
+
+// //logout
+// router.post("/logout", (req, res) => {
+//   req.session.theirUserId = undefined;
+//   res.redirect("/landing_page");
+// });
 
 
 // $(document).ready(function() {
