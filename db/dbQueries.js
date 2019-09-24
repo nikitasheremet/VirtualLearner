@@ -39,7 +39,6 @@ const findAllResourcesByTitle = (input) => {
   LEFT JOIN likes ON resources.id = likes.resource_id
   JOIN comments ON resources.id = comments.resource_id
   WHERE lower(title) LIKE $1
-
   GROUP BY resources.id;`;
   const queryParams = [`%${input.toLowerCase()}%`];
 

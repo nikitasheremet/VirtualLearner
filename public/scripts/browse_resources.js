@@ -9,7 +9,7 @@ const ajaxResources = (res) => {
 const createResource = resource => {
   console.log(resource.url)
   return `
-<div class="card">
+<div class="card" id=${resource.id}>
   <div class="card-header">
       <h5 class="card-title">${resource.title}</h5>
   </div>
@@ -19,7 +19,8 @@ const createResource = resource => {
   </div>
   <div class="card-footer">
     <div class="left-footer">
-      <img src="/images/like.svg" alt="...">
+      <img class=like-button data-cond=false src="/images/like.svg" alt="...">
+      <span>${resource.likes}</span>
       <img src="/images/comment.svg" alt="...">
       <span>${resource.comments_count}</span>
     </div>
