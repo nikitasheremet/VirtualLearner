@@ -18,7 +18,6 @@ module.exports = function(router, database) {
       user_id: userID.user_id,
       category: req.params.category
     }
-
     database.queryMyCategory(data).then(queryResult => {
         res.send(queryResult);
     })
@@ -43,8 +42,6 @@ module.exports = function(router, database) {
     })
   })
   router.get('/add-like/:id', (req, res) => {
-    // console.log("in database routes for likes");
-    // console.log(req.params.id);
     let data = {
       user_id: userID.user_id,
       id: req.params.id

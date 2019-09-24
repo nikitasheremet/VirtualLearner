@@ -44,12 +44,12 @@ exports.findAllResourcesByTitle = findAllResourcesByTitle;
 
 const queryMyLikes = (data) => {
   console.log("in the queries now!!!");
-  values = [data]
+  values = [data, data]
   return pool.query(`
     SELECT res.*
     FROM likes
     JOIN resources res ON res.id = likes.resource_id
-    WHERE likes.user_id = $1
+    WHERE likes.user_id = $1 AND res.user_id <> $2
     ;`,values)
   .then(res => {
     return res.rows;
