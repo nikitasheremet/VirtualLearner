@@ -86,8 +86,15 @@ $("#my-resources").on("click", ".show-categories", (data) => {
 })
 $("#my-resources").on("click",".like-button",(data) => {
   const id = data.originalEvent.path[3].id;
-  console.log(data.originalEvent.path);
-  ajaxAddLike(id).then(res => {
-    // console.log(res);
-  })
+  const clickStatus = data.originalEvent.path[0].attributes[1].value;
+  if (clickStatus === "false") {
+    $("#my-resources .like-button").attr("data-cond","true");
+    $("#my-resources .like-count").css({"color":"red"})
+    ajaxAddLike(id).then(res => {
+      console.log(res);
+    })
+
+  } else {
+
+  }
 })
