@@ -24,3 +24,13 @@ const ajaxLikedResources = () => {
     url: "/db/resources/liked"
   });
 }
+
+const ajaxAddLike = (id) => {
+  console.log("in ajax add like")
+  console.log(id);
+  return $.ajax({
+    method: "GET",
+    url: `/db/add-like/${id}`
+  });
+}
+

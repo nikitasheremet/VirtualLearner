@@ -13,28 +13,21 @@ module.exports = function(router, database) {
   })
 
   router.get('/categories/:category', (req, res) => {
-    console.log("in routes");
+    // console.log("in routes");
     let data = {
       user_id: userID.user_id,
       category: req.params.category
     }
-
     database.queryMyCategory(data).then(queryResult => {
         res.send(queryResult);
     })
   })
   const results = {};
   router.get('/resources/all', (req, res) => {
-    // console.log(req.body);
-    console.log("here");
     database.queryMyAll(userID.user_id).then(queryResult => {
-      // console.log(queryResult);
       results.myResources = queryResult;
-      database.queryMyLikes(userID.user_id).then(queryResult2 => {
-        results.myLikes = queryResult2
-        // console.log(results);
-        res.send(results);
-      })
+      results.ID = userID.user_id;
+      res.send(results);
     })
   })
 
@@ -45,6 +38,16 @@ module.exports = function(router, database) {
   })
    router.get('/resources/liked', (req, res) => {
     database.queryMyLikes(userID.user_id).then(queryResult => {
+      res.send(queryResult);
+    })
+  })
+  router.get('/add-like/:id', (req, res) => {
+    let data = {
+      user_id: userID.user_id,
+      id: req.params.id
+    }
+    // console.log(data);
+    database.queryAddLike(data).then(queryResult => {
       res.send(queryResult);
     })
   })
