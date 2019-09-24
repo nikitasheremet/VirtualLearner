@@ -1,7 +1,7 @@
 const generateTemplateCategory = (categoryName) => {
   return `
   <div class="my-categories">
-    <img src="/images/science_icon.jpg" class="card-img-top" alt="${categoryName} icon">
+    <img src="/images/${categoryName}.png" class="card-img-top" alt="${categoryName} icon">
     <div class="card-body">
       <h5>${categoryName}</h5>
     </div>
@@ -25,10 +25,14 @@ return `
       <div class="left-footer">
         <img class=like-button data-cond=${resource.isLiked} src="/images/like.svg" alt="...">
         <span class=like-count style=color:${resource.isLiked ? "red" : "black"}>${resource.likes}</span>
-        <img src="/images/comment.svg" alt="...">
+        <img class="comment-bubble" src="/images/comment.svg" alt="...">
         <span>${resource.comments_count}</span>
       </div>
         <span>rating</span>
     </div>
+    <form class="post-comment" action="/new-comment" method="POST">
+      <textarea name="comment" placeholder="Write a comment."></textarea>
+      <input class="btn btn-light" type="submit" value="Post">
+    </form>
   </div>`
 }

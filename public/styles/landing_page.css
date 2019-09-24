@@ -1,130 +1,128 @@
-.login-container {
-  max-width: 335px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: white;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 20px;
-  border-radius: 10px;
-  padding-bottom: 20px;
-}
+/* Mobile Styles */
 
-.login-labels {
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  color: black;
-}
+  .login-container {
+    max-width: 335px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    border-radius: 10px;
+    padding-bottom: 20px;
+  }
 
-.input-fields {
-  background-color: #ededed !important;
-  border: 0px !important;
-}
+  .login-labels {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    color: black;
+  }
 
-.login-button {
-  background-color: #F80D20;
-  border-radius: 8px;
-  border: 0px;
-  width: 100%;
-  margin-top: 25px;
-  height: 38px;
-}
+  .input-fields {
+    background-color: #ededed !important;
+    border: 0px !important;
+    width: 100%;
+  }
 
-.login-button a{
-  color:white;
-  font-weight:bold;
-}
+  .login-button {
+    background-color: #F80D20;
+    border-radius: 8px;
+    border: 0px;
+    width: 100%;
+    margin-top: 25px;
+    height: 38px;
+  }
 
-.account-space {
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  margin-bottom: 0px;
-}
+  .login-button a{
+    color:white;
+    font-weight:bold;
+  }
 
-.sign-up-link{
-  color: black;
-  font-weight: bold;
-  text-decoration-line: underline;
+  textarea {
+    resize: none !important;
+    height: 120px;
+  }
 
-}
+  .account-space {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-bottom: 0px;
+  }
 
-.sign-up {
-  width: 100%;
-  text-align: center;
-}
+  .sign-up-link{
+    color: black;
+    font-weight: bold;
+    text-decoration-line: underline;
 
-.logo {
-  height: 220px;
-  background-repeat: no-repeat;
-  background-size: 286px 205px;
-  background-position: bottom;
-  margin-bottom: -13px;
-  margin-left: auto;
-  margin-right:auto;
-  background-image: url("https://i.ibb.co/F0jFnkv/background-modfied.jpg");
-}
+  }
 
-.logo img{
-  width: inherit;
-}
+  .sign-up {
+    width: 100%;
+    text-align: center;
+  }
 
-.center-text {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 20px;
-}
+  .logo {
+    height: 220px;
+    background-repeat: no-repeat;
+    background-size: 286px 205px;
+    background-position: bottom;
+    margin-bottom: -13px;
+    margin-left: auto;
+    margin-right:auto;
+    background-image: url("https://i.ibb.co/F0jFnkv/background-modfied.jpg");
+  }
 
-.virtual-logo {
-  margin-left: auto;
-  margin-right:auto;
-  height: 40px;
-  background-repeat: no-repeat;
-  background-size: 276px 41px;
-  background-image: url("https://i.ibb.co/DM8Lr2d/Virtual-Learner.png");
-  background-position: center;
-}
+  .logo img{
+    width: inherit;
+  }
 
-.upload-area{
-  width: 70%;
-  height: 180px;
-  border: 2px solid lightgray;
-  border-radius: 3px;
-  margin: 0 auto;
-  margin-top: 20px;
-  text-align: center;
-  overflow: auto;
-}
+  .center-text {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+  }
 
-.upload-area:hover{
-  cursor: pointer;
-}
+  .virtual-logo {
+    margin-left: auto;
+    margin-right:auto;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-size: 276px 41px;
+    background-image: url("https://i.ibb.co/DM8Lr2d/Virtual-Learner.png");
+    background-position: center;
+  }
 
-.upload-area h1{
-  text-align: center;
-  font-weight: normal;
-  font-family: sans-serif;
-  line-height: 45px;
-  color:black;
-}
 
-#file{
+  .imageUpload {
   display: none;
-}
+  }
 
-/* Thumbnail */
-.thumbnail{
-  width: 80px;
-  height: 80px;
-  padding: 2px;
-  border: 2px solid lightgray;
-  border-radius: 3px;
-  float: left;
-}
+  .profileImage{
+  cursor: pointer;
+  }
 
-.size{
-  font-size:1px;
-}
+  .profile-container {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  }
+
+  .profile-container img {
+  width: 150px;
+  height: 150px;
+  }
+
+
+  .counter{
+    float: right;
+    font-family: 'Bungee', cursive;
+  }

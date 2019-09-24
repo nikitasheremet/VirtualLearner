@@ -1,13 +1,4 @@
-
-const ajaxResources = (res) => {
-  return $.ajax({
-      method: "GET",
-      url: `/db/${res}`
-    });
-  }
-
 const createResource = resource => {
-  console.log(resource.url)
   return `
 <div class="card" id=${resource.id}>
   <div class="card-header">
@@ -21,12 +12,19 @@ const createResource = resource => {
     <div class="left-footer">
       <img class=like-button data-cond=false src="/images/like.svg" alt="...">
       <span>${resource.likes}</span>
-      <img src="/images/comment.svg" alt="...">
+      <img class="comment-bubble" src="/images/comment.svg" alt="...">
       <span>${resource.comments_count}</span>
     </div>
       <span>rating</span>
   </div>
 </div>`
+}
+
+const createComment = data => {
+  return `
+  <ul>
+    <li>${data.comment}</li>
+  </ul>`
 }
 
 const renderResource = data => {
@@ -53,4 +51,25 @@ ajaxResources(input).then(res => {
     renderResource(resource);
   }
 });
+})
+
+//On comment-bubble click, append comments associated with resource to bottom of card.
+$(".container").on("click", ".comment-bubble", function() {
+  const commentSection = $(this).parent().parent().parent()
+  const resourceId = $(this).parents(".card")[0].attributes.id.value
+
+  ajaxComments(resourceId).then(res => {
+
+    for (let comment of res) {
+      commentSection.append(createComment(comment))
+    }
+  })
+})
+
+
+$(".post-comment").submit(function(event) {
+  event.preventDefault();
+  const input = $(this).val();
+
+  console.log(input, req.body)
 })

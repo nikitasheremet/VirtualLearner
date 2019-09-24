@@ -34,6 +34,7 @@ const ajaxAddLike = (id) => {
   });
 }
 
+
 const ajaxDeleteLike = (id) => {
   // console.log("in ajax delete like")
   // console.log(id);
@@ -57,5 +58,20 @@ const ajaxFetchLikes = (id) => {
     method: "GET",
     url: `/db/likes/${id}`
   });
+}
+
+
+const ajaxResources = title => {
+  return $.ajax({
+    method: "GET",
+    url: `/db/${title}`
+  });
+}
+
+const ajaxComments = id => {
+  return $.ajax({
+    method: "GET",
+    url: `/db/${id}/comments`
+  })
 }
 
