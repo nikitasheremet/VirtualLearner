@@ -20,6 +20,7 @@
 .input-fields {
   background-color: #ededed !important;
   border: 0px !important;
+  width: 100%;
 }
 
 .login-button {
@@ -34,6 +35,11 @@
 .login-button a{
   color:white;
   font-weight:bold;
+}
+
+textarea {
+  resize: none !important;
+  height: 120px;
 }
 
 .account-space {
@@ -88,43 +94,33 @@
   background-position: center;
 }
 
-.upload-area{
-  width: 70%;
-  height: 180px;
-  border: 2px solid lightgray;
-  border-radius: 3px;
-  margin: 0 auto;
-  margin-top: 20px;
-  text-align: center;
-  overflow: auto;
+
+.imageUpload {
+display: none;
 }
 
-.upload-area:hover{
-  cursor: pointer;
+.profileImage{
+cursor: pointer;
 }
 
-.upload-area h1{
-  text-align: center;
-  font-weight: normal;
-  font-family: sans-serif;
-  line-height: 45px;
-  color:black;
+.profile-container {
+width: 150px;
+height: 150px;
+overflow: hidden;
+-webkit-border-radius: 50%;
+-moz-border-radius: 50%;
+-ms-border-radius: 50%;
+-o-border-radius: 50%;
+border-radius: 50%;
 }
 
-#file{
-  display: none;
+.profile-container img {
+width: 150px;
+height: 150px;
 }
 
-/* Thumbnail */
-.thumbnail{
-  width: 80px;
-  height: 80px;
-  padding: 2px;
-  border: 2px solid lightgray;
-  border-radius: 3px;
-  float: left;
-}
 
-.size{
-  font-size:1px;
+.counter{
+  float: right;
+  font-family: 'Bungee', cursive;
 }

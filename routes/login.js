@@ -6,18 +6,14 @@ const bcrypt = require("bcrypt");
 // handle the request to register a new user(POST to register)
 module.exports = (db) => {
   router.post("/", (req, res) => {
-    registerUser(req, res, db);
+    loginUser(req, res, db);
   });
     return router;
   };
 
-
-
-function registerUser(req, res, db) {
+function loginUser(req, res, db) {
 
   //Extract registration information from form
-  let firstName = req.body.first_name.trim();
-  let lastName = req.body.last_name.trim();
   let email = req.body.email;
   let password = req.body.password;
 
@@ -27,7 +23,7 @@ function registerUser(req, res, db) {
   } else {
 
     // check wheather user already exists
-    pool.query('SELECT * FROM users WHERE email = $1'), [email], (error, results) => {
+    db.query('SELECT * FROM users WHERE email = $1'), [email], (error, results) => {
       if (error) {
           res.status(400).send(error.message);
       } else {

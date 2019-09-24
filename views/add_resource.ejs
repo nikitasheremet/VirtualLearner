@@ -10,6 +10,7 @@
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/character-counter.js"></script>
     <!-- Link to add Bootstrap (can remove after changing back to .ejs file) -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
@@ -38,28 +39,28 @@
               </div>
               <div>
                   <label class= "login-labels" for="description">Description</label>
-                  <div>
-                    <input type="text"  id="description" class="form-control input-fields" name="description" required>
-                  </div>
               </div>
+                <textarea name="description" class="input-fields"></textarea>
+              <br>
+              <span class="counter"> 150 </span>
               <div>
                   <label for="category" class="login-labels">Category</label>
                       <div>
-                          <select id = "myList">
+                          <select id = "myList" name ="category">
                             <option value = "0">Select Category</option>
-                            <option value = "1">Language</option>
-                            <option value = "2">Music</option>
-                            <option value = "3">Travel</option>
-                            <option value = "4">Cooking</option>
-                            <option value = "5">Gardening</option>
-                            <option value = "6">Coding</option>
-                            <option value = "7">Religion</option>
-                            <option value = "8">History</option>
-                            <option value = "9">Health and Fitness</option>
-                            <option value = "10">Sports</option>
-                            <option value = "11">Home Renovations</option>
-                            <option value = "12">Project Management</option>
-                            <option value = "12">Other</option>
+                            <option value = "Language">Language</option>
+                            <option value = "Music">Music</option>
+                            <option value = "Travel">Travel</option>
+                            <option value = "Cooking">Cooking</option>
+                            <option value = "Gardening">Gardening</option>
+                            <option value = "Coding">Coding</option>
+                            <option value = "Religion">Religion</option>
+                            <option value = "History">History</option>
+                            <option value = "Health and Fitness">Health and Fitness</option>
+                            <option value = "Sports">Sports</option>
+                            <option value = "Home Renovations">Home Renovations</option>
+                            <option value = "Project Management">Project Management</option>
+                            <option value = "Other">Other</option>
                           </select>
                       </div>
                   </div>

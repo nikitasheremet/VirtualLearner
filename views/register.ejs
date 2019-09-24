@@ -11,6 +11,8 @@
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/routes/register.js"></script>
+    <script type="text/javascript" src="/scripts/profile.js"></script>
+
     <!-- Link to add Bootstrap (can remove after changing back to .ejs file) -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
@@ -52,10 +54,10 @@
                 <input type="password"  id="password" class="form-control input-fields" name="password" required>
               </div>
               </div>
-            <!-- Drag and Drop container-->
-            <div class="upload-area"  id="uploadfile">
-                <h1>Drag and drop file or click to select file</h1>
+              <br>
+            <div id="profile-container">
             </div>
+             <input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" required="" capture>
               <div>
                 <button class="login-button" type="submit">
                   <a href="/home"> Sign Up</a>
