@@ -24,7 +24,7 @@ module.exports = (db) => {
 const bcrypt = require("bcrypt");
 
 
-
+//put in scripts
 // $(document).ready(function() {
 //   $('textarea').keyup(function() {
 //     var remaining = 150 - jQuery(this).val().length;
@@ -34,7 +34,7 @@ const bcrypt = require("bcrypt");
 //       $(".counter").css({"color": "red"});
 //     } else if (remaining >= 0){
 //       jQuery('.counter').text(remaining);
-//       // $(".counter").css({"color": ""});
+//       // $(".counter").css({"color": "#444E3B"});
 //     }
 //   });
 // });
