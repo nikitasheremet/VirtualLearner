@@ -1,6 +1,31 @@
 const myCategoriesList = $("#my-categories-list");
-const myCategories = $(".my-categories");
 
+const displayAndMakeBackButton = (res) => {
+  let output = "";
+  for (let resource of res) {
+    output += generateResources(resource)
+  }
+  $(".show-all-resources").hide();
+  $(".show-categories").hide();
+  myCategoriesList.html(output);
+  $("#my-resources h3:eq(0)").after(`<button class=back-button><a href="/home" style="color:black">Show Categories</a></button>`)
+}
+
+// Clicking on a category calls the db and gets a list of resources belonging to that category,
+// And displays back buttom
+const clickCategory = (data) => {
+  myCategoriesList.off();
+  clickedCategory = data.currentTarget.children[1].children[0].innerHTML
+  if (clickedCategory === "Liked") {
+    ajaxLikedResources().then(res => {
+      displayAndMakeBackButton(res);
+    })
+  } else {
+    ajaxCategoryResources(clickedCategory).then(res => {
+      displayAndMakeBackButton(res);
+    })
+  }
+}
 
 // Display Categories and Show All/Show Categories Buttons
 ajaxCategories().then(res => {
@@ -11,6 +36,8 @@ ajaxCategories().then(res => {
     output += generateTemplateCategory(cat.category);
   }
   $("#my-resources h3:eq(0)").after(`<button class="show-all-resources">Show All</button><button class="show-categories">Show Categories</button>`);
+
+
   $(".show-categories").hide();
   myCategoriesList.html(output);
   myCategoriesList.append(generateTemplateCategory("Liked"))
@@ -57,29 +84,5 @@ $("#my-resources").on("click", ".show-categories", (data) => {
 })
 
 
-// Clicking on a category calls the db and gets a list of resources belonging to that category,
-// And displays back buttom
-const displayAndMakeBackButton = (res) => {
-  let output = "";
-  for (let resource of res) {
-    output += generateResources(resource)
-  }
-  $(".show-all-resources").hide();
-  $(".show-categories").hide();
-  myCategoriesList.html(output);
-  $("#my-resources h3:eq(0)").after(`<button class=back-button><a href="/home" style="color:black">Show Categories</a></button>`)
-}
 
-const clickCategory = (data) => {
-  myCategoriesList.off();
-  clickedCategory = data.currentTarget.children[1].children[0].innerHTML
-  if (clickedCategory === "Liked") {
-    ajaxLikedResources().then(res => {
-      displayAndMakeBackButton(res);
-    })
-  } else {
-    ajaxCategoryResources(clickedCategory).then(res => {
-      displayAndMakeBackButton(res);
-    })
-  }
-}
+
