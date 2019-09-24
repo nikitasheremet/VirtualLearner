@@ -111,6 +111,13 @@ const queryResourceComments = resourceId => {
 }
 exports.queryResourceComments = queryResourceComments;
 
+const insertComment = data => {
+  const queryString = `INSERT INTO comments (comment, user_id, resource_id) VALUES ($1, $2, $3);`;
+  const queryValues = [data.input, data.userId, data.resourceId];
+  return pool.query(queryString, queryValues).then(res => res.rows)
+}
+exports.insertComment = insertComment;
+
 const queryDeleteLike = (data) => {
   values = [data.user_id,data.id]
   // console.log(data);
@@ -160,15 +167,13 @@ exports.queryGetLikesForResource = queryGetLikesForResource;
 
 
 const queryMyRatings = (data) => {
-  values = [data, data]
+  values = [data]
   return pool.query(`
-    SELECT res.*, COUNT(DISTINCT ratings.*) AS ratings
-    LEFT JOIN resources res ON res.id = ratings.resource_id
-    WHERE ratings.user_id = $1 AND res.user_id <> $2
+    SELECT res.*, COUNT(*), AVG(ratings.rating) AS ratings
+    FROM resources AS res LEFT JOIN ratings ON res.id = ratings.resource_id
     GROUP BY res.id
     ;`,values)
   .then(res => {
-    console.log(res.rows);
     return res.rows;
   })
 }
@@ -184,4 +189,3 @@ const queryRatings = (data) => {
 };
 
 exports.queryRatings = queryRatings
-

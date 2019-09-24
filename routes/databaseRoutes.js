@@ -33,6 +33,8 @@ module.exports = function(router, database) {
   router.get('/likes/:id', (req, res) => {
     // console.log("IAMHERENOW")
 
+<<<<<<< HEAD
+=======
     database.queryGetLikesForResource(req.params.id).then(queryResult => {
       res.send(queryResult);
     })
@@ -44,6 +46,7 @@ module.exports = function(router, database) {
       res.send(queryResult);
     })
   })
+>>>>>>> 43c32b05790104a0e60be51ad314cc6da5b1c313
   router.get('/:resourceId/comments', (req, res) => {
     database.queryResourceComments(req.params.resourceId).then(queryResult => {
       res.send(queryResult);
@@ -76,12 +79,17 @@ module.exports = function(router, database) {
   })
 
   router.post('/new-comment', (req, res) => {
+<<<<<<< HEAD
+    console.log(req.body)
+    database.insertComment(req.body)
+=======
     const queryString = `INSERT INTO comments (comment, user_id, resource_id) VALUES ($1, $2, $3);`;
     const queryValues = [req.body, 1, 4];
     database.query(queryString, queryValues).then(queryResult => {
       res.send(queryResult)
 
     })
+>>>>>>> 43c32b05790104a0e60be51ad314cc6da5b1c313
   })
   router.get('/:title', (req, res) => {
     database.findAllResourcesByTitle(req.params.title).then(queryResult => {
