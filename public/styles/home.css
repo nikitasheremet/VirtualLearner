@@ -1,4 +1,6 @@
-<<<<<<< HEAD
+body {
+  background-color: #F6F7FD;
+}
 body .container {
   width: 100%;
   text-align: center;
@@ -7,8 +9,6 @@ body .container .header {
   display: flex;
   justify-content: space-between;
 }
-=======
->>>>>>> 004684e6ccc2f7f76134726b20667b1c4ccd11ee
 body #my-categories-list {
   display: flex;
   flex-direction: row;
@@ -19,19 +19,11 @@ body #my-categories-list .my-categories {
   width: 45%;
   margin: 0.5em;
   text-align: center;
-<<<<<<< HEAD
   box-shadow: 5px 10px 15px #adb5bd;
-=======
-  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.10);
->>>>>>> 004684e6ccc2f7f76134726b20667b1c4ccd11ee
   border-radius: 15px;
 }
 body #my-categories-list .my-categories img {
   width: 100%;
-<<<<<<< HEAD
-=======
-  border-radius: 15px 15px 0px 0px;
->>>>>>> 004684e6ccc2f7f76134726b20667b1c4ccd11ee
 }
 body #my-categories-list .card {
   width: 100%;
@@ -43,7 +35,6 @@ body #my-categories-list .card {
 body #my-categories-list .card .card-header {
   background-color: #fff;
 }
-<<<<<<< HEAD
 body #my-categories-list .card .card-footer {
   background-color: #fff;
   display: flex;
@@ -55,13 +46,12 @@ body #my-categories-list .card .card-footer img {
   width: 20px;
 }
 body #my-categories-list .card .card-footer .left-footer {
+  width: 25%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-=======
->>>>>>> 004684e6ccc2f7f76134726b20667b1c4ccd11ee
 body .search-form {
   display: flex;
   justify-content: space-between;
@@ -87,27 +77,17 @@ body #resources_found .card .card-footer {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-<<<<<<< HEAD
   justify-content: space-between;
-=======
-  justify-content: space-around;
->>>>>>> 004684e6ccc2f7f76134726b20667b1c4ccd11ee
 }
 body #resources_found .card .card-footer img {
   width: 20px;
 }
-<<<<<<< HEAD
 body #resources_found .card .card-footer .left-footer {
+  width: 25%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-=======
-
-body #card-body {
-  background-color: white;
-  border-radius: 0px 0px 15px 15px;
->>>>>>> 004684e6ccc2f7f76134726b20667b1c4ccd11ee
 }
 
 /*# sourceMappingURL=home.css.map */
