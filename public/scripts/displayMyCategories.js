@@ -27,6 +27,7 @@ const clickCategory = (data) => {
   }
 }
 
+const usersLikes = ajaxUsersLikes()
 // Display Categories and Show All/Show Categories Buttons
 ajaxCategories().then(res => {
   // console.log("in first action");
@@ -52,10 +53,19 @@ $("#my-resources").on("click", ".show-all-resources", (data) => {
   $(".show-all-resources").hide();
   $(".show-categories").show();
   ajaxAllResources().then(res => {
-
     console.log(res);
     let output = ""
     for (resource of res.myResources) {
+      console.log(typeof resource);
+      resource.isLiked = usersLikes.responseJSON.map(users => {
+        if(users.resource_id === resource.id) {
+          return "true"
+        } else {
+          return "false"
+        }
+      }).includes("true");
+      console.log(resource);
+
       if (resource.user_id !== res.ID) {
         output += generateResources(resource, "red")
       } else {
@@ -65,7 +75,6 @@ $("#my-resources").on("click", ".show-all-resources", (data) => {
     myCategoriesList.html(output);
   })
 })
-
 
 // On click For Show Categories Button
 $("#my-resources").on("click", ".show-categories", (data) => {
@@ -84,17 +93,22 @@ $("#my-resources").on("click", ".show-categories", (data) => {
     })
   })
 })
-$("#my-resources").on("click",".like-button",(data) => {
+$(".container").on("click",".like-button",(data) => {
   const id = data.originalEvent.path[3].id;
   const clickStatus = data.originalEvent.path[0].attributes[1].value;
   if (clickStatus === "false") {
     $("#my-resources .like-button").attr("data-cond","true");
     $("#my-resources .like-count").css({"color":"red"})
     ajaxAddLike(id).then(res => {
-      console.log(res);
+      // console.log(res);
     })
 
   } else {
+    $(".container .like-button").attr("data-cond","false");
+    $(".container .like-count").css({"color":"black"})
+    ajaxDeleteLike(id).then(res => {
 
+    })
   }
 })
+
