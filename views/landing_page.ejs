@@ -14,71 +14,41 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   </head>
 
-  <nav class="navbar navbar-light bg-light">
-      <a class="navbar-brand" href="#">
-        <img src="https://i.ibb.co/r3f0KCp/Screen-Shot-2019-09-22-at-8-20-34-PM.png"" width="50" height="50" class="d-inline-block align-top" alt="">
-        <header><h1>Virtual Learner</h1></header>
-      </a>
-    </nav>
+
+  <body style= "background-color: #EAEBEE">
+    <div class= "center-text">
+      <p>Welcome back!</p>
+      <div class="virtual-logo"></div>
+    </div>
 
 
-  <body style="background-color: #f6f7fd">
+    <div class="logo"></div>
+    <div class="login-container">
         <main class="login-form">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-8">
-                        <div class="card">
-                            <div class="card-header">Existing User</div>
-                            <div class="card-body">
-                                <form action="POST" method="/api/login">
-                                    <div class="form-group row">
-                                        <label for="email_address" class="col-md-4 col-form-label text-md-right">Email Address</label>
-                                        <div class="col-md-6">
-                                            <input type="text" id="email_address" class="form-control" name="email_address" required autofocus>
-                                        </div>
-                                    </div>
-
-                                    <form class="form-group row">
-                                        <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
-                                        <div class="col-md-6">
-                                            <input type="password"  id="password" class="form-control" name="password" required>
-                                            <br>
-                                        </div>
-                                      </form>
-
-                                      <div class="col-md-6 offset-md-4">
-                                          <button type="submit" class="btn btn-primary">
-                                              <a href="/home" style= "color: #f6f7fd"> Login</a>
-                                          </button>
-                                      </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+          <form action="POST" method="/api/login">
+            <div>
+              <label class= "login-labels" for="email_address">Email</label>
+              <div>
+                <input type="text" id="email_address" class="form-control input-fields" name="email_address" required autofocus>
+              </div>
             </div>
-            </div>
+            <div>
+              <label class= "login-labels" for="password">Password</label>
+              <div>
+                <input type="password"  id="password" class="form-control input-fields" name="password" required>
+              </div>
+              </div>
+              <div>
+                <button class="login-button" type="submit">
+                  <a href="/home"> Sign In</a>
+                </button>
+              </div>
+              <div>
+                <p class="account-space">Don't have an account?</p>
+                <div class="sign-up"><a class= "sign-up-link" href="/register"> Sign Up</a></div>
+              </div>
+          </form>
         </main>
-        <main class="login-form">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-8">
-                        <div class="card">
-                            <div class="card-header">New User</div>
-                            <div class="card-body">
-                                <form action="GET" method="/register">
-                                    <div class="col-md-6 offset-md-4">
-                                        <button type="submit" class="btn btn-primary">
-                                            <a href="/register" style= "color: #f6f7fd">Create New Account</a>
-                                        </button>
-                                    </div>
-                            </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </main>
+      </div>
   </body>
 </html>

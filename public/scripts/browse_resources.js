@@ -8,12 +8,12 @@ const ajaxResources = (res) => {
 
 const createResource = resource => {
   console.log(resource.url)
-  return (
-  `<div class="card">
+  return `
+<div class="card">
   <div class="card-header">
       <h5 class="card-title">${resource.title}</h5>
   </div>
-  <a href="${resource.url}" alt="..."><img src="${resource.url}" class="card-img-top" alt="..."></a
+  <a href="${resource.url}" alt="..."><img src="${resource.thumbnail_photo}" class="card-img-top" alt="..."></a>
   <div class="card-body">
     <p class="card-text">${resource.description}</p>
   </div>
@@ -22,13 +22,15 @@ const createResource = resource => {
       <img src="/images/like.svg" alt="...">
       <img src="/images/comment.svg" alt="...">
     </div>
+      <span>rating</span>
   </div>
 </div>`
-  )}
+}
 
 const renderResource = data => {
   const wall = $("#resources_found");
-  wall.html(createResource(data));
+  $("#resources_found").empty()
+  wall.append(createResource(data));
 }
 
 

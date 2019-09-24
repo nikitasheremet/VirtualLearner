@@ -26,9 +26,7 @@ return `
         <span>${resource.likes}</span>
         <img src="/images/comment.svg" alt="...">
       </div>
-      </div>
         <span>rating</span>
-      </div>
     </div>
   </div>`
 }

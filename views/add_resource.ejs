@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/add_resource.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/landing_page.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
@@ -14,76 +14,66 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 
-<nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="#">
-      <img src="https://i.ibb.co/r3f0KCp/Screen-Shot-2019-09-22-at-8-20-34-PM.png"" width="50" height="50" class="d-inline-block align-top" alt="">
-      Virtual Learner
-    </a>
-  </nav>
 
-  <body style="background-color: #f6f7fd">
-      <main class="login-form">
-          <div class="container">
-              <div class="row justify-content-center">
-                  <div class="col-md-8">
-                      <div class="card">
-                          <div class="card-header">New Resource</div>
-                          <div class="card-body">
-                              <form method="POST" action="/add_resource">
-                                  <div class="form-group row">
-                                      <label for="firstname" class="col-md-4 col-form-label text-md-right">URL</label>
-                                      <div class="col-md-6">
-                                          <input type="text"  id="first_name" class="form-control" name="first_name" required>
-                                      </div>
-                                  </div>
-                                  <div class="form-group row">
-                                      <label for="lastname" class="col-md-4 col-form-label text-md-right">Title</label>
-                                      <div class="col-md-6">
-                                          <input type="text"  id="last_name" class="form-control" name="last_name" required>
-                                      </div>
-                                  </div>
-                                  <div class="form-group row">
-                                      <label for="email_address" class="col-md-4 col-form-label text-md-right">Description</label>
-                                      <div class="col-md-6">
-                                          <input type="text" id="email_address" class="form-control" name="email_address" required autofocus>
-                                          <span class="counter"> 150 </span>
-                                      </div>
-                                  </div>
+<body style= "background-color: #EAEBEE">
+    <div class= "center-text">
+      <div class="virtual-logo"></div>
+</div>
 
-                                  <div class="form-group row">
-                                      <label for="password" class="col-md-4 col-form-label text-md-right">Category</label>
-                                      <div class="col-md-6">
-                                          <select id = "myList">
-                                            <option value = "0">Select Category</option>
-                                            <option value = "1">Language</option>
-                                            <option value = "2">Music</option>
-                                            <option value = "3">Travel</option>
-                                            <option value = "4">Cooking</option>
-                                            <option value = "5">Gardening</option>
-                                            <option value = "6">Coding</option>
-                                            <option value = "7">Religion</option>
-                                            <option value = "8">History</option>
-                                            <option value = "9">Health and Fitness</option>
-                                            <option value = "10">Sports</option>
-                                            <option value = "11">Home Renovations</option>
-                                            <option value = "12">Project Management</option>
-                                            <option value = "12">Other</option>
-                                             <!-- Once user creates other category - it will be a new categort -->
-                                          </select>
-                                      </div>
-                                  </div>
-                                  <div class="col-md-6 offset-md-4">
-                                      <button type="submit" class="btn btn-primary">
-                                          Create New Resource
-                                      </button>
-                                  </div>
-                          </div>
-                          </form>
-                      </div>
+
+    <div class="logo"></div>
+    <div class="login-container">
+        <main class="login-form">
+          <form action="POST" method="/api/login">
+            <div>
+              <label class= "login-labels" for="email_address">URL</label>
+              <div>
+                <input type="text" id="email_address" class="form-control input-fields" name="email_address" required autofocus>
+              </div>
+            </div>
+            <div>
+              <label class= "login-labels" for="password">Title</label>
+              <div>
+                <input type="password"  id="password" class="form-control input-fields" name="password" required>
+              </div>
+              <div>
+                  <label class= "login-labels" for="password">Description</label>
+                  <div>
+                    <input type="password"  id="password" class="form-control input-fields" name="password" required>
                   </div>
               </div>
-          </div>
-          </div>
-      </main>
-</body>
+              <div>
+                  <label class= "login-labels" for="password">Title</label>
+                  <div>
+                    <input type="password"  id="password" class="form-control input-fields" name="password" required>
+                  </div>
+              <div>
+                  <label for="password" class="login-labels">Category</label>
+                      <div>
+                          <select id = "myList">
+                            <option value = "0">Select Category</option>
+                            <option value = "1">Language</option>
+                            <option value = "2">Music</option>
+                            <option value = "3">Travel</option>
+                            <option value = "4">Cooking</option>
+                            <option value = "5">Gardening</option>
+                            <option value = "6">Coding</option>
+                            <option value = "7">Religion</option>
+                            <option value = "8">History</option>
+                            <option value = "9">Health and Fitness</option>
+                            <option value = "10">Sports</option>
+                            <option value = "11">Home Renovations</option>
+                            <option value = "12">Project Management</option>
+                            <option value = "12">Other</option>
+                          </select>
+                      </div>
+                  </div>
+                <button class="login-button" type="submit">
+                  <a href="/home"> Create New Resource </a>
+                </button>
+              </div>
+          </form>
+        </main>
+      </div>
+  </body>
 </html>
