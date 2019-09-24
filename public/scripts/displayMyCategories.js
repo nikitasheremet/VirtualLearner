@@ -1,9 +1,5 @@
 const myCategoriesList = $("#my-categories-list");
 
-$().on("click", (data) => {
-
-})
-
 const displayAndMakeBackButton = (res) => {
   let output = "";
   for (let resource of res) {
@@ -113,29 +109,30 @@ $("#my-resources").on("click", ".show-categories", (data) => {
   })
 })
 $("body").on("click",".like-button",(data) => {
-  const id = data.originalEvent.path[3].id;
+  // console.log(data.originalEvent.path[3].classList[1])
+  const id = data.originalEvent.path[3].classList[1]
   const clickStatus = data.originalEvent.path[0].attributes[1].value;
   if (clickStatus === "false") {
-    $(`#${id} .like-button`).attr("data-cond","true");
-    $(`#${id} .like-count`).css({"color":"red"})
+    $(`.${id} .like-button`).attr("data-cond","true");
+    $(`.${id} .like-count`).css({"color":"red"})
     ajaxAddLike(id).then(res => {
       // console.log(res);
     }).then(() => {
       // console.log("IWASCLICKED")
       ajaxFetchLikes(id).then((res) => {
-        $(`#${id} .like-count`).html(res[0].count)
+        $(`.${id} .like-count`).html(res[0].count)
       })
     })
 
   } else {
-    $(`#${id} .like-button`).attr("data-cond","false");
-    $(`#${id} .like-count`).css({"color":"black"})
+    $(`.${id} .like-button`).attr("data-cond","false");
+    $(`.${id} .like-count`).css({"color":"black"})
     ajaxDeleteLike(id).then(res => {
 
     }).then(() => {
       // console.log("IWASCLICKED")
       ajaxFetchLikes(id).then((res) => {
-        $(`#${id} .like-count`).html(res[0].count)
+        $(`.${id} .like-count`).html(res[0].count)
       })
     })
   }

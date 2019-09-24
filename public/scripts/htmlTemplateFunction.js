@@ -11,7 +11,7 @@ const generateTemplateCategory = (categoryName) => {
 const generateResources = (resource, color = "black") => {
 
 return `
-  <div class="card" id=${resource.id}>
+  <div class="card ${resource.id}">
     <div class="card-header">
         <h5 class="card-title" style=color:${color}>${resource.title}</h5>
     </div>
