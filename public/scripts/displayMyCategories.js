@@ -72,6 +72,7 @@ $("#my-resources").on("click", ".show-categories", (data) => {
   $(".show-all-resources").show();
   ajaxCategories().then(res => {
   let output = "";
+  // console.log(res);
   for (let cat of res) {
     output += generateTemplateCategory(cat.category);
   }
@@ -80,5 +81,11 @@ $("#my-resources").on("click", ".show-categories", (data) => {
     $(".my-categories").on("click",(data) => {
     clickCategory(data);
     })
+  })
+})
+$("#my-resources").on("click",".like-button",(data) => {
+  const id = data.originalEvent.path[3].id;
+  ajaxAddLike(id).then(res => {
+    // console.log(res);
   })
 })

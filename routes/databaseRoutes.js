@@ -13,7 +13,7 @@ module.exports = function(router, database) {
   })
 
   router.get('/categories/:category', (req, res) => {
-    console.log("in routes");
+    // console.log("in routes");
     let data = {
       user_id: userID.user_id,
       category: req.params.category
@@ -32,7 +32,7 @@ module.exports = function(router, database) {
       results.myResources = queryResult;
       database.queryMyLikes(userID.user_id).then(queryResult2 => {
         results.myLikes = queryResult2
-        // console.log(results);
+
         res.send(results);
       })
     })
@@ -48,11 +48,16 @@ module.exports = function(router, database) {
       res.send(queryResult);
     })
   })
-  router.post('/likes/add', (req, res) => {
-    console.log("in database routes");
-    console.log(req.data);
-    // database.queryMyLikes(userID.user_id).then(queryResult => {
+  router.get('/add-like/:id', (req, res) => {
+    console.log("in database routes for likes");
+    // console.log(req.params.id);
+    let data = {
+      user_id: userID.user_id,
+      id: req.params.id
+    }
+    console.log(data);
+    database.queryAddLike(data).then(queryResult => {
       res.send(queryResult);
-    // })
+    })
   })
 }

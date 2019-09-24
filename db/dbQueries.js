@@ -57,41 +57,43 @@ const queryMyLikes = (data) => {
     WHERE likes.user_id = $1
     ;`,values)
   .then(res => {
+    console.log(res.rows)
     return res.rows;
   })
 }
 exports.queryMyLikes= queryMyLikes;
 
 const queryMyAll = (data) => {
-  console.log("in the queries now!!!");
+  // console.log("in the queries now!!!");
   // console.log(user_id);
   values = [data]
   console.log(data);
   return pool.query(`
     SELECT res.*
     FROM resources res
+    JOIN likes ON res.id = likes.resource_id
     WHERE res.user_id = $1
     ;`,values)
   .then(res => {
+    console.log(res)
     return res.rows;
   })
 }
-exports.queryMyAll= queryMyAll;
+exports.queryMyAll = queryMyAll;
 
-const queryInsertLike = (data) => {
-  console.log("in the queries now!!!");
+const queryAddLike = (data) => {
+  // console.log("in the queries now!!!");
   // console.log(user_id);
-  values = [data]
+  values = [data.user_id,data.id]
   console.log(data);
   return pool.query(`
-    SELECT res.*
-    FROM resources res
-    WHERE res.user_id = $1
+    INSERT INTO likes (user_id, resource_id)
+    VALUES ($1,$2)
     ;`,values)
-  .then(res => {
-    return res.rows;
+  .then(() => {
+    return "success";
   })
 }
-exports.queryMyAll= queryMyAll;
+exports.queryAddLike = queryAddLike;
 
 
