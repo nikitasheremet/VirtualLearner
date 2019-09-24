@@ -27,10 +27,8 @@ module.exports = function(router, database) {
   router.get('/resources/all', (req, res) => {
     database.queryMyAll(userID.user_id).then(queryResult => {
       results.myResources = queryResult;
-      database.queryMyLikes(userID.user_id).then(queryResult2 => {
-        results.myLikes = queryResult2
-        res.send(results);
-      })
+      results.ID = userID.user_id;
+      res.send(results);
     })
   })
 

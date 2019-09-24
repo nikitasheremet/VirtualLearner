@@ -56,10 +56,11 @@ $("#my-resources").on("click", ".show-all-resources", (data) => {
     console.log(res);
     let output = ""
     for (resource of res.myResources) {
-      output += generateResources(resource)
-    }
-    for (resource of res.myLikes) {
-      output += generateResources(resource, "red")
+      if (resource.user_id !== res.ID) {
+        output += generateResources(resource, "red")
+      } else {
+        output += generateResources(resource)
+      }
     }
     myCategoriesList.html(output);
   })

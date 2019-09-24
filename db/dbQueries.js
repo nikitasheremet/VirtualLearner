@@ -58,11 +58,13 @@ const queryMyLikes = (data) => {
 exports.queryMyLikes= queryMyLikes;
 
 const queryMyAll = (data) => {
-  values = [data]
+  values = [data,data]
   return pool.query(`
-    SELECT res.*
+    SELECT res.*, COUNT(likes.resource_id) AS likes
     FROM resources res
-    WHERE res.user_id = $1
+    LEFT JOIN likes ON likes.resource_id = res.id
+    WHERE res.user_id = $1 OR likes.user_id = $2
+    GROUP BY res.id
     ;`,values)
   .then(res => {
     console.log(res.rows)
