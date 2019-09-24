@@ -13,10 +13,15 @@ const createResource = resource => {
   <div class="card-header">
       <h5 class="card-title">${resource.title}</h5>
   </div>
-  <img src="${resource.url}" class="card-img-top" alt="...">
+  <a href="${resource.url}" alt="..."><img src="${resource.url}" class="card-img-top" alt="..."></a
   <div class="card-body">
     <p class="card-text">${resource.description}</p>
-    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+  </div>
+  <div class="card-footer">
+    <div class="left-footer">
+      <img src="/images/like.svg" alt="...">
+      <img src="/images/comment.svg" alt="...">
+    </div>
   </div>
 </div>`
   )}
