@@ -30,7 +30,7 @@ const createComment = data => {
 const renderResource = data => {
   const wall = $("#resources_found");
   $("#resources_found").empty()
-  wall.append(createResource(data));
+  wall.append(generateResources(data));
 }
 
 
@@ -51,7 +51,6 @@ $(".container").on("click", ".comment-bubble", function() {
   const resourceId = $(this).parents(".card")[0].attributes.id.value
 
   ajaxComments(resourceId).then(res => {
-
     for (let comment of res) {
       commentSection.append(createComment(comment))
     }
@@ -59,9 +58,19 @@ $(".container").on("click", ".comment-bubble", function() {
 })
 
 
-$(".post-comment").submit(function(event) {
+$(".container").on("submit", ".post-comment", function(event) {
   event.preventDefault();
-  const input = $(this).val();
-
-  console.log(input, req.body)
+  const input = $(this).find("textarea").val();
+  //! userId to be determined cookie session
+  const userId = 1
+  const resourceId = $(this).parents(".card")[0].attributes.id.value
+  $.ajax({
+    url: "/db/new-comment",
+    method: 'POST',
+    data: {
+      input,
+      userId,
+      resourceId
+    }
+  })
 })

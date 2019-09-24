@@ -110,3 +110,10 @@ const queryResourceComments = resourceId => {
     ).then(res => res.rows)
 }
 exports.queryResourceComments = queryResourceComments;
+
+const insertComment = data => {
+  const queryString = `INSERT INTO comments (comment, user_id, resource_id) VALUES ($1, $2, $3);`;
+  const queryValues = [data.input, data.userId, data.resourceId];
+  return pool.query(queryString, queryValues).then(res => res.rows)
+}
+exports.insertComment = insertComment;

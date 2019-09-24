@@ -29,7 +29,7 @@ return `
       </div>
         <span>rating</span>
     </div>
-    <form class="post-comment" action="/new-comment" method="POST">
+    <form class="post-comment" action="/db/new-comment" method="POST">
       <textarea name="comment" placeholder="Write a comment."></textarea>
       <input class="btn btn-light" type="submit" value="Post">
     </form>
