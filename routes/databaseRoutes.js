@@ -36,6 +36,11 @@ module.exports = function(router, database) {
       res.send(queryResult);
     })
   })
+  router.get('/:resourceId/comments', (req, res) => {
+    database.queryResourceComments(req.params.resourceId).then(queryResult => {
+      res.send(queryResult);
+    })
+  })
    router.get('/resources/liked', (req, res) => {
     database.queryMyLikes(userID.user_id).then(queryResult => {
       res.send(queryResult);

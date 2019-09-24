@@ -19,9 +19,10 @@ const queryMyCategory = (data) => {
   values = [data.user_id,data.category]
   // console.log(values);
   return pool.query(`
-    SELECT res.*, COUNT(res.id) AS likes
+    SELECT res.*, COUNT(DISTINCT likes.*) AS likes, COUNT(DISTINCT comments.*) AS comments_count
     FROM resources res
     LEFT JOIN likes ON res.id = likes.resource_id
+    LEFT JOIN comments ON res.id = comments.resource_id
     WHERE res.user_id = $1 AND res.category = $2
     GROUP BY res.id
     ;`,values)
@@ -33,12 +34,18 @@ const queryMyCategory = (data) => {
 exports.queryMyCategory = queryMyCategory;
 
 const findAllResourcesByTitle = (input) => {
-  const queryString = `SELECT * FROM resources WHERE lower(title) LIKE $1;`;
+  const queryString = `
+  SELECT resources.*, COUNT(DISTINCT likes.*) AS likes, COUNT(DISTINCT comments.*) AS comments_count
+  FROM resources
+  LEFT JOIN likes ON resources.id = likes.resource_id
+  LEFT JOIN comments ON resources.id = comments.resource_id
+  WHERE lower(title) LIKE $1
+  GROUP BY resources.id;`;
   const queryParams = [`%${input.toLowerCase()}%`];
 
   return pool.query(queryString, queryParams)
     .then(res => {
-      console.log(res.rows)
+      console.log(input)
       return res.rows
     })
     .catch(err => console.log(err))
@@ -49,9 +56,10 @@ const queryMyLikes = (data) => {
   // console.log("in the queries now!!!");
   values = [data, data]
   return pool.query(`
-    SELECT res.*, COUNT(res.id) AS likes
+    SELECT res.*, COUNT(DISTINCT likes.*) AS likes, COUNT(DISTINCT comments.*) AS comments_count
     FROM likes
     LEFT JOIN resources res ON res.id = likes.resource_id
+    LEFT JOIN comments ON res.id = comments.resource_id
     WHERE likes.user_id = $1 AND res.user_id <> $2
     GROUP BY res.id
     ;`,values)
@@ -65,9 +73,10 @@ exports.queryMyLikes= queryMyLikes;
 const queryMyAll = (data) => {
   values = [data,data]
   return pool.query(`
-    SELECT res.*, COUNT(likes.resource_id) AS likes
+    SELECT res.*, COUNT(DISTINCT likes.*) AS likes, COUNT(DISTINCT comments.*) AS comments_count
     FROM resources res
     LEFT JOIN likes ON likes.resource_id = res.id
+    LEFT JOIN comments ON res.id = comments.resource_id
     WHERE res.user_id = $1 OR likes.user_id = $2
     GROUP BY res.id
     ;`,values)
@@ -92,3 +101,12 @@ const queryAddLike = (data) => {
 exports.queryAddLike = queryAddLike;
 
 
+const queryResourceComments = resourceId => {
+  const queryString = `SELECT comment FROM comments WHERE resource_id = $1;`;
+  const queryParams = [resourceId];
+
+  return pool.query(
+    queryString, queryParams
+    ).then(res => res.rows)
+}
+exports.queryResourceComments = queryResourceComments;
