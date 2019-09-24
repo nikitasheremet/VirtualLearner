@@ -25,9 +25,7 @@ return `
         <img src="/images/like.svg" alt="...">
         <img src="/images/comment.svg" alt="...">
       </div>
-      </div>
         <span>rating</span>
-      </div>
     </div>
   </div>`
 }
