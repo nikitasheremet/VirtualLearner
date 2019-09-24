@@ -53,7 +53,7 @@ $("#my-resources").on("click", ".show-all-resources", (data) => {
   $(".show-categories").show();
   ajaxAllResources().then(res => {
 
-    // console.log(res);
+    console.log(res);
     let output = ""
     for (resource of res.myResources) {
       output += generateResources(resource)
