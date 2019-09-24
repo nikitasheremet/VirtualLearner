@@ -1,10 +1,18 @@
 
 const ajaxResources = (res) => {
   return $.ajax({
-      method: "GET",
-      url: `/db/${res}`
-    });
-  }
+    method: "GET",
+    url: `/db/${res}`
+  });
+}
+
+const ajaxComments = res => {
+  return $.ajax({
+    method: "GET",
+    url: `/db/${res}/comments`
+  })
+}
+
 
 const createResource = resource => {
   console.log(resource.url)
@@ -21,7 +29,7 @@ const createResource = resource => {
     <div class="left-footer">
       <img class=like-button data-cond=false src="/images/like.svg" alt="...">
       <span>${resource.likes}</span>
-      <img src="/images/comment.svg" alt="...">
+      <img class="comment-bubble" src="/images/comment.svg" alt="...">
       <span>${resource.comments_count}</span>
     </div>
       <span>rating</span>
@@ -45,4 +53,18 @@ ajaxResources(input).then(res => {
     renderResource(resource);
   }
 });
+})
+
+$(".container").on("click", ".comment-bubble", function() {
+  console.log($(this))
+  const commentSection = $(this).parent().parent().parent()
+  // commentSection.append("TEST")
+  const resourceId = $(this).parents(".card")[0].attributes.id.value
+  console.log(resourceId)
+
+  ajaxComments(resourceId).then(res => {
+    for (let comment of res) {
+      commentSection.append(comment.comment)
+    }
+  })
 })

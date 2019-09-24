@@ -101,9 +101,9 @@ const queryAddLike = (data) => {
 exports.queryAddLike = queryAddLike;
 
 
-const queryResourceComments = resource => {
+const queryResourceComments = resourceId => {
   const queryString = `SELECT comment FROM comments WHERE resource_id = $1;`;
-  const queryParams = [resource.id];
+  const queryParams = [resourceId];
 
   return pool.query(
     queryString, queryParams

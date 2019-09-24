@@ -24,7 +24,7 @@ return `
       <div class="left-footer">
         <img class=like-button data-cond=false src="/images/like.svg" alt="...">
         <span>${resource.likes}</span>
-        <img src="/images/comment.svg" alt="...">
+        <img class="comment-bubble" src="/images/comment.svg" alt="...">
         <span>${resource.comments_count}</span>
       </div>
         <span>rating</span>
