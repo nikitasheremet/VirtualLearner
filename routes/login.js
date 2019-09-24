@@ -39,7 +39,7 @@ router.post("/login", (req, res) => {
 const getUserByEmail = function(email, db) {
   let result = null;
   for (let id in db){
-    let user = database[id];
+    let user = db[id];
     if (user.email === email) {
       result = user;
       break;
@@ -47,6 +47,13 @@ const getUserByEmail = function(email, db) {
   }
   return result;
 };
+
+//logout
+router.post("/logout", (req, res) => {
+  req.session.theirUserId = undefined;
+  res.redirect("/landing_page");
+});
+
 
 // $(document).ready(function() {
 //   $("#login").click(function() {
