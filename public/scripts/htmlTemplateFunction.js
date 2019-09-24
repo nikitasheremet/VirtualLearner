@@ -24,6 +24,7 @@ return `
       <div class="left-footer">
         <img src="/images/like.svg" alt="...">
         <img src="/images/comment.svg" alt="...">
+        <p>${resource.comments_count}</p>
       </div>
         <span>rating</span>
     </div>
