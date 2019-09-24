@@ -10,7 +10,7 @@ const generateTemplateCategory = (categoryName) => {
 
 const generateResources = (resource, color = "black") => {
 return `
-  <div class="card">
+  <div class="card" id=${resource.id}>
     <div class="card-header">
         <h5 class="card-title" style=color:${color}>${resource.title}</h5>
     </div>
@@ -22,7 +22,8 @@ return `
     </div>
     <div class="card-footer">
       <div class="left-footer">
-        <img src="/images/like.svg" alt="...">
+        <img class=like-button data-cond=false src="/images/like.svg" alt="...">
+        <span>${resource.likes}</span>
         <img src="/images/comment.svg" alt="...">
         <p>${resource.comments_count}</p>
       </div>
