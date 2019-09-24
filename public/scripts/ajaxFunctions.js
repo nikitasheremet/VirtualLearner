@@ -34,3 +34,16 @@ const ajaxAddLike = (id) => {
   });
 }
 
+const ajaxResources = title => {
+  return $.ajax({
+    method: "GET",
+    url: `/db/${title}`
+  });
+}
+
+const ajaxComments = id => {
+  return $.ajax({
+    method: "GET",
+    url: `/db/${id}/comments`
+  })
+}
