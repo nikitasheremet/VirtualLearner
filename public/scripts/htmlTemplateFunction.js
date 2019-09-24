@@ -22,7 +22,7 @@ return `
     </div>
     <div class="card-footer">
       <div class="left-footer">
-        <img class=like-button src="/images/like.svg" alt="...">
+        <img class=like-button data-cond=false src="/images/like.svg" alt="...">
         <span>${resource.likes}</span>
         <img src="/images/comment.svg" alt="...">
       </div>

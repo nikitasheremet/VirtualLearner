@@ -51,7 +51,7 @@ const queryMyLikes = (data) => {
   return pool.query(`
     SELECT res.*, COUNT(res.id) AS likes
     FROM likes
-    JOIN resources res ON res.id = likes.resource_id
+    LEFT JOIN resources res ON res.id = likes.resource_id
     WHERE likes.user_id = $1 AND res.user_id <> $2
     GROUP BY res.id
     ;`,values)

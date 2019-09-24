@@ -86,6 +86,7 @@ $("#my-resources").on("click", ".show-categories", (data) => {
 })
 $("#my-resources").on("click",".like-button",(data) => {
   const id = data.originalEvent.path[3].id;
+  console.log(data.originalEvent.path);
   ajaxAddLike(id).then(res => {
     // console.log(res);
   })
