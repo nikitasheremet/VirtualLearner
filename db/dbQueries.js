@@ -34,9 +34,13 @@ exports.queryMyCategory = queryMyCategory;
 
 const findAllResourcesByTitle = (input) => {
   const queryString = `
-  SELECT resources.*, count(comments.*) as comments_count
-  FROM resources JOIN comments ON resources.id = resource_id
-  WHERE lower(title) LIKE $1 GROUP BY resources.id;`;
+  SELECT resources.*, COUNT(resources.id) AS likes, count(comments.*) as comments_count
+  FROM resources
+  LEFT JOIN likes ON resources.id = likes.resource_id
+  JOIN comments ON resources.id = comments.resource_id
+  WHERE lower(title) LIKE $1
+
+  GROUP BY resources.id;`;
   const queryParams = [`%${input.toLowerCase()}%`];
 
   return pool.query(queryString, queryParams)
