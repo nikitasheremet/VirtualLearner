@@ -97,17 +97,27 @@ $(".container").on("click",".like-button",(data) => {
   const id = data.originalEvent.path[3].id;
   const clickStatus = data.originalEvent.path[0].attributes[1].value;
   if (clickStatus === "false") {
-    $("#my-resources .like-button").attr("data-cond","true");
-    $("#my-resources .like-count").css({"color":"red"})
+    $(`#${id} .like-button`).attr("data-cond","true");
+    $(`#${id} .like-count`).css({"color":"red"})
     ajaxAddLike(id).then(res => {
       // console.log(res);
+    }).then(() => {
+      // console.log("IWASCLICKED")
+      ajaxFetchLikes(id).then((res) => {
+        $(`#${id} .like-count`).html(res[0].count)
+      })
     })
 
   } else {
-    $(".container .like-button").attr("data-cond","false");
-    $(".container .like-count").css({"color":"black"})
+    $(`#${id} .like-button`).attr("data-cond","false");
+    $(`#${id} .like-count`).css({"color":"black"})
     ajaxDeleteLike(id).then(res => {
 
+    }).then(() => {
+      // console.log("IWASCLICKED")
+      ajaxFetchLikes(id).then((res) => {
+        $(`#${id} .like-count`).html(res[0].count)
+      })
     })
   }
 })

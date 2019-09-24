@@ -113,7 +113,7 @@ exports.queryResourceComments = queryResourceComments;
 
 const queryDeleteLike = (data) => {
   values = [data.user_id,data.id]
-  console.log(data);
+  // console.log(data);
   return pool.query(`
     DELETE FROM likes
     WHERE user_id = $1 AND resource_id = $2
@@ -141,3 +141,19 @@ const queryUsersLikes = (data) => {
   })
 }
 exports.queryUsersLikes = queryUsersLikes;
+
+const queryGetLikesForResource = (data) => {
+  values = [data]
+  console.log("DATA IS",data);
+  return pool.query(`
+    SELECT COUNT(*)
+    FROM likes
+    WHERE resource_id = $1
+    ;`,values)
+  .then((res) => {
+    console.log(res.rows);
+    return res.rows;
+
+  })
+}
+exports.queryGetLikesForResource = queryGetLikesForResource;

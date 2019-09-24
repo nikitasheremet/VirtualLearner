@@ -27,7 +27,7 @@ const ajaxLikedResources = () => {
 
 const ajaxAddLike = (id) => {
   // console.log("in ajax add like")
-  console.log(id);
+  // console.log(id);
   return $.ajax({
     method: "GET",
     url: `/db/add-like/${id}`
@@ -48,6 +48,14 @@ const ajaxUsersLikes = () => {
   return $.ajax({
     method: "GET",
     url: `/db/mylikes`
+  });
+}
+
+const ajaxFetchLikes = (id) => {
+// console.log("IN AJAX");
+  return $.ajax({
+    method: "GET",
+    url: `/db/likes/${id}`
   });
 }
 

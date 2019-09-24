@@ -30,6 +30,13 @@ module.exports = function(router, database) {
       res.send(results);
     })
   })
+  router.get('/likes/:id', (req, res) => {
+    // console.log("IAMHERENOW")
+
+    database.queryGetLikesForResource(req.params.id).then(queryResult => {
+      res.send(queryResult);
+    })
+  })
 
   router.get('/mylikes', (req, res) => {
     console.log("in router");
@@ -63,6 +70,7 @@ module.exports = function(router, database) {
       res.send(queryResult);
     })
   })
+
   router.get('/:title', (req, res) => {
     database.findAllResourcesByTitle(req.params.title).then(queryResult => {
       res.send(queryResult);
