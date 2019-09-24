@@ -35,7 +35,6 @@ module.exports = function(router, database) {
         // console.log(results);
         res.send(results);
       })
-      // res.send(queryResult);
     })
   })
 

@@ -1,3 +1,5 @@
+$card-shadow: 5px 10px 15px #adb5bd
+
 body
   .container
     // position: absolute
@@ -16,7 +18,7 @@ body
       width: 45%
       margin: 0.5em
       text-align: center
-      box-shadow: 5px 10px 15px #adb5bd
+      box-shadow: $card-shadow
       border-radius: 15px
       img
         width: 100%
@@ -24,7 +26,7 @@ body
       width: 100%
       margin: 0.5em
       padding: 1em
-      box-shadow: 5px 10px 15px #adb5bd
+      box-shadow: $card-shadow
       border-radius: 15px
       .card-header
         background-color: #fff
@@ -40,9 +42,16 @@ body
         border-radius: 5px
   #resources_found
     .card
-      box-shadow: 5px 10px 10px #adb5bd
+      box-shadow: $card-shadow
       border-radius: 15px
       padding: 1em
       .card-header
         background-color: #fff
-
+      .card-footer
+        background-color: #fff
+        display: flex
+        flex-direction: row
+        flex-wrap: wrap
+        justify-content: space-around
+        img
+          width: 20px

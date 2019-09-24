@@ -11,14 +11,21 @@ ajaxCategories().then(res => {
     output += generateTemplateCategory(cat.category);
   }
   $("#my-resources h3:eq(0)").after(`<button class="show-all-resources">Show All</button><button class="show-categories">Show Categories</button>`);
+  $(".show-categories").hide();
   myCategoriesList.html(output);
   myCategoriesList.append(generateTemplateCategory("Liked"))
+  $(".my-categories").on("click",(data) => {
+    clickCategory(data);
+  })
 });
 
 
 // On click For Show all Resources Button
 $("#my-resources").on("click", ".show-all-resources", (data) => {
+  $(".show-all-resources").hide();
+  $(".show-categories").show();
   ajaxAllResources().then(res => {
+
     console.log(res);
     let output = ""
     for (resource of res.myResources) {
@@ -34,6 +41,8 @@ $("#my-resources").on("click", ".show-all-resources", (data) => {
 
 // On click For Show Categories Button
 $("#my-resources").on("click", ".show-categories", (data) => {
+  $(".show-categories").hide();
+  $(".show-all-resources").show();
   ajaxCategories().then(res => {
   let output = "";
   for (let cat of res) {
@@ -41,18 +50,19 @@ $("#my-resources").on("click", ".show-categories", (data) => {
   }
     myCategoriesList.html(output);
     myCategoriesList.append(generateTemplateCategory("Liked"))
+    $(".my-categories").on("click",(data) => {
+    clickCategory(data);
+    })
   })
 })
 
 
 // Clicking on a category calls the db and gets a list of resources belonging to that category,
 // And displays back button
-myCategoriesList.on("click", myCategories,  (data) => {
-  // console.log(data);
-  // console.log("clicked");
+const clickCategory = (data) => {
   myCategoriesList.off();
   let output = "";
-  clickedCategory = data.target.childNodes[0].data
+  clickedCategory = data.currentTarget.children[1].children[0].innerHTML
   if (clickedCategory === "Liked") {
     ajaxLikedResources().then(res => {
       for (let resource of res) {
@@ -76,4 +86,4 @@ myCategoriesList.on("click", myCategories,  (data) => {
       `);
     })
   }
-})
+}
