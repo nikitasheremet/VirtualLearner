@@ -1,8 +1,22 @@
 const myCategoriesList = $("#my-categories-list");
 
+$().on("click", (data) => {
+
+})
+
 const displayAndMakeBackButton = (res) => {
   let output = "";
   for (let resource of res) {
+    console.log("d")
+    resource.isLiked = usersLikes.responseJSON.map(users => {
+      console.log(users.resource_id, resource.id)
+        if(users.resource_id === resource.id) {
+          return "true"
+        } else {
+          return "false"
+        }
+      }).includes("true");
+      console.log(resource);
     output += generateResources(resource)
   }
   $(".show-all-resources").hide();
@@ -17,8 +31,13 @@ const clickCategory = (data) => {
   myCategoriesList.off();
   clickedCategory = data.currentTarget.children[1].children[0].innerHTML
   if (clickedCategory === "Liked") {
-    ajaxLikedResources().then(res => {
-      displayAndMakeBackButton(res);
+    console.log("a");
+    usersLikes = ajaxUsersLikes()
+      console.log("b")
+      // console.log(res);
+      ajaxLikedResources().then(res2 => {
+        console.log("c")
+        displayAndMakeBackButton(res2);
     })
   } else {
     ajaxCategoryResources(clickedCategory).then(res => {
@@ -27,7 +46,7 @@ const clickCategory = (data) => {
   }
 }
 
-const usersLikes = ajaxUsersLikes()
+let usersLikes = ajaxUsersLikes()
 // Display Categories and Show All/Show Categories Buttons
 ajaxCategories().then(res => {
   // console.log("in first action");
@@ -56,7 +75,7 @@ $("#my-resources").on("click", ".show-all-resources", (data) => {
     console.log(res);
     let output = ""
     for (resource of res.myResources) {
-      console.log(typeof resource);
+      // console.log(typeof resource);
       resource.isLiked = usersLikes.responseJSON.map(users => {
         if(users.resource_id === resource.id) {
           return "true"
@@ -64,7 +83,7 @@ $("#my-resources").on("click", ".show-all-resources", (data) => {
           return "false"
         }
       }).includes("true");
-      console.log(resource);
+      // console.log(resource);
 
       if (resource.user_id !== res.ID) {
         output += generateResources(resource, "red")
@@ -93,7 +112,7 @@ $("#my-resources").on("click", ".show-categories", (data) => {
     })
   })
 })
-$(".container").on("click",".like-button",(data) => {
+$("body").on("click",".like-button",(data) => {
   const id = data.originalEvent.path[3].id;
   const clickStatus = data.originalEvent.path[0].attributes[1].value;
   if (clickStatus === "false") {

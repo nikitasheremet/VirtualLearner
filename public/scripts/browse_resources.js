@@ -32,7 +32,15 @@ const createResource = resource => {
 const renderResource = data => {
   const wall = $("#resources_found");
   $("#resources_found").empty()
-  wall.append(createResource(data));
+  data.isLiked = usersLikes.responseJSON.map(users => {
+        if(users.resource_id === data.id) {
+          return "true"
+        } else {
+          return "false"
+        }
+      }).includes("true");
+  console.log(data);
+  wall.append(generateResources(data));
 }
 
 
