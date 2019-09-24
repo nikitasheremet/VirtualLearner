@@ -117,3 +117,77 @@ const insertComment = data => {
   return pool.query(queryString, queryValues).then(res => res.rows)
 }
 exports.insertComment = insertComment;
+
+const queryDeleteLike = (data) => {
+  values = [data.user_id,data.id]
+  // console.log(data);
+  return pool.query(`
+    DELETE FROM likes
+    WHERE user_id = $1 AND resource_id = $2
+    RETURNING *;`,values)
+  .then((res) => {
+    console.log(res.rows);
+    return "success";
+
+  })
+}
+exports.queryDeleteLike = queryDeleteLike;
+
+const queryUsersLikes = (data) => {
+  values = [data]
+  // console.log("DATA IS",data);
+  return pool.query(`
+    SELECT *
+    FROM likes
+    WHERE user_id = $1
+    ;`,values)
+  .then((res) => {
+    // console.log(res.rows);
+    return res.rows;
+
+  })
+}
+exports.queryUsersLikes = queryUsersLikes;
+
+const queryGetLikesForResource = (data) => {
+  values = [data]
+  console.log("DATA IS",data);
+  return pool.query(`
+    SELECT COUNT(*)
+    FROM likes
+    WHERE resource_id = $1
+    ;`,values)
+  .then((res) => {
+    console.log(res.rows);
+    return res.rows;
+
+  })
+}
+exports.queryGetLikesForResource = queryGetLikesForResource;
+
+
+const queryMyRatings = (data) => {
+  values = [data, data]
+  return pool.query(`
+    SELECT res.*, COUNT(DISTINCT ratings.*) AS ratings
+    LEFT JOIN resources res ON res.id = ratings.resource_id
+    WHERE ratings.user_id = $1 AND res.user_id <> $2
+    GROUP BY res.id
+    ;`,values)
+  .then(res => {
+    console.log(res.rows);
+    return res.rows;
+  })
+}
+exports.queryMyRatings= queryMyRatings;
+
+
+const queryRatings = (data) => {
+  values = [data.user_id, data.id]
+  return pool.query('INSERT INTO ratings(user_id, resource_id) VALUES ($1, $2);', values)
+  .then(() => {
+    return "success";
+  })
+};
+
+exports.queryRatings = queryRatings

@@ -30,6 +30,14 @@ const createComment = data => {
 const renderResource = data => {
   const wall = $("#resources_found");
   $("#resources_found").empty()
+  data.isLiked = usersLikes.responseJSON.map(users => {
+        if(users.resource_id === data.id) {
+          return "true"
+        } else {
+          return "false"
+        }
+      }).includes("true");
+  console.log(data);
   wall.append(generateResources(data));
 }
 

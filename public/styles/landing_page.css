@@ -1,126 +1,128 @@
-.login-container {
-  max-width: 335px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: white;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 20px;
-  border-radius: 10px;
-  padding-bottom: 20px;
-}
+/* Mobile Styles */
 
-.login-labels {
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  color: black;
-}
+  .login-container {
+    max-width: 335px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    border-radius: 10px;
+    padding-bottom: 20px;
+  }
 
-.input-fields {
-  background-color: #ededed !important;
-  border: 0px !important;
-  width: 100%;
-}
+  .login-labels {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    color: black;
+  }
 
-.login-button {
-  background-color: #F80D20;
-  border-radius: 8px;
-  border: 0px;
-  width: 100%;
-  margin-top: 25px;
-  height: 38px;
-}
+  .input-fields {
+    background-color: #ededed !important;
+    border: 0px !important;
+    width: 100%;
+  }
 
-.login-button a{
-  color:white;
-  font-weight:bold;
-}
+  .login-button {
+    background-color: #F80D20;
+    border-radius: 8px;
+    border: 0px;
+    width: 100%;
+    margin-top: 25px;
+    height: 38px;
+  }
 
-textarea {
-  resize: none !important;
-  height: 120px;
-}
+  .login-button a{
+    color:white;
+    font-weight:bold;
+  }
 
-.account-space {
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  margin-bottom: 0px;
-}
+  textarea {
+    resize: none !important;
+    height: 120px;
+  }
 
-.sign-up-link{
-  color: black;
-  font-weight: bold;
-  text-decoration-line: underline;
+  .account-space {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-bottom: 0px;
+  }
 
-}
+  .sign-up-link{
+    color: black;
+    font-weight: bold;
+    text-decoration-line: underline;
 
-.sign-up {
-  width: 100%;
-  text-align: center;
-}
+  }
 
-.logo {
-  height: 220px;
-  background-repeat: no-repeat;
-  background-size: 286px 205px;
-  background-position: bottom;
-  margin-bottom: -13px;
-  margin-left: auto;
-  margin-right:auto;
-  background-image: url("https://i.ibb.co/F0jFnkv/background-modfied.jpg");
-}
+  .sign-up {
+    width: 100%;
+    text-align: center;
+  }
 
-.logo img{
-  width: inherit;
-}
+  .logo {
+    height: 220px;
+    background-repeat: no-repeat;
+    background-size: 286px 205px;
+    background-position: bottom;
+    margin-bottom: -13px;
+    margin-left: auto;
+    margin-right:auto;
+    background-image: url("https://i.ibb.co/F0jFnkv/background-modfied.jpg");
+  }
 
-.center-text {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 20px;
-}
+  .logo img{
+    width: inherit;
+  }
 
-.virtual-logo {
-  margin-left: auto;
-  margin-right:auto;
-  height: 40px;
-  background-repeat: no-repeat;
-  background-size: 276px 41px;
-  background-image: url("https://i.ibb.co/DM8Lr2d/Virtual-Learner.png");
-  background-position: center;
-}
+  .center-text {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+  }
 
-
-.imageUpload {
-display: none;
-}
-
-.profileImage{
-cursor: pointer;
-}
-
-.profile-container {
-width: 150px;
-height: 150px;
-overflow: hidden;
--webkit-border-radius: 50%;
--moz-border-radius: 50%;
--ms-border-radius: 50%;
--o-border-radius: 50%;
-border-radius: 50%;
-}
-
-.profile-container img {
-width: 150px;
-height: 150px;
-}
+  .virtual-logo {
+    margin-left: auto;
+    margin-right:auto;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-size: 276px 41px;
+    background-image: url("https://i.ibb.co/DM8Lr2d/Virtual-Learner.png");
+    background-position: center;
+  }
 
 
-.counter{
-  float: right;
-  font-family: 'Bungee', cursive;
-}
+  .imageUpload {
+  display: none;
+  }
+
+  .profileImage{
+  cursor: pointer;
+  }
+
+  .profile-container {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  }
+
+  .profile-container img {
+  width: 150px;
+  height: 150px;
+  }
+
+
+  .counter{
+    float: right;
+    font-family: 'Bungee', cursive;
+  }
