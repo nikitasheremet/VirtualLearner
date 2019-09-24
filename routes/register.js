@@ -21,7 +21,7 @@ function registerUser(req, res, db) {
   //Extract registration information from form
   let firstName = req.body.first_name.trim();
   let lastName = req.body.last_name.trim();
-  let email = req.body.email;
+  let email = req.body.email_address;
   let password = req.body.password;
 
   // Check that email and password are provided
@@ -30,25 +30,20 @@ function registerUser(req, res, db) {
   } else {
 
     // check wheather user already exists
-    pool.query('SELECT * FROM users WHERE email = $1'), [email], (error, results) => {
-      if (error) {
-        res.status(400).send(error.message);
-      } else {
-
+    db.query('SELECT * FROM users WHERE email = $1', [email])
+    .then((_) => {
         //hash password for security
         const hashedPassword = bcrypt.hashSync(password,10);
-
         //Insert user into database
-        pool.query('INSERT INTO users(email, password) VALUES ($1,$2)', [email, hashedPassword], (error, results) => {
-          if (error) {
-            res.status(400).send(error.message);
-          } else {
-
-            //user inserted correctly, redirect to home page
-            res.redirect('/home')
-          }
-        });
-      }
-    }
-  };
+        return db.query('INSERT INTO users(email, password) VALUES ($1,$2)', [email, hashedPassword]);
+    })
+    .then((_) => {
+      //user inserted correctly, redirect to home page
+      res.redirect('/home');
+      return true;
+    })
+    .catch((error) => {
+        res.status(400).send(error.message);
+    });
+  }
 }

@@ -18,27 +18,30 @@ module.exports = (db) => {
 function registerResource(req, res, db) {
 
   //Extract registration information from form
-  let URL = req.body.first_name.trim();
-  let title = req.body.last_name.trim();
-  let description = req.body.email;
-  let category = req.body.password;
+  let URL = req.body.url;
+  let title = req.body.title;
+  let description = req.body.description;
+  // let category = req.body.password;
 
   // Check that URL, title, and description password are provided
   if (URL === "" || title === "" || description === "") {
     res.status(400).send('Please make sure you provide URL, title and description');
   } else {
         //Insert resource into database
-        pool.query('INSERT INTO resources(URL, title, description) VALUES ($1,$2,$3)', (error, results) => {
-          if (error) {
-            res.status(400).send(error.message);
-          } else {
-
+        db.query('INSERT INTO resources(url, title, description) VALUES ($1,$2,$3)', [URL, title, description])
+        .then((_) => {
             //resource inserted correctly, redirect to home page
-            res.redirect('/home')
-          }
-        });
+            res.redirect('/home');
+            return true;
+        })
+        .catch((error) => {
+            res.status(400).send(error.message);
+          });
       }
-    }
+}
+
+
+// (user_id, url, title, description, category, thumbnail_photo
 
 
 
