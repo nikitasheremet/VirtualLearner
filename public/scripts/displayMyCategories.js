@@ -1,8 +1,22 @@
 const myCategoriesList = $("#my-categories-list");
 
+$().on("click", (data) => {
+
+})
+
 const displayAndMakeBackButton = (res) => {
   let output = "";
   for (let resource of res) {
+    console.log("d")
+    resource.isLiked = usersLikes.responseJSON.map(users => {
+      console.log(users.resource_id, resource.id)
+        if(users.resource_id === resource.id) {
+          return "true"
+        } else {
+          return "false"
+        }
+      }).includes("true");
+      console.log(resource);
     output += generateResources(resource)
   }
   $(".show-all-resources").hide();
@@ -17,8 +31,13 @@ const clickCategory = (data) => {
   myCategoriesList.off();
   clickedCategory = data.currentTarget.children[1].children[0].innerHTML
   if (clickedCategory === "Liked") {
-    ajaxLikedResources().then(res => {
-      displayAndMakeBackButton(res);
+    console.log("a");
+    usersLikes = ajaxUsersLikes()
+      console.log("b")
+      // console.log(res);
+      ajaxLikedResources().then(res2 => {
+        console.log("c")
+        displayAndMakeBackButton(res2);
     })
   } else {
     ajaxCategoryResources(clickedCategory).then(res => {
@@ -27,6 +46,7 @@ const clickCategory = (data) => {
   }
 }
 
+let usersLikes = ajaxUsersLikes()
 // Display Categories and Show All/Show Categories Buttons
 ajaxCategories().then(res => {
   // console.log("in first action");
@@ -52,10 +72,19 @@ $("#my-resources").on("click", ".show-all-resources", (data) => {
   $(".show-all-resources").hide();
   $(".show-categories").show();
   ajaxAllResources().then(res => {
-
     console.log(res);
     let output = ""
     for (resource of res.myResources) {
+      // console.log(typeof resource);
+      resource.isLiked = usersLikes.responseJSON.map(users => {
+        if(users.resource_id === resource.id) {
+          return "true"
+        } else {
+          return "false"
+        }
+      }).includes("true");
+      // console.log(resource);
+
       if (resource.user_id !== res.ID) {
         output += generateResources(resource, "red")
       } else {
@@ -65,7 +94,6 @@ $("#my-resources").on("click", ".show-all-resources", (data) => {
     myCategoriesList.html(output);
   })
 })
-
 
 // On click For Show Categories Button
 $("#my-resources").on("click", ".show-categories", (data) => {
@@ -84,10 +112,32 @@ $("#my-resources").on("click", ".show-categories", (data) => {
     })
   })
 })
-$("#my-resources").on("click",".like-button",(data) => {
+$("body").on("click",".like-button",(data) => {
   const id = data.originalEvent.path[3].id;
-  console.log(data.originalEvent.path);
-  ajaxAddLike(id).then(res => {
-    // console.log(res);
-  })
+  const clickStatus = data.originalEvent.path[0].attributes[1].value;
+  if (clickStatus === "false") {
+    $(`#${id} .like-button`).attr("data-cond","true");
+    $(`#${id} .like-count`).css({"color":"red"})
+    ajaxAddLike(id).then(res => {
+      // console.log(res);
+    }).then(() => {
+      // console.log("IWASCLICKED")
+      ajaxFetchLikes(id).then((res) => {
+        $(`#${id} .like-count`).html(res[0].count)
+      })
+    })
+
+  } else {
+    $(`#${id} .like-button`).attr("data-cond","false");
+    $(`#${id} .like-count`).css({"color":"black"})
+    ajaxDeleteLike(id).then(res => {
+
+    }).then(() => {
+      // console.log("IWASCLICKED")
+      ajaxFetchLikes(id).then((res) => {
+        $(`#${id} .like-count`).html(res[0].count)
+      })
+    })
+  }
 })
+

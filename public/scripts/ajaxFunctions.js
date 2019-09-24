@@ -26,13 +26,40 @@ const ajaxLikedResources = () => {
 }
 
 const ajaxAddLike = (id) => {
-  console.log("in ajax add like")
-  console.log(id);
+  // console.log("in ajax add like")
+  // console.log(id);
   return $.ajax({
     method: "GET",
     url: `/db/add-like/${id}`
   });
 }
+
+
+const ajaxDeleteLike = (id) => {
+  // console.log("in ajax delete like")
+  // console.log(id);
+  return $.ajax({
+    method: "GET",
+    url: `/db/delete-like/${id}`
+  });
+}
+
+const ajaxUsersLikes = () => {
+// console.log("IN AJAX");
+  return $.ajax({
+    method: "GET",
+    url: `/db/mylikes`
+  });
+}
+
+const ajaxFetchLikes = (id) => {
+// console.log("IN AJAX");
+  return $.ajax({
+    method: "GET",
+    url: `/db/likes/${id}`
+  });
+}
+
 
 const ajaxResources = title => {
   return $.ajax({
@@ -47,3 +74,4 @@ const ajaxComments = id => {
     url: `/db/${id}/comments`
   })
 }
+

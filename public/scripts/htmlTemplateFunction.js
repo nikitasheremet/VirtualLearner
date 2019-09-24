@@ -9,6 +9,7 @@ const generateTemplateCategory = (categoryName) => {
 }
 
 const generateResources = (resource, color = "black") => {
+
 return `
   <div class="card" id=${resource.id}>
     <div class="card-header">
@@ -22,8 +23,8 @@ return `
     </div>
     <div class="card-footer">
       <div class="left-footer">
-        <img class=like-button data-cond=false src="/images/like.svg" alt="...">
-        <span>${resource.likes}</span>
+        <img class=like-button data-cond=${resource.isLiked} src="/images/like.svg" alt="...">
+        <span class=like-count style=color:${resource.isLiked ? "red" : "black"}>${resource.likes}</span>
         <img class="comment-bubble" src="/images/comment.svg" alt="...">
         <span>${resource.comments_count}</span>
       </div>
@@ -31,6 +32,9 @@ return `
       <div class="stars-inner"></div>
         </div>
     <form class="post-comment" action="/new-comment" method="POST">
+        <span>rating</span>
+    </div>
+    <form class="post-comment" action="/db/new-comment" method="POST">
       <textarea name="comment" placeholder="Write a comment."></textarea>
       <input class="btn btn-light" type="submit" value="Post">
     </form>
