@@ -4,9 +4,9 @@ const myCategories = $(".my-categories");
 
 // Display Categories and Show All/Show Categories Buttons
 ajaxCategories().then(res => {
-  console.log("in first action");
+  // console.log("in first action");
   let output = "";
-  console.log(res);
+  // console.log(res);
   for (let cat of res) {
     output += generateTemplateCategory(cat.category);
   }
@@ -26,7 +26,7 @@ $("#my-resources").on("click", ".show-all-resources", (data) => {
   $(".show-categories").show();
   ajaxAllResources().then(res => {
 
-    console.log(res);
+    // console.log(res);
     let output = ""
     for (resource of res.myResources) {
       output += generateResources(resource)
@@ -58,32 +58,28 @@ $("#my-resources").on("click", ".show-categories", (data) => {
 
 
 // Clicking on a category calls the db and gets a list of resources belonging to that category,
-// And displays back button
+// And displays back buttom
+const displayAndMakeBackButton = (res) => {
+  let output = "";
+  for (let resource of res) {
+    output += generateResources(resource)
+  }
+  $(".show-all-resources").hide();
+  $(".show-categories").hide();
+  myCategoriesList.html(output);
+  $("#my-resources h3:eq(0)").after(`<button class=back-button><a href="/home" style="color:black">Show Categories</a></button>`)
+}
+
 const clickCategory = (data) => {
   myCategoriesList.off();
-  let output = "";
   clickedCategory = data.currentTarget.children[1].children[0].innerHTML
   if (clickedCategory === "Liked") {
     ajaxLikedResources().then(res => {
-      for (let resource of res) {
-        output += generateResources(resource)
-      }
-      $(".show-all-resources").hide();
-      $(".show-categories").hide();
-      myCategoriesList.html(`
-      <button class=back-button><a href="/home">BACK</a></button>${output}
-      `);
+      displayAndMakeBackButton(res);
     })
   } else {
     ajaxCategoryResources(clickedCategory).then(res => {
-      for (let resource of res) {
-        output += generateResources(resource)
-      }
-      $(".show-all-resources").hide();
-      $(".show-categories").hide();
-      myCategoriesList.html(`
-      <button class=back-button><a href="/home">BACK</a></button>${output}
-      `);
+      displayAndMakeBackButton(res);
     })
   }
 }
