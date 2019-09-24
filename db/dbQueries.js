@@ -110,3 +110,33 @@ const queryResourceComments = resourceId => {
     ).then(res => res.rows)
 }
 exports.queryResourceComments = queryResourceComments;
+
+
+
+const queryMyRatings = (data) => {
+  values = [data, data]
+  return pool.query(`
+    SELECT res.*, COUNT(DISTINCT ratings.*) AS ratings
+    LEFT JOIN resources res ON res.id = ratings.resource_id
+    WHERE ratings.user_id = $1 AND res.user_id <> $2
+    GROUP BY res.id
+    ;`,values)
+  .then(res => {
+    console.log(res.rows);
+    return res.rows;
+  })
+}
+exports.queryMyRatings= queryMyRatings;
+
+
+const queryRatings = (data) => {
+  values = [data.user_id, data.id]
+  return pool.query('INSERT INTO ratings(user_id, resource_id) VALUES ($1, $2);', values)
+  .then(() => {
+    return "success";
+  })
+};
+
+exports.queryRatings = queryRatings
+
+
