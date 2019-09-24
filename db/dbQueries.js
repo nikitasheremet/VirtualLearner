@@ -67,7 +67,7 @@ const queryMyAll = (data) => {
     GROUP BY res.id
     ;`,values)
   .then(res => {
-    console.log(res.rows)
+    // console.log(res.rows)
     return res.rows;
   })
 }
