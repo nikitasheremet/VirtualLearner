@@ -39,7 +39,7 @@ function registerUser(req, res, db) {
         const hashedPassword = bcrypt.hashSync(password,10);
 
         //Insert user into database
-        pool.quey('INSERT INTO users(email, password) VALUES ($1,$2)', [email, hashedPassword], (error, results) => {
+        pool.query('INSERT INTO users(email, password) VALUES ($1,$2)', [email, hashedPassword], (error, results) => {
           if (error) {
             res.status(400).send(error.message);
           } else {

@@ -2,26 +2,44 @@ const express = require('express');
 const router  = express.Router();
 
 
+// handle the request to register a new user(POST to register)
 module.exports = (db) => {
-  router.get("/", (req, res) => {
+  router.post("/", (req, res) => {
+    registerResource(req, res, db);
+  });
+    router.get("/", (req, res) => {
     res.render("add_resource");
-  })
+  });
+    return router;
+  };
 
-  // Route to show the new resource page
-  // router.post("/", (req, res) => {
-  //   let theirResource = req.session.theirResource;
-  //   if (theirResource === undefined) {
-  //     res.redirect("/home");
-  //   } else {
-  //     let templateVars = { resource: resources, user : db[theirResource]};
-  //     res.render("add_resource", templateVars);
-  //   }
-  // });
 
-  return router;
-}
 
-const bcrypt = require("bcrypt");
+function registerResource(req, res, db) {
+
+  //Extract registration information from form
+  let URL = req.body.first_name.trim();
+  let title = req.body.last_name.trim();
+  let description = req.body.email;
+  let category = req.body.password;
+
+  // Check that URL, title, and description password are provided
+  if (URL === "" || title === "" || description === "") {
+    res.status(400).send('Please make sure you provide URL, title and description');
+  } else {
+        //Insert resource into database
+        pool.query('INSERT INTO resources(URL, title, description) VALUES ($1,$2,$3)', (error, results) => {
+          if (error) {
+            res.status(400).send(error.message);
+          } else {
+
+            //resource inserted correctly, redirect to home page
+            res.redirect('/home')
+          }
+        });
+      }
+    }
+
 
 
 //put in scripts
