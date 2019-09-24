@@ -15,15 +15,18 @@ const queryUserCategories = (user_id) => {
 exports.queryUserCategories = queryUserCategories;
 
 const queryMyCategory = (data) => {
-  console.log("in the queries now!!!");
+  // console.log("in the queries now!!!");
   values = [data.user_id,data.category]
+  // console.log(values);
   return pool.query(`
-    SELECT res.*
+    SELECT res.*, COUNT(res.id) AS likes
     FROM resources res
-    JOIN users ON res.user_id = users.id
-    WHERE users.id = $1 AND res.category = $2
+    LEFT JOIN likes ON res.id = likes.resource_id
+    WHERE res.user_id = $1 AND res.category = $2
+    GROUP BY res.id
     ;`,values)
   .then(res => {
+    // console.log(res.rows)
     return res.rows;
   })
 }
@@ -43,15 +46,17 @@ const findAllResourcesByTitle = (input) => {
 exports.findAllResourcesByTitle = findAllResourcesByTitle;
 
 const queryMyLikes = (data) => {
-  console.log("in the queries now!!!");
+  // console.log("in the queries now!!!");
   values = [data, data]
   return pool.query(`
-    SELECT res.*
+    SELECT res.*, COUNT(res.id) AS likes
     FROM likes
     JOIN resources res ON res.id = likes.resource_id
     WHERE likes.user_id = $1 AND res.user_id <> $2
+    GROUP BY res.id
     ;`,values)
   .then(res => {
+    console.log(res.rows);
     return res.rows;
   })
 }
