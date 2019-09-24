@@ -21,6 +21,7 @@ const createResource = resource => {
     <div class="left-footer">
       <img src="/images/like.svg" alt="...">
       <img src="/images/comment.svg" alt="...">
+      <span>${resource.comments_count}</span>
     </div>
       <span>rating</span>
   </div>

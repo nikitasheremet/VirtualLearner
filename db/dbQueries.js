@@ -33,7 +33,10 @@ const queryMyCategory = (data) => {
 exports.queryMyCategory = queryMyCategory;
 
 const findAllResourcesByTitle = (input) => {
-  const queryString = `SELECT * FROM resources WHERE lower(title) LIKE $1;`;
+  const queryString = `
+  SELECT resources.*, count(comments.*) as comments_count
+  FROM resources JOIN comments ON resources.id = resource_id
+  WHERE lower(title) LIKE $1 GROUP BY resources.id;`;
   const queryParams = [`%${input.toLowerCase()}%`];
 
   return pool.query(queryString, queryParams)
@@ -79,3 +82,12 @@ const queryMyAll = (data) => {
 exports.queryMyAll= queryMyAll;
 
 
+const queryResourceComments = resource => {
+  const queryString = `SELECT comment FROM comments WHERE resource_id = $1;`;
+  const queryParams = [resource.id];
+
+  return pool.query(
+    queryString, queryParams
+    ).then(res => res.rows)
+}
+exports.queryResourceComments = queryResourceComments;
