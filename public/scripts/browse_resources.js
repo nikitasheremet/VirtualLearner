@@ -24,9 +24,9 @@ $("#search-all-resources").submit( event => {
 })
 
 //On comment-bubble click, append comments associated with resource to bottom of card.
-$(".container").on("click", ".comment-bubble", function() {
+$(".container").on("click", ".comment-bubble", function(data) {
   const commentSection = $(this).parent().parent().parent()
-  const resourceId = $(this).parents(".card")[0].attributes.id.value
+  const resourceId = data.originalEvent.path[3].classList[1]
 
   ajaxComments(resourceId).then(res => {
     for (let comment of res) {
@@ -41,7 +41,7 @@ $(".container").on("submit", ".post-comment", function(event) {
   const input = $(this).find("textarea").val();
   //! userId to be determined cookie session
   const userId = 1
-  const resourceId = $(this).parents(".card")[0].attributes.id.value
+  const resourceId = event.originalEvent.path[1].classList[1]
   $.ajax({
     url: "/db/new-comment",
     method: 'POST',

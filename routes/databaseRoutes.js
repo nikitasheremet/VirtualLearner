@@ -83,6 +83,10 @@ module.exports = function(router, database) {
   //   database.insertComment(req.body)
   // }
 
+  router.post('/new-comment', (req, res) => {
+    console.log(req.body)
+    database.insertComment(req.body)
+  });
 
   router.get('/:title', (req, res) => {
     database.findAllResourcesByTitle(req.params.title).then(queryResult => {
