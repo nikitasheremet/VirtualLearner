@@ -24,31 +24,35 @@
     <div class="logo"></div>
     <div class="login-container">
         <main class="login-form">
-          <form action="edit_profile" method="GET">
+          <form action="/edit_profile" method="POST">
             <div>
               <label class= "login-labels" for="first-name">First Name</label>
               <div>
-                <input type="text" id="first-name" class="form-control input-fields" name="first-name" required autofocus>
+                <input type="text" id="first-name" class="form-control input-fields" name="first_name">
               </div>
             </div>
             <div>
               <label class= "login-labels" for="last-name">Last Name</label>
               <div>
-                <input type="text"  id="last-name" class="form-control input-fields" name="last-name" required>
+                <input type="text"  id="last-name" class="form-control input-fields" name="last_name">
               </div>
               <div>
                   <label class= "login-labels" for="email">Email</label>
                   <div>
-                    <input type="text"  id="email" class="form-control input-fields" name="email" required>
+                    <input type="text"  id="email" class="form-control input-fields" name="email">
                   </div>
               </div>
+              <div>
+                  <label class= "login-labels" for="password">Password</label>
+                  <div>
+                    <input type="text"  id="password" class="form-control input-fields" name="password">
                   <br>
                   <div id="profile-container">
                     </div>
-                    <input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" required="" capture>
+                    <input id="imageUpload" type="file" name="profile_pic" placeholder="Photo" required="" capture>
                   <div>
                 <button class="login-button" type="submit">
-                  <a href="/home"> Update Profile </a>
+                  <a > Update Profile </a>
                 </button>
               </div>
           </form>

@@ -117,8 +117,7 @@ $("#my-resources").on("click", ".show-categories", (data) => {
 })
 
 $("body").on("click",".like-button",(data) => {
-  // console.log(data.originalEvent.path[3].classList[1])
-  const id = data.originalEvent.path[3].classList[1]
+  const id = data.originalEvent.path[4].classList[1]
   const clickStatus = data.originalEvent.path[0].attributes[1].value;
   if (clickStatus === "false") {
     $(`.${id} .like-button`).attr("data-cond","true");
