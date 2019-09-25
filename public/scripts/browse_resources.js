@@ -23,25 +23,41 @@ $("#search-all-resources").submit( event => {
   });
 })
 
-//On comment-bubble click, append comments associated with resource to bottom of card.
+//On comment-bubble click:
+//Hide card image and body
+//Append comments associated with resource to card footer
+//Show comment section that holds textarea and comments list
 $(".container").on("click", ".comment-bubble", function(data) {
-  const commentSection = $(this).parent().parent().parent()
-  const resourceId = data.originalEvent.path[3].classList[1]
+  const commentSection = $(this).parents(".card-footer").find(".comment-section")
+  const commentsList = $(this).parents(".card-footer").find(".comments-list")
+  const resourceId = data.originalEvent.path[4].classList[1]
+
+  $(this).parents(".card").find(".card-img-top").slideToggle()
+  $(this).parents(".card").find(".card-body").slideToggle()
+  commentsList.empty()
 
   ajaxComments(resourceId).then(res => {
     for (let comment of res) {
-      commentSection.append(createComment(comment))
+      commentsList.prepend(createComment(comment))
     }
   })
+
+  commentSection.toggle()
+  commentSection.find("textarea").focus()
 })
 
 
 $(".container").on("submit", ".post-comment", function(event) {
   event.preventDefault();
-  const input = $(this).find("textarea").val();
+
+  const commentTextarea = $(this).find("textarea")
+  const commentsList = $(".comments-list")
+
+  let input = commentTextarea.val();
   //! userId to be determined cookie session
   const userId = 1
-  const resourceId = event.originalEvent.path[1].classList[1]
+  const resourceId = event.originalEvent.path[3].classList[1]
+
   $.ajax({
     url: "/db/new-comment",
     method: 'POST',
@@ -51,4 +67,13 @@ $(".container").on("submit", ".post-comment", function(event) {
       resourceId
     }
   })
+
+  commentsList.empty()
+  commentTextarea.val("")
+  ajaxComments(resourceId).then(res => {
+    for (let comment of res) {
+      commentsList.prepend(createComment(comment))
+    }
+  })
+
 })

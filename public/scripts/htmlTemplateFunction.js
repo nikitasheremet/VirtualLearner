@@ -23,25 +23,38 @@ return `
       <p class="card-text">${resource.description}</p>
     </div>
     <div class="card-footer">
-      <div class="left-footer">
-        <img class=like-button data-cond=${resource.isLiked} src="/images/like.svg" alt="...">
-        <span class=like-count style=color:${resource.isLiked ? "red" : "black"}>${resource.likes}</span>
-        <img class="comment-bubble" src="/images/comment.svg" alt="...">
-        <span>${resource.comments_count}</span>
+      <div class="footer-top">
+        <div class="left-footer">
+          <img class=like-button data-cond=${resource.isLiked} src="/images/like.svg" alt="...">
+          <span class=like-count style=color:${resource.isLiked ? "red" : "black"}>${resource.likes}</span>
+          <img class="comment-bubble" src="/images/comment.svg" alt="...">
+          <span>${resource.comments_count}</span>
+        </div>
+        <span>${getStars(resource.rating)}</span>
       </div>
-    <span>${getStars(resource.rating)}</span>
+      <div class="comment-section">
+        <form class="post-comment" action="/db/new-comment" method="POST">
+          <textarea name="comment" placeholder="Write a comment."></textarea>
+          <input class="btn btn-light" type="submit" value="Post">
+        </form>
+        <div class="comments-list"></div>
+      </div>
     </div>
-    <form class="post-comment" action="/db/new-comment" method="POST">
-      <textarea name="comment" placeholder="Write a comment."></textarea>
-      <input class="btn btn-light" type="submit" value="Post">
-    </form>
   </div>`
 }
 
 const createComment = data => {
   return `
-  <ul>
-    <li>${data.comment}</li>
+  <ul class="list">
+    <li>
+      <div>
+        <img src="/images/avatar.svg" />
+      </div>
+      <div>
+        <p>${data.comment}</p>
+        <p class="timestamp"><small>on September 25th, 2019</small></p>
+      </div>
+    </li>
   </ul>`
 }
 
