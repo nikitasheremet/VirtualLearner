@@ -51,7 +51,7 @@ app.use("/api/widgets", widgetsRoutes(db));
 app.use("/login", loginRoutes(db));
 app.use("/register", registerRoutes(db));
 app.use("/add_resource", addResource(db));
-app.use("/edit_profile", editProfile());
+app.use("/edit_profile", editProfile(db));
 app.use("/home", homeRoutes);
 // Note: mount other resources here, using the same pattern above
 
