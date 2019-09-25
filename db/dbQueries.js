@@ -76,10 +76,11 @@ exports.queryMyLikes= queryMyLikes;
 const queryMyAll = (data) => {
   values = [data,data]
   return pool.query(`
-    SELECT res.*, COUNT(DISTINCT likes.*) AS likes, COUNT(DISTINCT comments.*) AS comments_count
+    SELECT res.*, COUNT(DISTINCT likes.*) AS likes, COUNT(DISTINCT comments.*) AS comments_count, AVG(ratings.rating) AS rating
     FROM resources res
     LEFT JOIN likes ON likes.resource_id = res.id
     LEFT JOIN comments ON res.id = comments.resource_id
+    LEFT JOIN ratings ON res.id = ratings.resource_id
     WHERE res.user_id = $1 OR likes.user_id = $2
     GROUP BY res.id
     ;`,values)

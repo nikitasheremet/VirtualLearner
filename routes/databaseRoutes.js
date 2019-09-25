@@ -64,16 +64,23 @@ module.exports = function(router, database) {
       res.send(queryResult);
     })
   })
-  router.get('/delete-like/:id', (req, res) => {
-    let data = {
-      user_id: userID.user_id,
-      id: req.params.id
-    }
-    // console.log(data);
-    database.queryDeleteLike(data).then(queryResult => {
-      res.send(queryResult);
-    })
-  })
+  // router.get('/delete-like/:id', (req, res) => {
+  //   let data = {
+  //     user_id: userID.user_id,
+  //     id: req.params.id
+  //   }
+  //   // console.log(data);
+  //   database.queryDeleteLike(data).then(queryResult => {
+  //     res.send(queryResult);
+  //   })
+  // })
+
+  // router.post('/new-comment', (req, res) => {
+  //   console.log(req.body)
+  //   database.insertComment(req.body)
+  // });
+  //   database.insertComment(req.body)
+  // }
 
   router.post('/new-comment', (req, res) => {
     database.insertComment(req.body)
