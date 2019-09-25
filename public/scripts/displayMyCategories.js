@@ -138,3 +138,18 @@ $("body").on("click",".like-button",(data) => {
     })
   }
 })
+
+
+
+
+$("body").on("click", "i", (data) => {
+  const clickStatus = data.originalEvent.path[0].attributes[0].nodeValue;
+});
+
+$( "fa fa-star-half-o" ).click(function() {
+  alert( "Handler for .click() called." );
+});
+
+$( "fa fa-star-o" ).click(function() {
+  alert( "Handler for .click() called." );
+});
