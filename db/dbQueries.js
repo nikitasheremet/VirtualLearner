@@ -167,15 +167,13 @@ exports.queryGetLikesForResource = queryGetLikesForResource;
 
 
 const queryMyRatings = (data) => {
-  values = [data, data]
+  values = [data]
   return pool.query(`
-    SELECT res.*, COUNT(DISTINCT ratings.*) AS ratings
-    LEFT JOIN resources res ON res.id = ratings.resource_id
-    WHERE ratings.user_id = $1 AND res.user_id <> $2
+    SELECT res.*, COUNT(*), AVG(ratings.rating) AS ratings
+    FROM resources AS res LEFT JOIN ratings ON res.id = ratings.resource_id
     GROUP BY res.id
     ;`,values)
   .then(res => {
-    console.log(res.rows);
     return res.rows;
   })
 }

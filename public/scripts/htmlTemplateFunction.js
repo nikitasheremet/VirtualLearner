@@ -11,7 +11,7 @@ const generateTemplateCategory = (categoryName) => {
 const generateResources = (resource, color = "black") => {
 
 return `
-  <div class="card" id=${resource.id}>
+  <div class="card ${resource.id}">
     <div class="card-header">
         <h5 class="card-title" style=color:${color}>${resource.title}</h5>
     </div>
@@ -28,6 +28,10 @@ return `
         <img class="comment-bubble" src="/images/comment.svg" alt="...">
         <span>${resource.comments_count}</span>
       </div>
+      <div class="stars-outer"
+      <div class="stars-inner"></div>
+        </div>
+    <form class="post-comment" action="/new-comment" method="POST">
         <span>rating</span>
     </div>
     <form class="post-comment" action="/db/new-comment" method="POST">
