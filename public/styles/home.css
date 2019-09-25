@@ -9,103 +9,121 @@ body .container .header {
   display: flex;
   justify-content: space-between;
 }
+body .container .header .home_buttons {
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+body .container .header .home_buttons button {
+  padding: 0;
+  border: none;
+  background: none;
+}
+body .container .header .home_buttons img {
+  width: 30px;
+}
 body #my-categories-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  align-content: flex-start;
 }
 body #my-categories-list .my-categories {
   width: 45%;
-  margin: 0.5em;
+  margin: 1%;
   text-align: center;
   box-shadow: 5px 10px 15px #adb5bd;
   border-radius: 15px;
 }
+@media (min-width: 600px) {
+  body #my-categories-list .my-categories {
+    width: 30%;
+  }
+}
 body #my-categories-list .my-categories img {
   width: 100%;
 }
-body #my-categories-list .card {
+body .card {
   width: 100%;
   margin: 0.5em;
   padding: 1em;
   box-shadow: 5px 10px 15px #adb5bd;
   border-radius: 15px;
 }
-body #my-categories-list .card .card-header {
+body .card .card-header {
   background-color: #fff;
 }
-body #my-categories-list .card .card-footer {
+body .card .card-footer {
   background-color: #fff;
+}
+body .card .card-footer .footer-top {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-body #my-categories-list .card .card-footer img {
-  width: 20px;
-}
-body #my-categories-list .card .card-footer .left-footer {
+body .card .card-footer .footer-top .left-footer {
   width: 25%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-body #my-categories-list .card .post-comment {
+body .card .card-footer .footer-top .left-footer img {
+  width: 20px;
+}
+body .card .card-footer .footer-top .left-footer img:hover {
+  cursor: pointer;
+}
+body .card .comment-section {
+  display: none;
+}
+body .card .comment-section .post-comment {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 10px;
+  margin: 20px 0px;
 }
-body #my-categories-list .card .post-comment textarea {
+body .card .comment-section .post-comment textarea {
   border: none;
   border-bottom: 2px solid #585858;
   width: 90%;
   overflow: auto;
-  margin-bottom: 10px;
   outline: none;
   height: 2.5em;
 }
-body #my-categories-list .card li {
+body .card .comment-section .comments-list {
+  max-height: 200px;
+  overflow: auto;
+}
+body .card .comment-section .comments-list .list {
+  padding: 0;
+  list-style: none;
+}
+body .card .comment-section .comments-list .list div {
   text-align: left;
-  margin: auto;
+  display: table-cell;
 }
-body .search-form {
+body .card .comment-section .comments-list .list div img {
+  width: 30px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+body .card .comment-section .comments-list .list div p {
+  margin: 0;
+}
+body .card .comment-section .comments-list .list div .timestamp {
+  color: grey;
+}
+body #search-all-resources {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 1em;
-}
-body .search-form #search-all-resources {
   width: 100%;
 }
-body .search-form #search-all-resources input {
-  width: 70%;
+body #search-all-resources input {
+  width: 80%;
   border-radius: 5px;
-}
-body #resources_found .card {
-  box-shadow: 5px 10px 15px #adb5bd;
-  border-radius: 15px;
-  padding: 1em;
-}
-body #resources_found .card .card-header {
-  background-color: #fff;
-}
-body #resources_found .card .card-footer {
-  background-color: #fff;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-body #resources_found .card .card-footer img {
-  width: 20px;
-}
-body #resources_found .card .card-footer .left-footer {
-  width: 25%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 /*# sourceMappingURL=home.css.map */

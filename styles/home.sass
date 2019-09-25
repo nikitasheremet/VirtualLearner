@@ -10,92 +10,101 @@ body
     .header
       display: flex
       justify-content: space-between
+      .home_buttons
+        width: 20%
+        display: flex
+        justify-content: space-between
+        align-items: baseline
+        button
+          padding: 0
+          border: none
+          background: none
+        img
+          width: 30px
   #my-categories-list
     display: flex
     flex-direction: row
     flex-wrap: wrap
-    justify-content: space-around
+    // justify-content: space-around
+    align-content: flex-start
     .my-categories
       width: 45%
-      margin: 0.5em
+      margin: 1%
       text-align: center
       box-shadow: $card-shadow
       border-radius: 15px
+      @media (min-width: 600px)
+        width: 30%
       img
         width: 100%
-    .card
-      width: 100%
-      margin: 0.5em
-      padding: 1em
-      box-shadow: $card-shadow
-      border-radius: 15px
-      .card-header
-        background-color: #fff
-      .card-footer
-        background-color: #fff
+  .card
+    width: 100%
+    margin: 0.5em
+    padding: 1em
+    box-shadow: $card-shadow
+    border-radius: 15px
+    .card-header
+      background-color: #fff
+    .card-footer
+      background-color: #fff
+      .footer-top
         display: flex
         flex-direction: row
         flex-wrap: wrap
         justify-content: space-between
-        img
-          width: 20px
         .left-footer
           width: 25%
           display: flex
           flex-direction: row
           flex-wrap: wrap
           justify-content: space-between
+          img
+            width: 20px
+            &:hover
+              cursor: pointer
+    .comment-section
+      display: none
       .post-comment
         display: flex
         justify-content: space-around
-        margin-bottom: 10px
+        margin: 20px 0px
         textarea
           border: none
           border-bottom: 2px solid #585858
           width: 90%
           overflow: auto
-          margin-bottom: 10px
+          // margin: 10px 0px
           // resize: none
           outline: none
           height: 2.5em
         input
           // background-color: #ffffff
           // border: none
-      li
-        text-align: left
-        margin: auto
+      .comments-list
+        max-height: 200px
+        overflow: auto
+        .list
+          padding: 0
+          list-style: none
+          div
+            text-align: left
+            display: table-cell
+            img
+              width: 30px
+              margin-right: 10px
+              border-radius: 50%
+            p
+              margin: 0
+            .timestamp
+              color: grey
 
 
 
-  .search-form
+  #search-all-resources
     display: flex
-    justify-content: space-between
+    justify-content: space-around
     margin: 1em
-    #search-all-resources
-      width: 100%
-      input
-        width: 70%
-        border-radius: 5px
-  #resources_found
-    .card
-      box-shadow: $card-shadow
-      border-radius: 15px
-      padding: 1em
-      .card-header
-        background-color: #fff
-      .card-footer
-        background-color: #fff
-        display: flex
-        flex-direction: row
-        flex-wrap: wrap
-        justify-content: space-between
-        img
-          width: 20px
-        .left-footer
-          width: 25%
-          display: flex
-          flex-direction: row
-          flex-wrap: wrap
-          justify-content: space-between
-
-
+    width: 100%
+    input
+      width: 80%
+      border-radius: 5px

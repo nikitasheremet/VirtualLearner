@@ -54,6 +54,23 @@ const findAllResourcesByTitle = (input) => {
 }
 exports.findAllResourcesByTitle = findAllResourcesByTitle;
 
+const findResourceById = id => {
+  const queryString = `
+  SELECT resources.*, COUNT(DISTINCT likes.*) AS likes, COUNT(DISTINCT comments.*) AS comments_count, AVG(ratings.rating) AS rating
+  FROM resources
+  LEFT JOIN likes ON resources.id = likes.resource_id
+  LEFT JOIN comments ON resources.id = comments.resource_id
+  LEFT JOIN ratings ON resources.id = ratings.resource_id
+  WHERE resources.id = $1
+  GROUP BY resources.id;`;
+  const queryParams = [id];
+
+  return pool.query(queryString, queryParams)
+    .then(res => res.rows[0])
+    .catch(err => console.log(err))
+}
+exports.findResourceById = findResourceById;
+
 const queryMyLikes = (data) => {
   // console.log("in the queries now!!!");
   values = [data, data]
