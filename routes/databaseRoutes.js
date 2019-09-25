@@ -44,7 +44,6 @@ module.exports = function(router, database) {
       res.send(queryResult);
     })
   })
-
   router.get('/:resourceId/comments', (req, res) => {
     database.queryResourceComments(req.params.resourceId).then(queryResult => {
       res.send(queryResult);
@@ -85,10 +84,8 @@ module.exports = function(router, database) {
   // }
 
   router.post('/new-comment', (req, res) => {
-    console.log(req.body)
     database.insertComment(req.body)
-  });
-
+  })
   router.get('/:title', (req, res) => {
     database.findAllResourcesByTitle(req.params.title).then(queryResult => {
       res.send(queryResult);
