@@ -3,7 +3,6 @@ const myCategoriesList = $("#my-categories-list");
 const displayAndMakeBackButton = (res) => {
   let output = "";
   for (let resource of res) {
-    console.log("d")
     resource.isLiked = usersLikes.responseJSON.map(users => {
       console.log(users.resource_id, resource.id)
         if(users.resource_id === resource.id) {
@@ -13,6 +12,12 @@ const displayAndMakeBackButton = (res) => {
         }
       }).includes("true");
       console.log(resource);
+    if (resource.url.match(/www\.youtube\./)) {
+      resource.thumbnail_photo = `https://img.youtube.com/vi/${resource.url.split('=')[1]}/hqdefault.jpg`
+    } else {
+        // resource.thumbnail_photo = `http://api.screenshotlayer.com/api/capture?access_key=3f06297d1eae1c79319ab9edd2faeb56&url=${resource.url}&placeholer=1`
+    }
+    // https://img.youtube.com/vi/BuebC0CfD8E/hqdefault.jpg
     output += generateResources(resource)
   }
   $(".show-all-resources").hide();
@@ -27,12 +32,8 @@ const clickCategory = (data) => {
   myCategoriesList.off();
   clickedCategory = data.currentTarget.children[1].children[0].innerHTML
   if (clickedCategory === "Liked") {
-    console.log("a");
     usersLikes = ajaxUsersLikes()
-      console.log("b")
-      // console.log(res);
       ajaxLikedResources().then(res2 => {
-        console.log("c")
         displayAndMakeBackButton(res2);
     })
   } else {
@@ -55,8 +56,9 @@ ajaxCategories().then(res => {
 
 
   $(".show-categories").hide();
-  myCategoriesList.html(output);
-  myCategoriesList.append(generateTemplateCategory("Liked"))
+  myCategoriesList.html(generateTemplateCategory("Liked"))
+  myCategoriesList.append(output);
+
   $(".my-categories").on("click",(data) => {
     clickCategory(data);
   })
@@ -79,6 +81,11 @@ $("#my-resources").on("click", ".show-all-resources", (data) => {
           return "false"
         }
       }).includes("true");
+      if (resource.url.match(/www\.youtube\./)) {
+      resource.thumbnail_photo = `https://img.youtube.com/vi/${resource.url.split('=')[1]}/hqdefault.jpg`
+      } else {
+        // resource.thumbnail_photo = `http://api.screenshotlayer.com/api/capture?access_key=3f06297d1eae1c79319ab9edd2faeb56&url=${resource.url}&placeholer=1`
+      }
       // console.log(resource);
 
       if (resource.user_id !== res.ID) {

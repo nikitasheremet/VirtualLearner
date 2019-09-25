@@ -7,7 +7,7 @@ module.exports = (db) => {
   router.post("/", (req, res) => {
     registerResource(req, res, db);
   });
-    router.get("/", (req, res) => {
+  router.get("/", (req, res) => {
     res.render("add_resource");
   });
     return router;
@@ -18,6 +18,7 @@ module.exports = (db) => {
 function registerResource(req, res, db) {
 
   //Extract registration information from form
+  console.log(req.body);
   let user_id = 1;
   let URL = req.body.url;
   let title = req.body.title;
@@ -29,8 +30,7 @@ function registerResource(req, res, db) {
     res.status(400).send('Please make sure you provide URL, title and description');
   } else {
         //Insert resource into database
-        db.query('INSERT INTO resources(user_id, url, title, description, category) VALUES ($1,$2,$3,$4,$5)', [user_id, URL, title, description, category])
-
+        db.query('INSERT INTO resources (user_id, url, title, description, category) VALUES ($1,$2,$3,$4,$5);', [user_id, URL, title, description, category])
         .then((_) => {
             //resource inserted correctly, redirect to home page
             res.redirect('/home');

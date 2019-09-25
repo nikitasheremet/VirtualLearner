@@ -64,6 +64,7 @@ module.exports = function(router, database) {
       res.send(queryResult);
     })
   })
+<<<<<<< HEAD
 
   // router.get('/delete-like/:id', (req, res) => {
   //   let data = {
@@ -75,6 +76,18 @@ module.exports = function(router, database) {
   //     res.send(queryResult);
   //   })
   // })
+=======
+  router.get('/delete-like/:id', (req, res) => {
+    let data = {
+      user_id: userID.user_id,
+      id: req.params.id
+    }
+    // console.log(data);
+    database.queryDeleteLike(data).then(queryResult => {
+      res.send(queryResult);
+    })
+  })
+>>>>>>> 74905c5df515ba0cd79af84b7b8a5d55ddf41991
 
   // router.post('/new-comment', (req, res) => {
   //   console.log(req.body)
