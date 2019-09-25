@@ -30,7 +30,7 @@ return `
         <span>${resource.comments_count}</span>
       </div>
     <form class="post-comment" action="/new-comment" method="POST">
-    <span>${resource.rating}</span>
+    <span>${getStars(resource.rating)}</span>
     </div>
     <form class="post-comment" action="/db/new-comment" method="POST">
       <textarea name="comment" placeholder="Write a comment."></textarea>
@@ -45,3 +45,28 @@ const createComment = data => {
     <li>${data.comment}</li>
   </ul>`
 }
+
+
+
+function getStars(rating) {
+
+  // Round to nearest half
+  rating = Math.round(rating * 2) / 2;
+  let stars = [];
+
+  // Append all the filled whole stars
+  for (var i = rating; i >= 1; i--)
+  stars.push('<i class="fa fa-star" aria-hidden="true" style="color: gold;"></i>&nbsp;');
+
+  // If there is a half a star, append it
+  if (i == .5) stars.push('<i class="fa fa-star-half-o" aria-hidden="true" style="color: gold;"></i>&nbsp;');
+
+  // Fill the empty stars
+  for (let i = (3 - rating); i >= 1; i--)
+  stars.push('<i class="fa fa-star-o" aria-hidden="true" style="color: gold;"></i>&nbsp;');
+
+  return stars.join('');
+
+}
+
+

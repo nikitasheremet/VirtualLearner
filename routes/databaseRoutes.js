@@ -33,10 +33,6 @@ module.exports = function(router, database) {
   router.get('/likes/:id', (req, res) => {
     // console.log("IAMHERENOW")
 
-<<<<<<< HEAD
-
-=======
->>>>>>> d65fce04edd182a8ea8f819073353b2216e76080
     database.queryGetLikesForResource(req.params.id).then(queryResult => {
       res.send(queryResult);
     })
@@ -48,10 +44,7 @@ module.exports = function(router, database) {
       res.send(queryResult);
     })
   })
-<<<<<<< HEAD
 
-=======
->>>>>>> d65fce04edd182a8ea8f819073353b2216e76080
   router.get('/:resourceId/comments', (req, res) => {
     database.queryResourceComments(req.params.resourceId).then(queryResult => {
       res.send(queryResult);
@@ -72,27 +65,25 @@ module.exports = function(router, database) {
       res.send(queryResult);
     })
   })
-  router.get('/delete-like/:id', (req, res) => {
-    let data = {
-      user_id: userID.user_id,
-      id: req.params.id
-    }
-    // console.log(data);
-    database.queryDeleteLike(data).then(queryResult => {
-      res.send(queryResult);
-    })
-  })
+  // router.get('/delete-like/:id', (req, res) => {
+  //   let data = {
+  //     user_id: userID.user_id,
+  //     id: req.params.id
+  //   }
+  //   // console.log(data);
+  //   database.queryDeleteLike(data).then(queryResult => {
+  //     res.send(queryResult);
+  //   })
+  // })
 
-  router.post('/new-comment', (req, res) => {
-<<<<<<< HEAD
-    console.log(req.body)
-    database.insertComment(req.body)
-  });
+  // router.post('/new-comment', (req, res) => {
+  //   console.log(req.body)
+  //   database.insertComment(req.body)
+  // });
+  //   database.insertComment(req.body)
+  // }
 
-=======
-    database.insertComment(req.body)
-  })
->>>>>>> d65fce04edd182a8ea8f819073353b2216e76080
+
   router.get('/:title', (req, res) => {
     database.findAllResourcesByTitle(req.params.title).then(queryResult => {
       res.send(queryResult);
