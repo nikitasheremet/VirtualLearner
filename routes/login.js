@@ -23,18 +23,18 @@ function loginUser(req, res, db) {
   } else {
 
     // check wheather user already exists
-    db.query('SELECT * FROM users WHERE email = $1'), [email], (error, results) => {
-      if (error) {
-          res.status(400).send(error.message);
-      } else {
-          user = results[0];
+    // db.query('SELECT * FROM users WHERE email = $1'), [email], (error, results) => {
+    //   if (error) {
+    //       res.status(400).send(error.message);
+    //   } else {
+    //       user = results[0];
 
             //user inserted correctly, redirect to home page
             res.redirect('/home')
           }
         };
-      }
-    }
+    //   }
+    // }
 
 
 // const express = require('express');

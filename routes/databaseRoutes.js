@@ -44,6 +44,7 @@ module.exports = function(router, database) {
       res.send(queryResult);
     })
   })
+
   router.get('/:resourceId/comments', (req, res) => {
     database.queryResourceComments(req.params.resourceId).then(queryResult => {
       res.send(queryResult);
@@ -76,13 +77,10 @@ module.exports = function(router, database) {
   })
 
   router.post('/new-comment', (req, res) => {
-    const queryString = `INSERT INTO comments (comment, user_id, resource_id) VALUES ($1, $2, $3);`;
-    const queryValues = [req.body, 1, 4];
-    database.query(queryString, queryValues).then(queryResult => {
-      res.send(queryResult)
+    console.log(req.body)
+    database.insertComment(req.body)
+  });
 
-    })
-  })
   router.get('/:title', (req, res) => {
     database.findAllResourcesByTitle(req.params.title).then(queryResult => {
       res.send(queryResult);
