@@ -29,12 +29,7 @@ return `
         <img class="comment-bubble" src="/images/comment.svg" alt="...">
         <span>${resource.comments_count}</span>
       </div>
-<<<<<<< HEAD
-    <form class="post-comment" action="/new-comment" method="POST">
-    <span>${getStars(resource.rating)}</span>
-=======
     <span>${resource.rating}</span>
->>>>>>> 36cac75082951aa444342bc4e7dbb97bf4a825af
     </div>
     <form class="post-comment" action="/db/new-comment" method="POST">
       <textarea name="comment" placeholder="Write a comment."></textarea>
