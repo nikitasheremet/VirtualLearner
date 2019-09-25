@@ -81,4 +81,9 @@ $(".container").on("submit", ".post-comment", function(event) {
     }
   })
 
+  //Get this resource info from db to update comment count
+  ajaxGetResourceById(resourceId).then(res => {
+    $(this).parents(".card-footer").find(".comment-bubble").next().html(res.comments_count)
+  })
+
 })

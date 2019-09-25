@@ -75,3 +75,9 @@ const ajaxComments = id => {
   })
 }
 
+const ajaxGetResourceById = id => {
+  return $.ajax({
+    method: "GET",
+    url: `/db/resource/${id}`
+  })
+}
