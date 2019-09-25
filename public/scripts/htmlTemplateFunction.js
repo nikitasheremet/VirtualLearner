@@ -30,7 +30,7 @@ return `
           <img class="comment-bubble" src="/images/comment.svg" alt="...">
           <span>${resource.comments_count}</span>
         </div>
-        <span>${getStars(resource.rating)}</span>
+        <span class= star-rating>${getStars(resource.rating, resource.id)}</span>
       </div>
       <div class="comment-section">
         <form class="post-comment" action="/db/new-comment" method="POST">
@@ -39,10 +39,6 @@ return `
         </form>
         <div class="comments-list"></div>
       </div>
-<<<<<<< HEAD
-    <div class="starCount">${getStars(resource)}</div>
-=======
->>>>>>> 9c8fcbd4f6f21e14c4a4282b86512c1cb0dd3d63
     </div>
   </div>`
 }
@@ -84,8 +80,8 @@ const createComment = data => {
 // }
 
 // To get average rating from database
-function getStars(resource) {
-  let rating = resource.rating;
+function getStars(rating, id) {
+  // let rating = Number(resource.rating);
 
   // Round to nearest half
   rating = Math.round(rating * 2) / 2;
@@ -105,7 +101,7 @@ function getStars(resource) {
 
 
   for (i in stars) {
-  stars[i] = stars[i].slice(0,2) +'rating ='+ `"${counter}"` + 'resourceId =' + `"${resource.id}"` + stars[i] .slice(2);
+  stars[i] = stars[i].slice(0,2) +' rating ='+ `"${counter}"` + stars[i] .slice(2);
   counter ++
   }
 
