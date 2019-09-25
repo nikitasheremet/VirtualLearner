@@ -9,6 +9,7 @@ const generateTemplateCategory = (categoryName) => {
 }
 
 const generateResources = (resource, color = "black") => {
+console.log(resource);
 
 return `
   <div class="card" id=${resource.id}>
@@ -28,11 +29,8 @@ return `
         <img class="comment-bubble" src="/images/comment.svg" alt="...">
         <span>${resource.comments_count}</span>
       </div>
-      <div class="stars-outer"
-      <div class="stars-inner"></div>
-        </div>
     <form class="post-comment" action="/new-comment" method="POST">
-        <span>rating</span>
+    <span>${resource.rating}</span>
     </div>
     <form class="post-comment" action="/db/new-comment" method="POST">
       <textarea name="comment" placeholder="Write a comment."></textarea>

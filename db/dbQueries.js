@@ -19,10 +19,11 @@ const queryMyCategory = (data) => {
   values = [data.user_id,data.category]
   // console.log(values);
   return pool.query(`
-    SELECT res.*, COUNT(DISTINCT likes.*) AS likes, COUNT(DISTINCT comments.*) AS comments_count
+    SELECT res.*, COUNT(DISTINCT likes.*) AS likes, COUNT(DISTINCT comments.*) AS comments_count, AVG(ratings.rating) AS rating
     FROM resources res
     LEFT JOIN likes ON res.id = likes.resource_id
     LEFT JOIN comments ON res.id = comments.resource_id
+    LEFT JOIN ratings ON res.id = ratings.resource_id
     WHERE res.user_id = $1 AND res.category = $2
     GROUP BY res.id
     ;`,values)
@@ -35,10 +36,11 @@ exports.queryMyCategory = queryMyCategory;
 
 const findAllResourcesByTitle = (input) => {
   const queryString = `
-  SELECT resources.*, COUNT(DISTINCT likes.*) AS likes, COUNT(DISTINCT comments.*) AS comments_count
+  SELECT resources.*, COUNT(DISTINCT likes.*) AS likes, COUNT(DISTINCT comments.*) AS comments_count, AVG(ratings.rating) AS rating
   FROM resources
   LEFT JOIN likes ON resources.id = likes.resource_id
   LEFT JOIN comments ON resources.id = comments.resource_id
+  LEFT JOIN ratings ON resources.id = ratings.resource_id
   WHERE lower(title) LIKE $1
   GROUP BY resources.id;`;
   const queryParams = [`%${input.toLowerCase()}%`];
@@ -56,10 +58,11 @@ const queryMyLikes = (data) => {
   // console.log("in the queries now!!!");
   values = [data, data]
   return pool.query(`
-    SELECT res.*, COUNT(DISTINCT likes.*) AS likes, COUNT(DISTINCT comments.*) AS comments_count
+    SELECT res.*, COUNT(DISTINCT likes.*) AS likes, COUNT(DISTINCT comments.*) AS comments_count,  AVG(ratings.rating) AS rating
     FROM likes
     LEFT JOIN resources res ON res.id = likes.resource_id
     LEFT JOIN comments ON res.id = comments.resource_id
+    LEFT JOIN ratings ON res.id = ratings.resource_id
     WHERE likes.user_id = $1 AND res.user_id <> $2
     GROUP BY res.id
     ;`,values)
