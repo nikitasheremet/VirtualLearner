@@ -6,6 +6,8 @@ DROP TABLE IF EXISTS ratings CASCADE;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY NOT NULL,
+  first_name VARCHAR(255) NOT NULL,
+  last_name VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
   password VARCHAR(500) NOT NULL,
   profile_pic VARCHAR (255)
@@ -42,9 +44,9 @@ CREATE TABLE ratings (
 );
 
 -- USERS
-INSERT INTO users (email, password) VALUES ('corah@lighthouse.ca', '$2a$10$xOZ028dkAVxsER2fXNO33exiRkjOdhvJiAvvECGYuu/Y6JPu4ZSti');
-INSERT INTO users (email, password) VALUES ('johnny@lighthouse.ca', '$2a$10$xOZ028dkAVxsER2fXNO33exiRkjOdhvJiAvvECGYuu/Y6JPu4ZSti');
-INSERT INTO users (email, password) VALUES ('nikita@lighthouse.ca', '$2a$10$xOZ028dkAVxsER2fXNO33exiRkjOdhvJiAvvECGYuu/Y6JPu4ZSti');
+INSERT INTO users (first_name, last_name, email, password) VALUES ('Corah', 'G', 'corah@lighthouse.ca', '$2a$10$xOZ028dkAVxsER2fXNO33exiRkjOdhvJiAvvECGYuu/Y6JPu4ZSti');
+INSERT INTO users (first_name, last_name, email, password) VALUES ('Johhny', 'M', 'johnny@lighthouse.ca', '$2a$10$xOZ028dkAVxsER2fXNO33exiRkjOdhvJiAvvECGYuu/Y6JPu4ZSti');
+INSERT INTO users (first_name, last_name, email, password) VALUES ('Nikita', 'S', 'nikita@lighthouse.ca', '$2a$10$xOZ028dkAVxsER2fXNO33exiRkjOdhvJiAvvECGYuu/Y6JPu4ZSti');
 
 -- Resources
 INSERT INTO resources (user_id, url, title, description, category, thumbnail_photo) VALUES (1,'https://www.youtube.com/watch?v=HHjftEZQxNc', 'Learn To Knit', 'Knitting for begginers', 'science', 'https://www.shutterstock.com/image-vector/play-vector-icon-media-player-red-1480954658');
