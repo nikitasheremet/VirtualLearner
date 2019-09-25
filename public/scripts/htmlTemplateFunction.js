@@ -12,7 +12,7 @@ const generateResources = (resource, color = "black") => {
 console.log(resource);
 
 return `
-  <div class="card" id=${resource.id}>
+  <div class="card ${resource.id}">
     <div class="card-header">
         <h5 class="card-title" style=color:${color}>${resource.title}</h5>
     </div>
@@ -39,3 +39,9 @@ return `
   </div>`
 }
 
+const createComment = data => {
+  return `
+  <ul>
+    <li>${data.comment}</li>
+  </ul>`
+}
