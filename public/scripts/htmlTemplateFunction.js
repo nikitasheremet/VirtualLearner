@@ -29,7 +29,7 @@ return `
         <img class="comment-bubble" src="/images/comment.svg" alt="...">
         <span>${resource.comments_count}</span>
       </div>
-    <span>${resource.rating}</span>
+    <span>${getStars(resource.rating)}</span>
     </div>
     <form class="post-comment" action="/db/new-comment" method="POST">
       <textarea name="comment" placeholder="Write a comment."></textarea>
