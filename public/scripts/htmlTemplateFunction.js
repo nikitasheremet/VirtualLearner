@@ -36,3 +36,10 @@ return `
     </form>
   </div>`
 }
+
+const createComment = data => {
+  return `
+  <ul>
+    <li>${data.comment}</li>
+  </ul>`
+}
