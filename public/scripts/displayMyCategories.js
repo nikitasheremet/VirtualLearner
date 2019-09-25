@@ -108,6 +108,7 @@ $("#my-resources").on("click", ".show-categories", (data) => {
     })
   })
 })
+
 $("body").on("click",".like-button",(data) => {
   // console.log(data.originalEvent.path[3].classList[1])
   const id = data.originalEvent.path[3].classList[1]
@@ -137,4 +138,3 @@ $("body").on("click",".like-button",(data) => {
     })
   }
 })
-

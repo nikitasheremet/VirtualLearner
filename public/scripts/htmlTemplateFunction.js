@@ -29,12 +29,7 @@ return `
         <img class="comment-bubble" src="/images/comment.svg" alt="...">
         <span>${resource.comments_count}</span>
       </div>
-<<<<<<< HEAD
-    <form class="post-comment" action="/new-comment" method="POST">
     <span>${getStars(resource.rating)}</span>
-=======
-    <span>${resource.rating}</span>
->>>>>>> 36cac75082951aa444342bc4e7dbb97bf4a825af
     </div>
     <form class="post-comment" action="/db/new-comment" method="POST">
       <textarea name="comment" placeholder="Write a comment."></textarea>
@@ -50,15 +45,14 @@ const createComment = data => {
   </ul>`
 }
 
-
-
 function getStars(rating) {
 
   // Round to nearest half
   rating = Math.round(rating * 2) / 2;
   let stars = [];
+  counter = 1;
 
-  // Append all the filled whole stars
+  // Add all the filled whole stars
   for (var i = rating; i >= 1; i--)
   stars.push('<i class="fa fa-star" aria-hidden="true" style="color: gold;"></i>&nbsp;');
 
@@ -69,8 +63,11 @@ function getStars(rating) {
   for (let i = (3 - rating); i >= 1; i--)
   stars.push('<i class="fa fa-star-o" aria-hidden="true" style="color: gold;"></i>&nbsp;');
 
+  for (i in stars) {
+    stars[i] = stars[i].slice(0,2) + ' data-starnum='+ `"${counter}"` + stars[i] .slice(2);
+    counter ++
+  }
+
   return stars.join('');
-
 }
-
 
