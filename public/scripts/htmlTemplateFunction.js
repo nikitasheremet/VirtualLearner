@@ -29,7 +29,7 @@ return `
         <img class="comment-bubble" src="/images/comment.svg" alt="...">
         <span>${resource.comments_count}</span>
       </div>
-    <div>${getStars(resource.rating)}</div>
+    <div class="starCount">${getStars(resource)}</div>
     </div>
     <form class="post-comment" action="/db/new-comment" method="POST">
       <textarea name="comment" placeholder="Write a comment."></textarea>
@@ -45,7 +45,30 @@ const createComment = data => {
   </ul>`
 }
 
-function getStars(rating) {
+// // Render the stars according to the resource's rating
+// function getStars(resource) {
+
+//   // Round rating to nearest whole
+//   rating = Math.round(resource.rating);
+
+//   let stars = [];
+//   let counter = 1;
+
+//   for (let i = 1; i <= 3; i++) {
+//     if (i <= rating) {
+//       stars.push('<i class="fa fa-star" resource-id=${resource.id} rating=${i} aria-hidden="true" style="color: gold;"></i>&nbsp;');
+//     } else {
+//       stars.push('<i class="fa fa-star-o" resource-id=${resource.id} rating=${i} aria-hidden="true" style="color: gold;"></i>&nbsp;');
+//       counter ++
+//     }
+//   }
+
+//   return stars.join('');
+// }
+
+// To get average rating from database
+function getStars(resource) {
+  let rating = resource.rating;
 
   // Round to nearest half
   rating = Math.round(rating * 2) / 2;
@@ -63,11 +86,11 @@ function getStars(rating) {
   for (let i = (3 - rating); i >= 1; i--)
   stars.push('<i class="fa fa-star-o" aria-hidden="true" style="color: gold;"></i>&nbsp;');
 
+
   for (i in stars) {
-    stars[i] = stars[i].slice(0,2) + ' data-starnum='+ `"${counter}"` + stars[i] .slice(2);
-    counter ++
+  stars[i] = stars[i].slice(0,2) +'rating ='+ `"${counter}"` + 'resourceId =' + `"${resource.id}"` + stars[i] .slice(2);
+  counter ++
   }
 
   return stars.join('');
-}
-
+  }
