@@ -8,6 +8,11 @@ const renderResource = data => {
           return "false"
         }
       }).includes("true");
+    if (data.url.match(/www\.youtube\./)) {
+      data.thumbnail_photo = `https://img.youtube.com/vi/${data.url.split('=')[1]}/hqdefault.jpg`
+    } else {
+        // data.thumbnail_photo = `http://api.screenshotlayer.com/api/capture?access_key=3f06297d1eae1c79319ab9edd2faeb56&url=${data.url}&placeholer=1`
+    }
   console.log(data);
   wall.append(generateResources(data));
 }
