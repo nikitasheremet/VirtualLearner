@@ -9,11 +9,25 @@ body .container .header {
   display: flex;
   justify-content: space-between;
 }
+body .container .header .home_buttons {
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+body .container .header .home_buttons button {
+  padding: 0;
+  border: none;
+  background: none;
+}
+body .container .header .home_buttons img {
+  width: 30px;
+}
 body #my-categories-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  align-content: flex-start;
 }
 body #my-categories-list .my-categories {
   width: 45%;

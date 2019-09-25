@@ -23,7 +23,7 @@ const displayAndMakeBackButton = (res) => {
   $(".show-all-resources").hide();
   $(".show-categories").hide();
   myCategoriesList.html(output);
-  $("#my-resources h3:eq(0)").after(`<button class=back-button><a href="/home" style="color:black">Show Categories</a></button>`)
+  $("#my-resources .home_buttons").prepend(`<button class=back-button><a href="/home" style="color:black">Show Categories</a></button>`)
 }
 
 // Clicking on a category calls the db and gets a list of resources belonging to that category,
@@ -52,7 +52,7 @@ ajaxCategories().then(res => {
   for (let cat of res) {
     output += generateTemplateCategory(cat.category);
   }
-  $("#my-resources h3:eq(0)").after(`<button class="show-all-resources">Show All</button><button class="show-categories">Show Categories</button>`);
+  $("#my-resources .home_buttons").prepend(`<button class="show-all-resources"><img src = "/images/list.svg" /></button><button class="show-categories">Show Categories</button>`);
 
 
   $(".show-categories").hide();
@@ -149,15 +149,19 @@ $("body").on("click",".like-button",(data) => {
 
 
 $("body").on("click", "i", (data) => {
-  console.log(data);
-  const clickStatus = data.originalEvent.path[0].attributes[0].nodeValue;
-  console.log(clickStatus);
+  alert("HELLOO")
+  let rating = Number(data.originalEvent.path[0].attributes[0].nodeValue);
+  let resourceId = Number(data.originalEvent.path[0].attributes[1].nodeValue)
+  alert('rating = ' + rating + resourceId);
 });
 
-$( "fa fa-star-half-o" ).click(function() {
-  alert( "Handler for .click() called." );
-});
 
-$( "fa fa-star-o" ).click(function() {
-  alert( "Handler for .click() called." );
-});
+// $("body").on("click", "fa fa-star-o", (data) => {
+//   alert('rating = ' + data.originalEvent.currentTarget.rating);
+//   alert('rating = ' + data.originalEvent.target.rating);
+//   alert('rating = ' + data.target.rating);
+//   alert('rating = ' + data.currentTarget.rating);
+
+// });
+
+

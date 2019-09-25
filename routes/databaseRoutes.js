@@ -85,6 +85,11 @@ module.exports = function(router, database) {
   router.post('/new-comment', (req, res) => {
     database.insertComment(req.body)
   })
+  router.get('/resource/:id', (req, res) => {
+    database.findResourceById(req.params.id).then(queryResult => {
+      res.send(queryResult);
+    })
+  })
   router.get('/:title', (req, res) => {
     database.findAllResourcesByTitle(req.params.title).then(queryResult => {
       res.send(queryResult);

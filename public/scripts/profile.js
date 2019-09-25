@@ -2,10 +2,10 @@ $("#profileImage").click(function(e) {
   $("#imageUpload").click();
   });
 
-  function fasterPreview( uploader ) {
-  if ( uploader.files && uploader.files[0] ){
+  function fasterPreview( upload) {
+  if ( upload.files && upload.files[0] ){
   $('#profileImage').attr('src',
-  window.URL.createObjectURL(uploader.files[0]) );
+  window.URL.createObjectURL(upload.files[0]) );
   }
   }
 
