@@ -81,3 +81,27 @@ const ajaxGetResourceById = id => {
     url: `/db/resource/${id}`
   })
 }
+
+const ajaxAddRating = (id, rating) => {
+  console.log("IN AJAX ADD");
+  return $.ajax({
+    method: "POST",
+    url: `/db/add-rating/${id}`,
+    data: {rating}
+  })
+}
+const ajaxDeleteRating = (id) => {
+  console.log("IN AJAX DELETE");
+  return $.ajax({
+    method: "POST",
+    url: `/db/delete-rating/${id}`
+  })
+}
+
+const ajaxGetUsersRating = () => {
+  // console.log("IN AJAX DELETE");
+  return $.ajax({
+    method: "GET",
+    url: `/db/get-user-rating`
+  })
+}

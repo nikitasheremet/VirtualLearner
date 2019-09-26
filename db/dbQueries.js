@@ -210,3 +210,43 @@ const queryRatings = (data) => {
 };
 
 exports.queryRatings = queryRatings
+
+const queryAddRating = (data) => {
+  values = [data.rating,data.user_id, data.resource_id]
+  pool.query(`
+  INSERT INTO ratings(rating, user_id, resource_id)
+  VALUES ($1, $2, $3)
+  ;`, values)
+  .then(() => {
+    return "success";
+  })
+};
+
+exports.queryAddRating = queryAddRating
+
+const queryDeleteRating = (data) => {
+  values = [data.user_id, data.resource_id]
+  pool.query(`
+    DELETE FROM ratings
+    WHERE user_id = $1 AND resource_id = $2
+    ;`,values)
+  .then(() => {
+    return "success";
+  })
+};
+
+exports.queryDeleteRating = queryDeleteRating
+
+const queryGetUsersRating = (data) => {
+  values = [data.user_id]
+  return pool.query(`
+    SELECT rating, resource_id
+    FROM ratings
+    WHERE user_id = $1
+    ;`,values)
+  .then((res) => {
+    return res.rows;
+  })
+};
+
+exports.queryGetUsersRating = queryGetUsersRating

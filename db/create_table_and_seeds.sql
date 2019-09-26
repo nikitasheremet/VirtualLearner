@@ -36,7 +36,6 @@ CREATE TABLE comments (
   user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
   resource_id INTEGER NOT NULL REFERENCES resources(id) ON DELETE CASCADE
 );
-
 CREATE TABLE ratings (
   id SERIAL PRIMARY KEY NOT NULL,
   rating SMALLINT NOT NULL,
@@ -70,5 +69,5 @@ INSERT INTO ratings (user_id, resource_id, rating) VALUES (2, 3, 1);
 INSERT INTO ratings (user_id, resource_id, rating) VALUES (2, 3, 1);
 INSERT INTO ratings (user_id, resource_id, rating) VALUES (2, 3, 1);
 INSERT INTO ratings (user_id, resource_id, rating) VALUES (2, 3, 1);
-INSERT INTO ratings (user_id, resource_id, rating) VALUES (1, 4, 1);
-INSERT INTO ratings (user_id, resource_id, rating) VALUES (1, 4, 2);
+INSERT INTO ratings (user_id, resource_id, rating) VALUES (1, 3, 1);
+INSERT INTO ratings (user_id, resource_id, rating) VALUES (1, 2, 3);

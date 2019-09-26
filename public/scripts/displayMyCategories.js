@@ -3,15 +3,26 @@ const myCategoriesList = $("#my-categories-list");
 const displayAndMakeBackButton = (res) => {
   let output = "";
   for (let resource of res) {
+    filteredRating = userRatings.responseJSON.filter(obj => {
+      return obj.resource_id === resource.id
+    })
+    console.log(filteredRating);
+    if (filteredRating.length > 0) {
+      resource.userRating = filteredRating[0].rating
+    } else {
+      resource.userRating = null
+    }
+    // console.log(resource, "RESOURCE");
     resource.isLiked = usersLikes.responseJSON.map(users => {
-      console.log(users.resource_id, resource.id)
+      // console.log(users.resource_id, resource.id)
         if(users.resource_id === resource.id) {
           return "true"
         } else {
           return "false"
         }
       }).includes("true");
-      console.log(resource);
+
+      // console.log(resource);
     if (resource.url.match(/www\.youtube\./)) {
       resource.thumbnail_photo = `https://img.youtube.com/vi/${resource.url.split('=')[1]}/hqdefault.jpg`
     } else {
@@ -23,7 +34,7 @@ const displayAndMakeBackButton = (res) => {
   $(".show-all-resources").hide();
   $(".show-categories").hide();
   myCategoriesList.html(output);
-  $("#my-resources h3:eq(0)").after(`<button class=back-button><a href="/home" style="color:black">Show Categories</a></button>`)
+  $("#my-resources h3:eq(0)").after(`<button class=back-button><a href="/home" style="color:black"><img src="images/list.svg"/></a></button>`)
 }
 
 // Clicking on a category calls the db and gets a list of resources belonging to that category,
@@ -43,7 +54,16 @@ const clickCategory = (data) => {
   }
 }
 
+// const colorInRatingOnRefresh = (rating, id) => {
+//   // console.log("IN HERE");
+//   $('.card.3').html("<p>HELLOO</p>")
+//   // data.originalEvent.path[0].style.webkitTextStroke = "0.75px blue"
+//   //   data.originalEvent.path[0].previousElementSib       ling.style.webkitTextStroke = "0.75px blue"
+//   //   data.originalEvent.path[0].previousElementSibling.previousElementSibling.style.webkitTextStroke = "0.75px blue"
+// }
+
 let usersLikes = ajaxUsersLikes()
+let userRatings = ajaxGetUsersRating()
 // Display Categories and Show All/Show Categories Buttons
 ajaxCategories().then(res => {
   // console.log("in first action");
@@ -152,14 +172,17 @@ $("body").on("click", "i", (data) => {
   // console.log("previosu Rating",previousRating);
   let rating = data.originalEvent.path[0].attributes[0].nodeValue
   let resourceId = data.originalEvent.path[4].classList[1]
-  console.log(data)
+  // console.log(data)
 
   if (data.target.parentElement.attributes[0].value === "true" && data.originalEvent.path[0].style.webkitTextStroke === "0.75px blue" && (!data.originalEvent.path[0].nextElementSibling || data.originalEvent.path[0].nextElementSibling.style.webkitTextStroke !== "0.75px blue")) {
+    ajaxDeleteRating(resourceId);
     data.target.parentElement.attributes[0].value = "false"
     $(data.target.parentElement).children().each(function() {
       this.style.webkitTextStroke = ""
     })
   } else {
+    ajaxDeleteRating(resourceId);
+    ajaxAddRating(resourceId, rating);
     data.target.parentElement.attributes[0].value = "true"
     $(data.target.parentElement).children().each(function() {
         this.style.webkitTextStroke = ""

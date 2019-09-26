@@ -30,7 +30,7 @@ return `
           <img class="comment-bubble" src="/images/comment.svg" alt="...">
           <span>${resource.comments_count}</span>
         </div>
-        <span data-rated=false>${getStars(resource.rating)}</span>
+        <span data-rated=${resource.rating ? "true":"false"}>${getStars(resource.rating, resource.userRating)}</span>
       </div>
       <div class="comment-section">
         <form class="post-comment" action="/db/new-comment" method="POST">
@@ -80,7 +80,7 @@ const createComment = data => {
 // }
 
 // To get average rating from database
-function getStars(rating, additionalStyle = "") {
+function getStars(rating, userRating) {
 
   // Round to nearest half
   rating = Math.round(rating * 2) / 2
@@ -89,19 +89,24 @@ function getStars(rating, additionalStyle = "") {
 
   // Add all the filled whole stars
   for (var i = rating; i >= 1; i--)
-  stars.push(`<i class="fa fa-star" aria-hidden="true icon large" style="color:gold;${additionalStyle};"></i>&nbsp;`);
+  stars.push(`<i class="fa fa-star" aria-hidden="true icon-large" style="color:gold"></i>&nbsp;`);
 
   // If there is a half a star, append it
-  if (i == .5) stars.push(`<i class="fa fa-star-half-o icon large" aria-hidden="true" style="color:gold;${additionalStyle};"></i>&nbsp;`);
+  if (i == .5) stars.push(`<i class="fa fa-star-half-o icon-large" aria-hidden="true" style="color:gold"></i>&nbsp;`);
 
   // Fill the empty stars
   for (let i = (3 - rating); i >= 1; i--)
-  stars.push(`<i class="fa fa-star-o icon-large" aria-hidden="true" style="color:gold;${additionalStyle};"></i>&nbsp;`);
+  stars.push(`<i class="fa fa-star-o icon-large" aria-hidden="true" style="color:gold"></i>&nbsp;`);
 
 
   for (i in stars) {
   stars[i] = stars[i].slice(0,2) +' rating ='+ `"${counter}"` + stars[i].slice(2);
   counter ++
+  }
+  console.log(stars[0].slice(0,-12));
+  for (let i = userRating-1; i >= 0; i--) {
+    console.log(i);
+    stars[i] = stars[i].slice(0,-12) +';-webkit-text-stroke: 0.75px blue;' + stars[i].slice(-12);
   }
   return stars.join('');
   }
