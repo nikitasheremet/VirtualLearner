@@ -20,6 +20,7 @@
   font-weight: bold;
   font-size: 14px;
   color: black;
+  font-family: 'Poppins', sans-serif;
 }
 
 .input-fields {
@@ -40,11 +41,13 @@
 .login-button a{
   color:white;
   font-weight:bold;
+  font-family: 'Poppins', sans-serif;
 }
 
 textarea {
   resize: none !important;
   height: 120px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .account-space {
@@ -59,12 +62,14 @@ textarea {
   color: black;
   font-weight: bold;
   text-decoration-line: underline;
+  font-family: 'Poppins', sans-serif;
 
 }
 
 .sign-up {
   width: 100%;
   text-align: center;
+  font-family: 'Poppins', sans-serif;
 }
 
 .logo {
@@ -87,6 +92,7 @@ textarea {
   margin-left: auto;
   margin-right: auto;
   padding-top: 20px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .center-text2 {
@@ -94,6 +100,7 @@ textarea {
   margin-left: auto;
   margin-right: auto;
   padding-top: 20px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .virtual-logo {
@@ -140,6 +147,9 @@ height: 150px;
 .profile-pic {
   width: 100px;
   height: 100px;
+  float: right;
+  padding:10px;
+  border-radius: 20px;
 }
 
 .logout{
@@ -150,8 +160,8 @@ height: 150px;
   padding-right:5px;
   height: 38px;
   color: white;
-  font-weight: bold;
   width:100px;
+  font-family: 'Poppins', sans-serif;
 }
 
 
@@ -180,11 +190,13 @@ height: 150px;
   .resource {
     font-weight:bold;
     font-size: 28px;
+    font-family: 'Poppins', sans-serif;
   }
 
   .login-button {
     color: white;
     height: 60px;
+    font-family: 'Poppins', sans-serif;
   }
 
   .virtual-logo3 {
@@ -205,6 +217,7 @@ height: 150px;
 @media only screen and (min-width: 1000px) {
   .center-text{
     display:none;
+    font-family: 'Poppins', sans-serif;
   }
 
   .virtual-logo {
@@ -235,6 +248,7 @@ height: 150px;
 
   .create-new {
     font-weight:bold;
+    font-family: 'Poppins', sans-serif;
   }
 
   .desktop-container {
@@ -307,14 +321,17 @@ height: 150px;
   .resource {
     font-weight:bold;
     font-size: 28px;
+    font-family: 'Poppins', sans-serif;
   }
 
   .login-button {
     color: white;
     height: 60px;
+    font-family: 'Poppins', sans-serif;
   }
 
   .left-text{
     text-align: left;
+    font-family: 'Poppins', sans-serif;
   }
 }
