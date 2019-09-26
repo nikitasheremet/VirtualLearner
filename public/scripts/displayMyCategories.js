@@ -43,7 +43,7 @@ const displayAndMakeBackButton = (res) => {
 const clickCategory = (data) => {
   myCategoriesList.off();
   clickedCategory = data.currentTarget.children[1].children[0].innerHTML
-  $(".header h3").html(clickedCategory);
+  $(".header > h3").html(clickedCategory);
   // console.log(clickedCategory, "clicked category")
   if (clickedCategory === "Liked") {
     usersLikes = ajaxUsersLikes()
@@ -102,7 +102,7 @@ ajaxCategories().then(res => {
 $("#my-resources").on("click", ".show-all-resources", (data) => {
   $(".show-all-resources").hide();
   $(".show-categories").show();
-  $(".header h3").html("My Resources");
+  $(".header > h3").html("My Resources");
 
   ajaxAllResources().then(res => {
     console.log(res);
@@ -178,7 +178,7 @@ $("#my-resources").on("click", ".show-all-resources", (data) => {
 $("#my-resources").on("click", ".show-categories", (data) => {
   $(".show-categories").hide();
   $(".show-all-resources").show();
-  $(".header h3").html("My Categories");
+  $(".header > h3").html("My Categories");
   ajaxCategories().then(res => {
   let output = "";
   // console.log(res);
