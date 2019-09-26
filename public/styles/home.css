@@ -52,6 +52,8 @@ body .card {
   border-radius: 15px;
 }
 body .card .card-header {
+  display: flex;
+  justify-content: space-between;
   background-color: #fff;
 }
 body .card .card-footer {

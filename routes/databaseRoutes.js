@@ -74,14 +74,11 @@ module.exports = function(router, database) {
       res.send(queryResult);
     })
   })
-
-  // router.post('/new-comment', (req, res) => {
-  //   console.log(req.body)
-  //   database.insertComment(req.body)
-  // });
-  //   database.insertComment(req.body)
-  // }
-
+  router.get('/delete/resource/:id', (req, res) => {
+    database.queryDeleteResource(req.params.id).then(queryResult => {
+      res.send(queryResult);
+    })
+  })
   router.post('/new-comment', (req, res) => {
     database.insertComment(req.body)
   })

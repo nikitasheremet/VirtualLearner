@@ -124,7 +124,7 @@ exports.queryAddLike = queryAddLike;
 
 const queryResourceComments = resourceId => {
   const queryString = `
-  SELECT comment, profile_pic
+  SELECT comment, profile_pic, time
   FROM comments
   JOIN users ON users.id = user_id
   WHERE resource_id = $1;`;
@@ -214,3 +214,12 @@ const queryRatings = (data) => {
 };
 
 exports.queryRatings = queryRatings
+
+const queryDeleteResource = id => {
+  const queryString = `DELETE FROM resources WHERE resources.id = $1 AND user_id = $2;`;
+  //! Hard coded user_id
+  const queryValues = [id, 1];
+  return pool.query(queryString, queryValues).then(res => console.log(res))
+}
+
+exports.queryDeleteResource = queryDeleteResource
