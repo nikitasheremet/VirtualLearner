@@ -1,28 +1,12 @@
 const renderResource = data => {
   const wall = $("#resources_found");
-  $("#resources_found").empty()
   data.isLiked = usersLikes.responseJSON.map(users => {
-    filteredRating = userRatings.responseJSON.filter(obj => {
-      return obj.resource_id === data.id
-    })
-    console.log(filteredRating);
-    if (filteredRating.length > 0) {
-      data.userRating = filteredRating[0].rating
-    } else {
-      data.userRating = null
-    }
         if(users.resource_id === data.id) {
           return "true"
         } else {
           return "false"
         }
       }).includes("true");
-    if (data.url.match(/www\.youtube\./)) {
-      data.thumbnail_photo = `https://img.youtube.com/vi/${data.url.split('=')[1]}/hqdefault.jpg`
-    } else {
-        // data.thumbnail_photo = `http://api.screenshotlayer.com/api/capture?access_key=3f06297d1eae1c79319ab9edd2faeb56&url=${data.url}&placeholer=1`
-    }
-    // https://img.youtube.com/vi/BuebC0CfD8E/hqdefault.jpg
   console.log(data);
   wall.append(generateResources(data));
 
@@ -31,8 +15,8 @@ const renderResource = data => {
 $("#search-all-resources").submit( event => {
   event.preventDefault()
   const input = $("#search").val()
-
   ajaxResources(input).then(res => {
+    $("#resources_found").empty()
     for (let resource of res) {
       renderResource(resource);
     }

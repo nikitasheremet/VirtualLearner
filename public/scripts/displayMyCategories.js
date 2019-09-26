@@ -43,6 +43,7 @@ const displayAndMakeBackButton = (res) => {
 const clickCategory = (data) => {
   myCategoriesList.off();
   clickedCategory = data.currentTarget.children[1].children[0].innerHTML
+  // console.log(clickedCategory, "clicked category")
   if (clickedCategory === "Liked") {
     usersLikes = ajaxUsersLikes()
       ajaxLikedResources().then(res2 => {
@@ -51,8 +52,9 @@ const clickCategory = (data) => {
   } else {
     ajaxCategoryResources(clickedCategory).then(res => {
       displayAndMakeBackButton(res)
+      //Listens for delete click and rerenders resources
         $(function() {$(".container").on("click", ".btn", function(data) {
-          const resourceId = data.originalEvent.path[2].classList[1]
+          const resourceId = data.originalEvent.path[3].classList[1]
           ajaxDeleteResource(resourceId).then(() => {
             ajaxCategoryResources(clickedCategory).then((res) => {
             displayAndMakeBackButton(res)
@@ -99,6 +101,8 @@ ajaxCategories().then(res => {
 $("#my-resources").on("click", ".show-all-resources", (data) => {
   $(".show-all-resources").hide();
   $(".show-categories").show();
+  $(".header h3").html("My Resources");
+
   ajaxAllResources().then(res => {
     console.log(res);
     let output = ""
@@ -167,15 +171,13 @@ $("#my-resources").on("click", ".show-all-resources", (data) => {
     })
   })
 
-
-
-
 })
 
 // On click For Show Categories Button
 $("#my-resources").on("click", ".show-categories", (data) => {
   $(".show-categories").hide();
   $(".show-all-resources").show();
+  $(".header h3").html("My Categories");
   ajaxCategories().then(res => {
   let output = "";
   // console.log(res);
@@ -262,38 +264,4 @@ $("body").on("click", "i", (data) => {
     data.originalEvent.path[0].previousElementSibling.previousElementSibling.style.webkitTextStroke = "1px blue"
   }
 
-    // if (true) {
-    //   // console.log("a")
-    //   $(data.target.parentElement).children().each(function() {
-    //     this.style.webkitTextStroke = ""
-    //   })
-    //   previousRating = rating;
-    // } else {
-    //   // console.log("b")
-    //   $(data.target.parentElement).children().each(function() {
-    //     this.style.webkitTextStroke = ""
-    //   })
-    //   data.originalEvent.path[0].style.webkitTextStroke = "0.75px blue"
-    //   data.originalEvent.path[0].previousElementSibling.style.webkitTextStroke = "0.75px blue"
-    //   data.originalEvent.path[0].previousElementSibling.previousElementSibling.style.webkitTextStroke = "0.75px blue"
-    //   // previousRating = rating;
-    // }
-
-
-
 });
-
-
-// $("body").on("click", "fa fa-star-o", (data) => {
-//   alert('rating = ' + data.originalEvent.currentTarget.rating);
-//   alert('rating = ' + data.originalEvent.target.rating);
-//   alert('rating = ' + data.target.rating);
-//   alert('rating = ' + data.currentTarget.rating);
-
-// });
-
-
-
-// let rating = Number(data.originalEvent.path[0].attributes[0].nodeValue);
-// let resourceId = Number(data.originalEvent.path[0].attributes[1].nodeValue)
-// alert

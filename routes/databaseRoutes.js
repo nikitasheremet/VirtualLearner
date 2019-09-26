@@ -113,6 +113,7 @@ module.exports = function(router, database) {
   })
   router.get('/:title', (req, res) => {
     database.findAllResourcesByTitle(req.params.title).then(queryResult => {
+      console.log(queryResult);
       res.send(queryResult);
     })
   })
