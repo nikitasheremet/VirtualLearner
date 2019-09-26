@@ -53,8 +53,9 @@ const clickCategory = (data) => {
     ajaxCategoryResources(clickedCategory).then(res => {
       displayAndMakeBackButton(res)
       //Listens for delete click and rerenders resources
-        $(function() {$(".container").on("click", ".btn", function(data) {
+        $(function() {$("body").on("click", ".btn", function(data) {
           const resourceId = data.originalEvent.path[3].classList[1]
+          console.log(resourceId);
           ajaxDeleteResource(resourceId).then(() => {
             ajaxCategoryResources(clickedCategory).then((res) => {
             displayAndMakeBackButton(res)
@@ -98,7 +99,7 @@ ajaxCategories().then(res => {
 
 
 // On click For Show all Resources Button
-$("#my-resources").on("click", ".show-all-resources", (data) => {
+$("body").on("click", ".show-all-resources", (data) => {
   $(".show-all-resources").hide();
   $(".show-categories").show();
   $(".header h3").html("My Resources");
@@ -141,7 +142,7 @@ $("#my-resources").on("click", ".show-all-resources", (data) => {
 
   //On delete button click delete resource and reload updated db
   $(function() {$(".container").on("click", ".btn", function(data) {
-    const resourceId = data.originalEvent.path[2].classList[1]
+    const resourceId = data.originalEvent.path[div.card].classList[1]
     ajaxDeleteResource(resourceId).then(() => {
         ajaxAllResources().then(res => {
           let output = ""
