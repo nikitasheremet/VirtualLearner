@@ -30,7 +30,7 @@ return `
           <img class="comment-bubble" src="/images/comment.svg" alt="...">
           <span>${resource.comments_count}</span>
         </div>
-        <span>${getStars(resource.rating)}</span>
+        <span data-rated=false>${getStars(resource.rating)}</span>
       </div>
       <div class="comment-section">
         <form class="post-comment" action="/db/new-comment" method="POST">
@@ -58,29 +58,50 @@ const createComment = data => {
   </ul>`
 }
 
-function getStars(rating) {
+// // Render the stars according to the resource's rating
+// function getStars(resource) {
+
+//   // Round rating to nearest whole
+//   rating = Math.round(resource.rating);
+
+//   let stars = [];
+//   let counter = 1;
+
+//   for (let i = 1; i <= 3; i++) {
+//     if (i <= rating) {
+//       stars.push('<i class="fa fa-star" resource-id=${resource.id} rating=${i} aria-hidden="true" style="color: gold;"></i>&nbsp;');
+//     } else {
+//       stars.push('<i class="fa fa-star-o" resource-id=${resource.id} rating=${i} aria-hidden="true" style="color: gold;"></i>&nbsp;');
+//       counter ++
+//     }
+//   }
+
+//   return stars.join('');
+// }
+
+// To get average rating from database
+function getStars(rating, additionalStyle = "") {
 
   // Round to nearest half
-  rating = Math.round(rating * 2) / 2;
+  rating = Math.round(rating * 2) / 2
   let stars = [];
   counter = 1;
 
   // Add all the filled whole stars
   for (var i = rating; i >= 1; i--)
-  stars.push('<i class="fa fa-star" aria-hidden="true" style="color: gold;"></i>&nbsp;');
+  stars.push(`<i class="fa fa-star" aria-hidden="true icon large" style="color:gold;${additionalStyle};"></i>&nbsp;`);
 
   // If there is a half a star, append it
-  if (i == .5) stars.push('<i class="fa fa-star-half-o" aria-hidden="true" style="color: gold;"></i>&nbsp;');
+  if (i == .5) stars.push(`<i class="fa fa-star-half-o icon large" aria-hidden="true" style="color:gold;${additionalStyle};"></i>&nbsp;`);
 
   // Fill the empty stars
   for (let i = (3 - rating); i >= 1; i--)
-  stars.push('<i class="fa fa-star-o" aria-hidden="true" style="color: gold;"></i>&nbsp;');
+  stars.push(`<i class="fa fa-star-o icon-large" aria-hidden="true" style="color:gold;${additionalStyle};"></i>&nbsp;`);
+
 
   for (i in stars) {
-    stars[i] = stars[i].slice(0,2) + ' data-starnum='+ `"${counter}"` + stars[i] .slice(2);
-    counter ++
+  stars[i] = stars[i].slice(0,2) +' rating ='+ `"${counter}"` + stars[i].slice(2);
+  counter ++
   }
-
   return stars.join('');
-}
-
+  }
