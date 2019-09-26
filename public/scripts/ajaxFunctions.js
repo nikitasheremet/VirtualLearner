@@ -105,3 +105,9 @@ const ajaxGetUsersRating = () => {
     url: `/db/get-user-rating`
   })
 }
+const ajaxDeleteResource = id => {
+  return $.ajax({
+    method: "GET",
+    url: `/db/delete/resource/${id}`
+  })
+}

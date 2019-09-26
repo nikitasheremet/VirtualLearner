@@ -90,15 +90,18 @@ module.exports = function(router, database) {
       res.send(queryResult);
     })
   })
+
   router.get('/:resourceId/comments', (req, res) => {
     database.queryResourceComments(req.params.resourceId).then(queryResult => {
       res.send(queryResult);
     })
   })
 
-
-
-
+  router.get('/delete/resource/:id', (req, res) => {
+    database.queryDeleteResource(req.params.id).then(queryResult => {
+      res.send(queryResult);
+    })
+  })
 
   router.post('/new-comment', (req, res) => {
     database.insertComment(req.body)
