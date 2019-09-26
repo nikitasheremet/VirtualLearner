@@ -24,7 +24,7 @@ const displayAndMakeBackButton = (res) => {
 
       // console.log(resource);
     if (resource.url.match(/www\.youtube\./)) {
-      resource.thumbnail_photo = `https://img.youtube.com/vi/${resource.url.split('=')[1]}/hqdefault.jpg`
+      resource.video = `<iframe width=100% height=100% src="https://www.youtube.com/embed/${resource.url.split('=')[1]}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
     } else {
         // resource.thumbnail_photo = `http://api.screenshotlayer.com/api/capture?access_key=3f06297d1eae1c79319ab9edd2faeb56&url=${resource.url}&placeholer=1`
     }
@@ -127,10 +127,10 @@ $("body").on("click", ".show-all-resources", (data) => {
         }
       }).includes("true");
       if (resource.url.match(/www\.youtube\./)) {
-      resource.thumbnail_photo = `https://img.youtube.com/vi/${resource.url.split('=')[1]}/hqdefault.jpg`
-      } else {
+      resource.video = `<iframe width=100% height=100% src="https://www.youtube.com/embed/${resource.url.split('=')[1]}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+    } else {
         // resource.thumbnail_photo = `http://api.screenshotlayer.com/api/capture?access_key=3f06297d1eae1c79319ab9edd2faeb56&url=${resource.url}&placeholer=1`
-      }
+    }
 
       if (resource.user_id !== res.ID) {
         output += generateResources(resource, "red")
@@ -143,7 +143,7 @@ $("body").on("click", ".show-all-resources", (data) => {
 
   //On delete button click delete resource and reload updated db
   $(function() {$(".container").on("click", ".btn", function(data) {
-    const resourceId = data.originalEvent.path[div.card].classList[1]
+    const resourceId = data.originalEvent.path[3].classList[1]
     ajaxDeleteResource(resourceId).then(() => {
         ajaxAllResources().then(res => {
           let output = ""
@@ -213,7 +213,7 @@ $("#my-resources").on("click", ".search-all-resources", (data) => {
 })
 
 $("body").on("click",".like-button",(data) => {
-  const id = data.originalEvent.path[4].classList[1]
+  const id = data.originalEvent.path[3].classList[1]
   const clickStatus = data.originalEvent.path[0].attributes[1].value;
   if (clickStatus === "false") {
     $(`.${id} .like-button`).attr("data-cond","true");

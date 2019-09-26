@@ -26,7 +26,7 @@ if (resource.user_id === 1) {
   output += `
     </div>
       <a href="${resource.url}">
-        <img src="${resource.thumbnail_photo}" class="card-img-top" alt="...">
+        ${resource.video ? "<div style=height:300px>"+resource.video+"</div>" : "<img src=" + resource.thumbnail_photo + " class='card-img-top' alt='...'/>"}
       </a>
     <div class="card-body">
       <p class="card-text">${resource.description}</p>
