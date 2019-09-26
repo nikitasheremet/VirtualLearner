@@ -23,7 +23,11 @@ const displayAndMakeBackButton = (res) => {
   $(".show-all-resources").hide();
   $(".show-categories").hide();
   myCategoriesList.html(output);
+<<<<<<< HEAD
+  $("#my-resources .home_buttons").prepend(`<button class=back-button><a href="/home" style="color:black"><img src = "/images/categories.svg" /></a></button>`)
+=======
   $("#my-resources h3:eq(0)").after(`<button class=back-button><a href="/home" style="color:black">Show Categories</a></button>`)
+>>>>>>> dae8f38e685f092f02d7b9e6801e4a44652ec5cf
 }
 
 // Clicking on a category calls the db and gets a list of resources belonging to that category,
@@ -52,7 +56,11 @@ ajaxCategories().then(res => {
   for (let cat of res) {
     output += generateTemplateCategory(cat.category);
   }
+<<<<<<< HEAD
+  $("#my-resources .home_buttons").prepend(`<button class="show-all-resources"><img src = "/images/list.svg" /></button><button class="show-categories"><img src = "/images/categories.svg" /></button>`);
+=======
   $("#my-resources h3:eq(0)").after(`<button class="show-all-resources">Show All</button><button class="show-categories">Show Categories</button>`);
+>>>>>>> dae8f38e685f092f02d7b9e6801e4a44652ec5cf
 
 
   $(".show-categories").hide();
@@ -147,8 +155,47 @@ $("body").on("click",".like-button",(data) => {
 
 
 
-$("body").on("click", "i", function(data) {
-  $(this).parents(".star-rating").html(getStars(data.originalEvent.path[0].attributes[0].nodeValue))
+// let previousRating = 0;
+$("body").on("click", "i", (data) => {
+  // console.log("previosu Rating",previousRating);
+  let rating = data.originalEvent.path[0].attributes[0].nodeValue
+  let resourceId = data.originalEvent.path[4].classList[1]
+  console.log(data)
+
+  if (data.target.parentElement.attributes[0].value === "true" && data.originalEvent.path[0].style.webkitTextStroke === "0.75px blue" && (!data.originalEvent.path[0].nextElementSibling || data.originalEvent.path[0].nextElementSibling.style.webkitTextStroke !== "0.75px blue")) {
+    data.target.parentElement.attributes[0].value = "false"
+    $(data.target.parentElement).children().each(function() {
+      this.style.webkitTextStroke = ""
+    })
+  } else {
+    data.target.parentElement.attributes[0].value = "true"
+    $(data.target.parentElement).children().each(function() {
+        this.style.webkitTextStroke = ""
+      })
+    data.originalEvent.path[0].style.webkitTextStroke = "0.75px blue"
+    data.originalEvent.path[0].previousElementSibling.style.webkitTextStroke = "0.75px blue"
+    data.originalEvent.path[0].previousElementSibling.previousElementSibling.style.webkitTextStroke = "0.75px blue"
+  }
+
+    // if (true) {
+    //   // console.log("a")
+    //   $(data.target.parentElement).children().each(function() {
+    //     this.style.webkitTextStroke = ""
+    //   })
+    //   previousRating = rating;
+    // } else {
+    //   // console.log("b")
+    //   $(data.target.parentElement).children().each(function() {
+    //     this.style.webkitTextStroke = ""
+    //   })
+    //   data.originalEvent.path[0].style.webkitTextStroke = "0.75px blue"
+    //   data.originalEvent.path[0].previousElementSibling.style.webkitTextStroke = "0.75px blue"
+    //   data.originalEvent.path[0].previousElementSibling.previousElementSibling.style.webkitTextStroke = "0.75px blue"
+    //   // previousRating = rating;
+    // }
+
+
+
 });
 
 

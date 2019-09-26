@@ -14,7 +14,7 @@ console.log(resource);
 return `
   <div class="card ${resource.id}">
     <div class="card-header">
-        <h5 class="card-title" style=color:${color}>${resource.title}</h5>
+        <h4 class="card-title" style=color:${color}>${resource.title}</h5>
     </div>
       <a href="${resource.url}">
         <img src="${resource.thumbnail_photo}" class="card-img-top" alt="...">
@@ -30,7 +30,7 @@ return `
           <img class="comment-bubble" src="/images/comment.svg" alt="...">
           <span>${resource.comments_count}</span>
         </div>
-        <span class= star-rating>${getStars(resource.rating, resource.id)}</span>
+        <span data-rated=false>${getStars(resource.rating)}</span>
       </div>
       <div class="comment-section">
         <form class="post-comment" action="/db/new-comment" method="POST">
@@ -48,7 +48,7 @@ const createComment = data => {
   <ul class="list">
     <li>
       <div>
-        <img src="/images/avatar.svg" />
+        <img src=${data.profile_pic}" />
       </div>
       <div>
         <p>${data.comment}</p>
@@ -80,30 +80,28 @@ const createComment = data => {
 // }
 
 // To get average rating from database
-function getStars(rating, id) {
-  // let rating = Number(resource.rating);
+function getStars(rating, additionalStyle = "") {
 
   // Round to nearest half
-  rating = Math.round(rating * 2) / 2;
+  rating = Math.round(rating * 2) / 2
   let stars = [];
   counter = 1;
 
   // Add all the filled whole stars
   for (var i = rating; i >= 1; i--)
-  stars.push('<i class="fa fa-star" aria-hidden="true" style="color: gold;"></i>&nbsp;');
+  stars.push(`<i class="fa fa-star" aria-hidden="true icon large" style="color:gold;${additionalStyle};"></i>&nbsp;`);
 
   // If there is a half a star, append it
-  if (i == .5) stars.push('<i class="fa fa-star-half-o" aria-hidden="true" style="color: gold;"></i>&nbsp;');
+  if (i == .5) stars.push(`<i class="fa fa-star-half-o icon large" aria-hidden="true" style="color:gold;${additionalStyle};"></i>&nbsp;`);
 
   // Fill the empty stars
   for (let i = (3 - rating); i >= 1; i--)
-  stars.push('<i class="fa fa-star-o" aria-hidden="true" style="color: gold;"></i>&nbsp;');
+  stars.push(`<i class="fa fa-star-o icon-large" aria-hidden="true" style="color:gold;${additionalStyle};"></i>&nbsp;`);
 
 
   for (i in stars) {
-  stars[i] = stars[i].slice(0,2) +' rating ='+ `"${counter}"` + stars[i] .slice(2);
+  stars[i] = stars[i].slice(0,2) +' rating ='+ `"${counter}"` + stars[i].slice(2);
   counter ++
   }
-
   return stars.join('');
   }

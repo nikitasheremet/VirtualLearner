@@ -123,7 +123,11 @@ exports.queryAddLike = queryAddLike;
 
 
 const queryResourceComments = resourceId => {
-  const queryString = `SELECT comment FROM comments WHERE resource_id = $1;`;
+  const queryString = `
+  SELECT comment, profile_pic
+  FROM comments
+  JOIN users ON users.id = user_id
+  WHERE resource_id = $1;`;
   const queryParams = [resourceId];
 
   return pool.query(
