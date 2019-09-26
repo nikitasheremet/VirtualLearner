@@ -1,128 +1,180 @@
 /* Mobile Styles */
 
-  .login-container {
-    max-width: 335px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: white;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 20px;
-    border-radius: 10px;
-    padding-bottom: 20px;
+
+.login-container {
+  max-width: 335px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  border-radius: 10px;
+  padding-bottom: 20px;
+}
+
+.login-labels {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  color: black;
+}
+
+.input-fields {
+  background-color: #ededed !important;
+  border: 0px !important;
+  width: 100%;
+}
+
+.login-button {
+  background-color: #F80D20;
+  border-radius: 8px;
+  border: 0px;
+  width: 100%;
+  margin-top: 25px;
+  height: 38px;
+}
+
+.login-button a{
+  color:white;
+  font-weight:bold;
+}
+
+textarea {
+  resize: none !important;
+  height: 120px;
+}
+
+.account-space {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.sign-up-link{
+  color: black;
+  font-weight: bold;
+  text-decoration-line: underline;
+
+}
+
+.sign-up {
+  width: 100%;
+  text-align: center;
+}
+
+.logo {
+  height: 220px;
+  background-repeat: no-repeat;
+  background-size: 286px 205px;
+  background-position: bottom;
+  margin-bottom: -13px;
+  margin-left: auto;
+  margin-right:auto;
+  background-image: url("https://i.ibb.co/F0jFnkv/background-modfied.jpg");
+}
+
+.logo img{
+  width: inherit;
+}
+
+.center-text {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+}
+
+.virtual-logo {
+  margin-left: auto;
+  margin-right:auto;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-size: 276px 41px;
+  background-image: url("https://i.ibb.co/DM8Lr2d/Virtual-Learner.png");
+  background-position: center;
+}
+
+
+.imageUpload {
+display: none;
+}
+
+.profileImage{
+cursor: pointer;
+}
+
+.profile-container {
+width: 150px;
+height: 150px;
+overflow: hidden;
+-webkit-border-radius: 50%;
+-moz-border-radius: 50%;
+-ms-border-radius: 50%;
+-o-border-radius: 50%;
+border-radius: 50%;
+}
+
+.profile-container img {
+width: 150px;
+height: 150px;
+}
+
+
+.counter {
+  float: right;
+  font-family: 'Bungee', cursive;
+}
+
+@media only screen and (max-width: 1000px){
+  .left-text{
+    display:none;
   }
+}
 
-  .login-labels {
-    font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
-    color: black;
-  }
 
-  .input-fields {
-    background-color: #ededed !important;
-    border: 0px !important;
-    width: 100%;
-  }
 
-  .login-button {
-    background-color: #F80D20;
-    border-radius: 8px;
-    border: 0px;
-    width: 100%;
-    margin-top: 25px;
-    height: 38px;
-  }
-
-  .login-button a{
-    color:white;
-    font-weight:bold;
-  }
-
-  textarea {
-    resize: none !important;
-    height: 120px;
-  }
-
-  .account-space {
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    margin-bottom: 0px;
-  }
-
-  .sign-up-link{
-    color: black;
-    font-weight: bold;
-    text-decoration-line: underline;
-
-  }
-
-  .sign-up {
-    width: 100%;
-    text-align: center;
-  }
-
-  .logo {
-    height: 220px;
-    background-repeat: no-repeat;
-    background-size: 286px 205px;
-    background-position: bottom;
-    margin-bottom: -13px;
-    margin-left: auto;
-    margin-right:auto;
-    background-image: url("https://i.ibb.co/F0jFnkv/background-modfied.jpg");
-  }
-
-  .logo img{
-    width: inherit;
-  }
-
-  .center-text {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 20px;
+@media only screen and (min-width: 1000px) {
+  .center-text{
+    display:none;
   }
 
   .virtual-logo {
     margin-left: auto;
     margin-right:auto;
-    height: 40px;
+    height: 99px;
     background-repeat: no-repeat;
-    background-size: 276px 41px;
-    background-image: url("https://i.ibb.co/DM8Lr2d/Virtual-Learner.png");
-    background-position: center;
+    background-size: 156px 99px;
+    background-image: url("https://i.ibb.co/Ltsm5VK/Virtual-Learner-container.png");
+    background-position: left;
+    margin-bottom:20px;
   }
 
 
-  .imageUpload {
-  display: none;
+  .logo {
+    display:none;
   }
 
-  .profileImage{
-  cursor: pointer;
-  }
+  .desktop-container {
+      height: 468px;
+      width: 1000px;
+      background-color: #F8F8F8;
+      border-radius:10px;
+      background-repeat: no-repeat;
+      background-size: 665px 468px;
+      background-position: right;
+      margin-bottom: -13px;
+      margin-left: auto;
+      margin-right:auto;
+      background-image: url("https://i.ibb.co/F0jFnkv/background-modfied.jpg");
 
-  .profile-container {
-  width: 150px;
-  height: 150px;
-  overflow: hidden;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  border-radius: 50%;
-  }
+    }
 
-  .profile-container img {
-  width: 150px;
-  height: 150px;
+  .login-container {
+    margin-left:initial;
+    border-radius: 10px 0px 0px 10px;
+    border-right: 1px #ebebeb solid;
   }
-
-
-  .counter{
-    float: right;
-    font-family: 'Bungee', cursive;
-  }
+}

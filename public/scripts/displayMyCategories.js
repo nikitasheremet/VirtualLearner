@@ -147,7 +147,6 @@ $("body").on("click",".like-button",(data) => {
 
 
 
-
 $("body").on("click", "i", function(data) {
   $(this).parents(".star-rating").html(getStars(data.originalEvent.path[0].attributes[0].nodeValue))
 });
