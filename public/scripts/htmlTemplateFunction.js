@@ -100,7 +100,7 @@ function getStars(rating, additionalStyle = "") {
 
 
   for (i in stars) {
-  stars[i] = stars[i].slice(0,2) +' rating ='+ `"${counter}"` +  stars[i] .slice(2);
+  stars[i] = stars[i].slice(0,2) +' rating ='+ `"${counter}"` + stars[i].slice(2);
   counter ++
   }
   return stars.join('');
