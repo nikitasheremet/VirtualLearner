@@ -52,6 +52,11 @@ body .card {
   box-shadow: 5px 10px 15px #adb5bd;
   border-radius: 15px;
 }
+@media (min-width: 600px) {
+  body .card {
+    width: 45%;
+  }
+}
 body .card .card-header {
   display: flex;
   justify-content: space-between;
