@@ -25,13 +25,18 @@
   <% include ./partials/_header %>
   <section class="container">
       <div class= "search-form">
-        <h3 class= "titles"> &nbsp Browse</h3>
+        <h3 class= "titles"> Browse</h3>
         <form id = "search-all-resources" >
-          <input type="text" placeholder="Browse other user's content" id="search">
-          <button style="font-family: 'Poppins', sans-serif" type="submit" class="btn btn-light">Search</button>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Browse other user's content" id="search" aria-label="Browse other user's content" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
+                </div>
+              </div>
         </form>
       </div>
       <section id = "resources_found" >
+
 
   <br>
     <section style="font-family: 'Poppins', sans-serif" class="container">

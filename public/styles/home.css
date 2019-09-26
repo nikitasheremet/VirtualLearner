@@ -5,6 +5,9 @@ body .container {
   width: 100%;
   text-align: center;
 }
+body .container .search-form {
+  padding: 20px;
+}
 body .container .titles {
   font-family: "Poppins", sans-serif;
   text-align: left;
