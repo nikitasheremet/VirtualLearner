@@ -35,6 +35,7 @@ body #my-categories-list .my-categories {
   text-align: center;
   box-shadow: 5px 10px 15px #adb5bd;
   border-radius: 15px;
+  background-color: #fff;
 }
 @media (min-width: 600px) {
   body #my-categories-list .my-categories {

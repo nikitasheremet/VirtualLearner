@@ -44,22 +44,39 @@ module.exports = function(router, database) {
       res.send(queryResult);
     })
   })
-  router.get('/:resourceId/comments', (req, res) => {
-    database.queryResourceComments(req.params.resourceId).then(queryResult => {
-      res.send(queryResult);
-    })
-  })
-   router.get('/resources/liked', (req, res) => {
+  router.get('/resources/liked', (req, res) => {
     database.queryMyLikes(userID.user_id).then(queryResult => {
       res.send(queryResult);
     })
+  })
+  router.post('/add-rating/:id', (req, res) => {
+    let data = {
+      rating: req.body.rating,
+      user_id: userID.user_id,
+      resource_id: req.params.id
+    }
+    database.queryAddRating(data)
+  })
+  router.get('/get-user-rating', (req, res) => {
+    let data = {
+      user_id: userID.user_id
+    }
+    database.queryGetUsersRating(data).then((queryResult) => {
+      res.send(queryResult);
+    })
+  })
+  router.post('/delete-rating/:id', (req, res) => {
+    let data = {
+      user_id: userID.user_id,
+      resource_id: req.params.id
+    }
+    database.queryDeleteRating(data)
   })
   router.get('/add-like/:id', (req, res) => {
     let data = {
       user_id: userID.user_id,
       id: req.params.id
     }
-    // console.log(data);
     database.queryAddLike(data).then(queryResult => {
       res.send(queryResult);
     })
@@ -69,16 +86,23 @@ module.exports = function(router, database) {
       user_id: userID.user_id,
       id: req.params.id
     }
-    // console.log(data);
     database.queryDeleteLike(data).then(queryResult => {
       res.send(queryResult);
     })
   })
+
+  router.get('/:resourceId/comments', (req, res) => {
+    database.queryResourceComments(req.params.resourceId).then(queryResult => {
+      res.send(queryResult);
+    })
+  })
+
   router.get('/delete/resource/:id', (req, res) => {
     database.queryDeleteResource(req.params.id).then(queryResult => {
       res.send(queryResult);
     })
   })
+
   router.post('/new-comment', (req, res) => {
     database.insertComment(req.body)
   })
