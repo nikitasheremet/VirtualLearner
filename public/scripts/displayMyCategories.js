@@ -36,7 +36,6 @@ const displayAndMakeBackButton = (res) => {
   $(".back-button").hide();
   myCategoriesList.html(output);
   $("#my-resources .home_buttons").prepend(`<button class=back-button><a href="/home" style="color:black"><img src = "/images/categories.svg" /></a></button>`)
-  console.log("AAA")
 }
 
 // Clicking on a category calls the db and gets a list of resources belonging to that category,
@@ -52,15 +51,11 @@ const clickCategory = (data) => {
     })
   } else {
     ajaxCategoryResources(clickedCategory).then(res => {
-
       displayAndMakeBackButton(res)
-        console.log("BBB")
+      //Listens for delete click and rerenders resources
         $(function() {$(".container").on("click", ".btn", function(data) {
-          // console.log(data);
           const resourceId = data.originalEvent.path[3].classList[1]
-          console.log(resourceId);
           ajaxDeleteResource(resourceId).then(() => {
-            console.log("CCC")
             ajaxCategoryResources(clickedCategory).then((res) => {
             displayAndMakeBackButton(res)
             })
@@ -106,6 +101,8 @@ ajaxCategories().then(res => {
 $("#my-resources").on("click", ".show-all-resources", (data) => {
   $(".show-all-resources").hide();
   $(".show-categories").show();
+  $(".header h3").html("My Resources");
+
   ajaxAllResources().then(res => {
     console.log(res);
     let output = ""
@@ -174,15 +171,13 @@ $("#my-resources").on("click", ".show-all-resources", (data) => {
     })
   })
 
-
-
-
 })
 
 // On click For Show Categories Button
 $("#my-resources").on("click", ".show-categories", (data) => {
   $(".show-categories").hide();
   $(".show-all-resources").show();
+  $(".header h3").html("My Categories");
   ajaxCategories().then(res => {
   let output = "";
   // console.log(res);
