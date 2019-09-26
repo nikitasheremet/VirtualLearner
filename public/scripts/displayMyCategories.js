@@ -51,6 +51,7 @@ const clickCategory = (data) => {
   } else {
     ajaxCategoryResources(clickedCategory).then(res => {
       displayAndMakeBackButton(res)
+      //Listens for delete click and rerenders resources
         $(function() {$(".container").on("click", ".btn", function(data) {
           const resourceId = data.originalEvent.path[2].classList[1]
           ajaxDeleteResource(resourceId).then(() => {
@@ -99,6 +100,8 @@ ajaxCategories().then(res => {
 $("#my-resources").on("click", ".show-all-resources", (data) => {
   $(".show-all-resources").hide();
   $(".show-categories").show();
+  $(".header h3").html("My Resources");
+
   ajaxAllResources().then(res => {
     console.log(res);
     let output = ""
@@ -167,15 +170,13 @@ $("#my-resources").on("click", ".show-all-resources", (data) => {
     })
   })
 
-
-
-
 })
 
 // On click For Show Categories Button
 $("#my-resources").on("click", ".show-categories", (data) => {
   $(".show-categories").hide();
   $(".show-all-resources").show();
+  $(".header h3").html("My Categories");
   ajaxCategories().then(res => {
   let output = "";
   // console.log(res);
