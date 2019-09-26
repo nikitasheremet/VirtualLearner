@@ -56,10 +56,6 @@ const clickCategory = (data) => {
       //Listens for delete click and rerenders resources
         $(function() {$("body").on("click", ".btn", function(data) {
           const resourceId = data.originalEvent.path[3].classList[1]
-<<<<<<< HEAD
-          console.log(resourceId);
-=======
->>>>>>> 9646dea17de6ff42eaac07773a364536564bcf0f
           ajaxDeleteResource(resourceId).then(() => {
             ajaxCategoryResources(clickedCategory).then((res) => {
             displayAndMakeBackButton(res)
