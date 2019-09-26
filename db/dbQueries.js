@@ -42,7 +42,9 @@ const findAllResourcesByTitle = (input) => {
   LEFT JOIN comments ON resources.id = comments.resource_id
   LEFT JOIN ratings ON resources.id = ratings.resource_id
   WHERE lower(title) LIKE $1
-  GROUP BY resources.id;`;
+  GROUP BY resources.id
+  ORDER BY COUNT(DISTINCT likes.*)
+  LIMIT 20;`;
   const queryParams = [`%${input.toLowerCase()}%`];
 
   return pool.query(queryString, queryParams)
@@ -262,3 +264,23 @@ const queryDeleteResource = id => {
 }
 
 exports.queryDeleteResource = queryDeleteResource
+
+const queryTopResources = () => {
+  const queryString = `
+  SELECT resources.*, COUNT(DISTINCT likes.*) AS likes, COUNT(DISTINCT comments.*) AS comments_count, AVG(ratings.rating) AS rating
+  FROM resources
+  LEFT JOIN likes ON resources.id = likes.resource_id
+  LEFT JOIN comments ON resources.id = comments.resource_id
+  LEFT JOIN ratings ON resources.id = ratings.resource_id
+  GROUP BY resources.id
+  ORDER BY COUNT(DISTINCT likes.*)
+  LIMIT 20;`;
+
+  return pool.query(queryString)
+    .then((res) => {
+      console.log(res.rows, "TEST")
+      return res.rows
+    })
+    .catch(err => console.log(err))
+}
+exports.queryTopResources = queryTopResources;

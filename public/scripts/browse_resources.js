@@ -1,6 +1,5 @@
 const renderResource = data => {
   const wall = $("#resources_found");
-  $("#resources_found").empty()
   data.isLiked = usersLikes.responseJSON.map(users => {
         if(users.resource_id === data.id) {
           return "true"
@@ -9,13 +8,15 @@ const renderResource = data => {
         }
       }).includes("true");
   console.log(data);
-  wall.append(generateResources(data));
+  wall.prepend(generateResources(data));
 
 }
 
 $("#search-all-resources").submit( event => {
   event.preventDefault()
   const input = $("#search").val()
+
+  $("#resources_found").empty()
 
   ajaxResources(input).then(res => {
     for (let resource of res) {
@@ -84,9 +85,15 @@ $(".container").on("submit", ".post-comment", function(event) {
 
 })
 
-// $(".container").on("click", ".btn", function(data) {
-//   const resourceId = data.originalEvent.path[3].classList[1]
-//   ajaxDeleteResource(resourceId).then(() => {
-//     location.reload()
+//!LOAD TOP RESOURCES
+// $( document ).ready(function() {
+//   ajaxTopResources().then(res => {
+//     console.log(res, "ajaxtopresources result")
+//   $("#resources_found").empty()
+
+//     for (let resource of res) {
+//       renderResource(resource);
+//     }
 //   })
-// })
+
+// });
