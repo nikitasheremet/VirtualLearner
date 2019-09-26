@@ -141,11 +141,7 @@ $("body").on("click", ".show-all-resources", (data) => {
   })
 
   //On delete button click delete resource and reload updated db
-<<<<<<< HEAD
-  $(function() {$(".container").on("click", ".btn", function(data) {
-=======
   $(function() {$("body").on("click", ".btn", function(data) {
->>>>>>> 9646dea17de6ff42eaac07773a364536564bcf0f
     const resourceId = data.originalEvent.path[3].classList[1]
     ajaxDeleteResource(resourceId).then(() => {
         ajaxAllResources().then(res => {
