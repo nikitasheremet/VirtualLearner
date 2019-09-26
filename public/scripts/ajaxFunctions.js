@@ -111,3 +111,11 @@ const ajaxDeleteResource = id => {
     url: `/db/delete/resource/${id}`
   })
 }
+
+const ajaxTopResources = () => {
+  console.log("IN ajax")
+  return $.ajax({
+    method: "GET",
+    url: `/db/top-resources`
+  })
+}

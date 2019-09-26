@@ -111,6 +111,13 @@ module.exports = function(router, database) {
       res.send(queryResult);
     })
   })
+  router.get('/top-resources', (req, res) => {
+    console.log("IN HERE")
+    database.queryTopResources().then(queryResult => {
+      console.log(queryResult, "queryresult")
+      res.send(queryResult)
+    })
+  })
   router.get('/:title', (req, res) => {
     database.findAllResourcesByTitle(req.params.title).then(queryResult => {
       console.log(queryResult);

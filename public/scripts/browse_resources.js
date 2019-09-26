@@ -8,7 +8,7 @@ const renderResource = data => {
         }
       }).includes("true");
   console.log(data);
-  wall.append(generateResources(data));
+  wall.prepend(generateResources(data));
 
 }
 
@@ -86,9 +86,15 @@ $(".container").on("submit", ".post-comment", function(event) {
 
 })
 
-// $(".container").on("click", ".btn", function(data) {
-//   const resourceId = data.originalEvent.path[3].classList[1]
-//   ajaxDeleteResource(resourceId).then(() => {
-//     location.reload()
+//!LOAD TOP RESOURCES
+// $( document ).ready(function() {
+//   ajaxTopResources().then(res => {
+//     console.log(res, "ajaxtopresources result")
+//   $("#resources_found").empty()
+
+//     for (let resource of res) {
+//       renderResource(resource);
+//     }
 //   })
-// })
+
+// });
