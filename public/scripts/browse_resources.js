@@ -31,8 +31,11 @@ $(".container").on("click", ".comment-bubble", function(data) {
   const commentSection = $(this).parents(".card-footer").find(".comment-section")
   const commentsList = $(this).parents(".card-footer").find(".comments-list")
   const resourceId = data.originalEvent.path[4].classList[1]
+  console.log(resourceId);
+  console.log("click Data", data)
 
   $(this).parents(".card").find(".card-img-top").slideToggle()
+  console.log("toggle");
   $(this).parents(".card").find(".card-body").slideToggle()
   commentsList.empty()
 
