@@ -1,13 +1,26 @@
 <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
 <script type="text/javascript" src="/routes/logout.js"></script>
+<script type="text/javascript" src="/routes/edit_profile.js"></script>
+<script type="text/javascript" src="/routes/home_page.js"></script>
+<link rel="stylesheet" href="/styles/landing_page.css" type="text/css" />
 
 <header>
     <body style= "background-color:#eaebee">
         <div class= "center-text2">
           <p class= "left-text">Welcome back!</p>
-          <div class="virtual-logo2"></div>
+          <form method="GET" action="/home">
+            <a href="/home">
+              <div class= "virtual-logo2"></div>
+            </a>
+          </form>
+          <form method="GET" action="/edit_profile">
+            <a href="/edit_profile">
+              <img class= "profile-pic" src="https://i.ibb.co/1v50s52/FakeDP.jpg"/>
+            </a>
+          </form>
           <form method="GET" action="/logout">
-              <input type="submit" value="Logout"/>
+              <input class="logout" type="submit" value="Logout"/>
           </form>
     </div>
 </header>
+
