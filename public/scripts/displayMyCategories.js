@@ -23,7 +23,7 @@ const displayAndMakeBackButton = (res) => {
   $(".show-all-resources").hide();
   $(".show-categories").hide();
   myCategoriesList.html(output);
-  $("#my-resources .home_buttons").prepend(`<button class=back-button><a href="/home" style="color:black">Show Categories</a></button>`)
+  $("#my-resources .home_buttons").prepend(`<button class=back-button><a href="/home" style="color:black"><img src = "/images/categories.svg" /></a></button>`)
 }
 
 // Clicking on a category calls the db and gets a list of resources belonging to that category,
@@ -52,7 +52,7 @@ ajaxCategories().then(res => {
   for (let cat of res) {
     output += generateTemplateCategory(cat.category);
   }
-  $("#my-resources .home_buttons").prepend(`<button class="show-all-resources"><img src = "/images/list.svg" /></button><button class="show-categories">Show Categories</button>`);
+  $("#my-resources .home_buttons").prepend(`<button class="show-all-resources"><img src = "/images/list.svg" /></button><button class="show-categories"><img src = "/images/categories.svg" /></button>`);
 
 
   $(".show-categories").hide();

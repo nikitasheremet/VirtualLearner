@@ -14,7 +14,7 @@ console.log(resource);
 return `
   <div class="card ${resource.id}">
     <div class="card-header">
-        <h5 class="card-title" style=color:${color}>${resource.title}</h5>
+        <h4 class="card-title" style=color:${color}>${resource.title}</h5>
     </div>
       <a href="${resource.url}">
         <img src="${resource.thumbnail_photo}" class="card-img-top" alt="...">
@@ -48,7 +48,7 @@ const createComment = data => {
   <ul class="list">
     <li>
       <div>
-        <img src="/images/avatar.svg" />
+        <img src=${data.profile_pic}" />
       </div>
       <div>
         <p>${data.comment}</p>
