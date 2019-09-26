@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="/styles/landing_page.css" type="text/css" />
   <link rel="stylesheet" href="/styles/rating.css" type="text/css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
 
 
   <!-- JQuery -->
@@ -24,26 +25,26 @@
   <% include ./partials/_header %>
   <section class="container">
       <div class= "search-form">
-        <h3> Browse</h3>
+        <h3 class= "titles"> &nbsp Browse</h3>
         <form id = "search-all-resources" >
           <input type="text" placeholder="Browse other user's content" id="search">
-          <button type="submit" class="btn btn-light">Search</button>
+          <button style="font-family: 'Poppins', sans-serif" type="submit" class="btn btn-light">Search</button>
         </form>
       </div>
       <section id = "resources_found" >
 
   <br>
-    <section class="container">
-      <section id="my-resources">
-        <div class="header">
-          <h3>My Categories</h3>
+    <section style="font-family: 'Poppins', sans-serif" class="container">
+      <section style="font-family: 'Poppins', sans-serif" id="my-resources">
+        <div style="font-family: 'Poppins', sans-serif" class="header">
+          <h3 class= "titles">My Categories</h3>
           <div class="home_buttons">
             <a href="/add_resource">
               <img src="/images/add.svg"/>
             </a>
           </div>
         </div>
-          <div id="my-categories-list"></div>
+          <div style="font-family: 'Poppins', sans-serif" id="my-categories-list"></div>
         </div>
       </section>
     </section>

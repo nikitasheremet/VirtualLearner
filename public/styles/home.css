@@ -5,6 +5,11 @@ body .container {
   width: 100%;
   text-align: center;
 }
+body .container .titles {
+  font-family: "Poppins", sans-serif;
+  text-align: left;
+  font-weight: bold-italic;
+}
 body .container .header {
   display: flex;
   justify-content: space-between;
