@@ -279,7 +279,6 @@ const queryTopResources = () => {
 
   return pool.query(queryString)
     .then((res) => {
-      console.log(res.rows, "TEST")
       return res.rows
     })
     .catch(err => console.log(err))

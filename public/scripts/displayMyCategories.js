@@ -43,6 +43,7 @@ const displayAndMakeBackButton = (res) => {
 const clickCategory = (data) => {
   myCategoriesList.off();
   clickedCategory = data.currentTarget.children[1].children[0].innerHTML
+  $(".header h3").html(clickedCategory);
   // console.log(clickedCategory, "clicked category")
   if (clickedCategory === "Liked") {
     usersLikes = ajaxUsersLikes()

@@ -27,13 +27,14 @@ $("#search-all-resources").submit( event => {
 //Hide card image and body
 //Append comments associated with resource to card footer
 //Show comment section that holds textarea and comments list
-$("#my-resources").on("click", ".comment-bubble", function(data) {
+$("body").on("click", ".comment-bubble", function(data) {
   const commentSection = $(this).parents(".card-footer").find(".comment-section")
   const commentsList = $(this).parents(".card-footer").find(".comments-list")
   const resourceId = data.originalEvent.path[4].classList[1]
   console.log(resourceId);
   console.log("click Data", data)
 
+  console.log("CLICK", data)
   $(this).parents(".card").find(".card-img-top").slideToggle()
   // console.log("toggle");
   $(this).parents(".card").find(".card-body").slideToggle()
@@ -50,7 +51,7 @@ $("#my-resources").on("click", ".comment-bubble", function(data) {
 })
 
 
-$(".container").on("submit", ".post-comment", function(event) {
+$("body").on("submit", ".post-comment", function(event) {
   event.preventDefault();
 
   const commentTextarea = $(this).find("textarea")
