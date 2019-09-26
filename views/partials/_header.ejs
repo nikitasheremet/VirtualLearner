@@ -4,23 +4,27 @@
 <script type="text/javascript" src="/routes/home_page.js"></script>
 <link rel="stylesheet" href="/styles/landing_page.css" type="text/css" />
 
-<header>
-    <body style= "background-color:#eaebee">
-        <div class= "center-text2">
-          <p class= "left-text">Welcome back!</p>
-          <form method="GET" action="/home">
-            <a href="/home">
-              <div class= "virtual-logo2"></div>
-            </a>
-          </form>
-          <form method="GET" action="/edit_profile">
-            <a href="/edit_profile">
-              <img class= "profile-pic" src="https://i.ibb.co/1v50s52/FakeDP.jpg"/>
-            </a>
-          </form>
-          <form method="GET" action="/logout">
-              <input class="logout" type="submit" value="Logout"/>
-          </form>
-    </div>
+<header style= "justify-content:space-between; display:flex;">
+    <body class= "header">
+        <div style="width:18rem">
+          <!-- <div class= "center-text2"> -->
+            <p class= "left-text">Welcome back!</p>
+            <form method="GET" action="/home">
+              <a href="/home">
+                <div class= "virtual-logo2"></div>
+                <div class="virtual-logo3"></div>
+               </a>
+            </form>
+          </div>
+          <div>
+            <form method="GET" action="/edit_profile">
+              <a href="/edit_profile">
+                <img class= "profile-pic" src="https://i.ibb.co/1v50s52/FakeDP.jpg"/>
+              </a>
+            </form>
+            <form method="GET" action="/logout">
+                <input class="logout" type="submit" value="Logout"/>
+            </form>
+          </div>
 </header>
 

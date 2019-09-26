@@ -1,5 +1,7 @@
 /* Mobile Styles */
-
+.header{
+  background-color:#eaebee;
+}
 
 .login-container {
   max-width: 335px;
@@ -97,7 +99,7 @@ textarea {
 .virtual-logo {
   margin-left: auto;
   margin-right:auto;
-  height: 40px;
+  /* height: 40px; */
   background-repeat: no-repeat;
   background-size: 276px 41px;
   background-image: url("https://i.ibb.co/DM8Lr2d/Virtual-Learner.png");
@@ -144,13 +146,13 @@ height: 150px;
   background-color: #F80D20;
   border-radius: 8px;
   border: 0px;
-  width: 5%;
   margin-top: 5px;
+  padding-right:5px;
   height: 38px;
   color: white;
   font-weight: bold;
+  width:100px;
 }
-
 
 
 @media only screen and (max-width: 1000px){
@@ -184,6 +186,17 @@ height: 150px;
     color: white;
     height: 60px;
   }
+
+  .virtual-logo3 {
+    margin-left: auto;
+    margin-right:auto;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-size: 120px 70px;
+    background-image: url("https://i.ibb.co/982Kcw9/VL.png");
+    background-position: left;
+  }
+
 
 }
 
