@@ -103,6 +103,15 @@ $("#my-resources").on("click", ".show-all-resources", (data) => {
     console.log(res);
     let output = ""
     for (resource of res.myResources) {
+      filteredRating = userRatings.responseJSON.filter(obj => {
+      return obj.resource_id === resource.id
+    })
+    console.log(filteredRating);
+    if (filteredRating.length > 0) {
+      resource.userRating = filteredRating[0].rating
+    } else {
+      resource.userRating = null
+    }
       // console.log(typeof resource);
       resource.isLiked = usersLikes.responseJSON.map(users => {
         if(users.resource_id === resource.id) {
@@ -228,8 +237,6 @@ $("body").on("click",".like-button",(data) => {
   }
 })
 
-
-
 // let previousRating = 0;
 $("body").on("click", "i", (data) => {
   // console.log("previosu Rating",previousRating);
@@ -237,7 +244,7 @@ $("body").on("click", "i", (data) => {
   let resourceId = data.originalEvent.path[4].classList[1]
   // console.log(data)
 
-  if (data.target.parentElement.attributes[0].value === "true" && data.originalEvent.path[0].style.webkitTextStroke === "0.75px blue" && (!data.originalEvent.path[0].nextElementSibling || data.originalEvent.path[0].nextElementSibling.style.webkitTextStroke !== "0.75px blue")) {
+  if (data.target.parentElement.attributes[0].value === "true" && data.originalEvent.path[0].style.webkitTextStroke === "1px blue" && (!data.originalEvent.path[0].nextElementSibling || data.originalEvent.path[0].nextElementSibling.style.webkitTextStroke !== "1px blue")) {
     ajaxDeleteRating(resourceId);
     data.target.parentElement.attributes[0].value = "false"
     $(data.target.parentElement).children().each(function() {
@@ -250,9 +257,9 @@ $("body").on("click", "i", (data) => {
     $(data.target.parentElement).children().each(function() {
         this.style.webkitTextStroke = ""
       })
-    data.originalEvent.path[0].style.webkitTextStroke = "0.75px blue"
-    data.originalEvent.path[0].previousElementSibling.style.webkitTextStroke = "0.75px blue"
-    data.originalEvent.path[0].previousElementSibling.previousElementSibling.style.webkitTextStroke = "0.75px blue"
+    data.originalEvent.path[0].style.webkitTextStroke = "1px blue"
+    data.originalEvent.path[0].previousElementSibling.style.webkitTextStroke = "1px blue"
+    data.originalEvent.path[0].previousElementSibling.previousElementSibling.style.webkitTextStroke = "1px blue"
   }
 
     // if (true) {

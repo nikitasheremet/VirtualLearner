@@ -22,49 +22,31 @@
 
 <body>
   <% include ./partials/_header %>
-  <br>
-  <!-- <img src=http://api.screenshotlayer.com/api/capture?access_key=3f06297d1eae1c79319ab9edd2faeb56&url=http://www.vetstreet.com/our-pet-experts/should-you-train-your-cat-to-use-the-toilet> -->
   <section class="container">
-    <section id="my-resources">
-      <div class="header">
-        <h3>My Resources</h3>
-        <div class="home_buttons">
-          <a href="/add_resource">
-            <img src="/images/add.svg"/>
-          </a>
+      <div class= "search-form">
+        <h3> Browse</h3>
+        <form id = "search-all-resources" >
+          <input type="text" placeholder="Browse other user's content" id="search">
+          <button type="submit" class="btn btn-light">Search</button>
+        </form>
+      </div>
+      <section id = "resources_found" >
+
+  <br>
+    <section class="container">
+      <section id="my-resources">
+        <div class="header">
+          <h3>My Resources</h3>
+          <div class="home_buttons">
+            <a href="/add_resource">
+              <img src="/images/add.svg"/>
+            </a>
+          </div>
         </div>
-      </div>
-        <div id="my-categories-list"></div>
-      </div>
+          <div id="my-categories-list"></div>
+        </div>
+      </section>
     </section>
-  </section>
-
-  <br>
-  <br>
-
-  <section class="container">
-    <div class= "search-form">
-      <form id = "search-all-resources" >
-        <input type="text" placeholder="Search All Resources" id="search">
-        <button type="submit" class="btn btn-light">Search</button>
-      </form>
-    </div>
-    <section id = "resources_found" >
-
-        <div class="card">
-          <div class="card-header">
-              <h5 class="card-title">Async/await</h5>
-          </div>
-          <img src="http://api.screenshotlayer.com/api/capture?access_key=3f06297d1eae1c79319ab9edd2faeb56&url=http://www.vetstreet.com/our-pet-experts/should-you-train-your-cat-to-use-the-toilet" class="card-img-top" alt="...">
-          <div class="card-body">
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-          <div class="card-footer">
-            <div class="left-footer">
-            </div>
-            rating
-          </div>
-
         </div>
     </section>
   </section>

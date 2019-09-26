@@ -117,7 +117,7 @@ function getStars(rating, userRating) {
   console.log(stars[0].slice(0,-12));
   for (let i = userRating-1; i >= 0; i--) {
     console.log(i);
-    stars[i] = stars[i].slice(0,-12) +';-webkit-text-stroke: 0.75px blue;' + stars[i].slice(-12);
+    stars[i] = stars[i].slice(0,-12) +';-webkit-text-stroke: 1px blue;font-size:20px' + stars[i].slice(-12);
   }
   return stars.join('');
   }
