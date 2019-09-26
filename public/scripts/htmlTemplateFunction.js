@@ -9,12 +9,21 @@ const generateTemplateCategory = (categoryName) => {
 }
 
 const generateResources = (resource, color = "black") => {
-console.log(resource);
-
-return `
+  let output =  `
   <div class="card ${resource.id}">
     <div class="card-header">
-        <h4 class="card-title" style=color:${color}>${resource.title}</h5>
+        <h4 class="card-title" style=color:${color}>${resource.title}</h5>`
+
+//If resource user_id is the same as logged in user add a delete button.
+//Hard coded user id
+if (resource.user_id === 1) {
+  output += `
+  <button type="button" class="btn btn-outline-danger">
+    <span aria-hidden="true">&times;</span>
+  </button>`
+}
+
+  output += `
     </div>
       <a href="${resource.url}">
         <img src="${resource.thumbnail_photo}" class="card-img-top" alt="...">
@@ -41,6 +50,8 @@ return `
       </div>
     </div>
   </div>`
+
+  return output;
 }
 
 const createComment = data => {
@@ -52,7 +63,7 @@ const createComment = data => {
       </div>
       <div>
         <p>${data.comment}</p>
-        <p class="timestamp"><small>on September 25th, 2019</small></p>
+        <p class="timestamp"><small>${data.time}</small></p>
       </div>
     </li>
   </ul>`

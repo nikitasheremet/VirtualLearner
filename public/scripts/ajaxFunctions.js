@@ -81,3 +81,10 @@ const ajaxGetResourceById = id => {
     url: `/db/resource/${id}`
   })
 }
+
+const ajaxDeleteResource = id => {
+  return $.ajax({
+    method: "GET",
+    url: `/db/delete/resource/${id}`
+  })
+}
