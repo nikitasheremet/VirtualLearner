@@ -158,23 +158,25 @@ height: 150px;
   }
 
   .desktop-container {
-      height: 468px;
+      margin-top:5%;
+      height: 508px;
       width: 1000px;
       background-color: #F8F8F8;
       border-radius:10px;
       background-repeat: no-repeat;
-      background-size: 665px 468px;
+      background-size: 665px 508px;
       background-position: right;
-      margin-bottom: -13px;
       margin-left: auto;
       margin-right:auto;
       background-image: url("https://i.ibb.co/F0jFnkv/background-modfied.jpg");
-
+      box-shadow: 0px 28px 74px rgba(41, 52, 58, 0.11);
     }
 
   .login-container {
     margin-left:initial;
     border-radius: 10px 0px 0px 10px;
     border-right: 1px #ebebeb solid;
+    padding-bottom: 40px;
+    padding-top: 40px;
   }
 }
