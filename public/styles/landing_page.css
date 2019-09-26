@@ -128,10 +128,40 @@ height: 150px;
   font-family: 'Bungee', cursive;
 }
 
+
+
 @media only screen and (max-width: 1000px){
   .left-text{
     display:none;
   }
+
+  .login-container2 {
+    margin-left:initial;
+    border-radius: 10px 0px 0px 10px;
+    border-right: 1px #ebebeb solid;
+    height: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    background-color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    border-radius: 10px;
+    padding-bottom: 20px;
+  }
+
+  .resource {
+    font-weight:bold;
+    font-size: 28px;
+  }
+
+  .login-button {
+    color: white;
+    height: 60px;
+  }
+
 }
 
 
@@ -152,9 +182,23 @@ height: 150px;
     margin-bottom:20px;
   }
 
+  .virtual-small {
+    margin-left: auto;
+    margin-right:auto;
+    height: 99px;
+    background-repeat: no-repeat;
+    background-size: 156px 99px;
+    background-image: url("https://i.ibb.co/Ltsm5VK/Virtual-Learner-container.png");
+    background-position: left;
+    margin-bottom:20px;
+  }
 
   .logo {
     display:none;
+  }
+
+  .create-new {
+    font-weight:bold;
   }
 
   .desktop-container {
@@ -172,11 +216,66 @@ height: 150px;
       box-shadow: 0px 28px 74px rgba(41, 52, 58, 0.11);
     }
 
+    .desktop-container2 {
+      margin-top:5%;
+      height: 650px;
+      width: 1000px;
+      background-color: #ededed;
+      border-radius:10px;
+      background-repeat: no-repeat;
+      background-size: 665px 508px;
+      background-position: right;
+      margin-left: auto;
+      margin-right:auto;
+      background-image: url("https://i.ibb.co/F0jFnkv/background-modfied.jpg");
+      box-shadow: 0px 28px 74px rgba(41, 52, 58, 0.11);
+    }
+
   .login-container {
     margin-left:initial;
     border-radius: 10px 0px 0px 10px;
     border-right: 1px #ebebeb solid;
     padding-bottom: 40px;
     padding-top: 40px;
+    height: 100%;
   }
+
+  .virtual-logo2 {
+    margin-left: auto;
+    margin-right:auto;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-size: 276px 41px;
+    background-image: url("https://i.ibb.co/DM8Lr2d/Virtual-Learner.png");
+    background-position: left;
+  }
+
+
+  .login-container2 {
+    margin-left:initial;
+    border-radius: 10px 0px 0px 10px;
+    border-right: 1px #ebebeb solid;
+    height: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    background-color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    border-radius: 10px;
+    padding-bottom: 20px;
+  }
+
+  .resource {
+    font-weight:bold;
+    font-size: 28px;
+  }
+
+  .login-button {
+    color: white;
+    height: 60px;
+  }
+
 }
