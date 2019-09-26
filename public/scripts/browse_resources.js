@@ -15,10 +15,8 @@ const renderResource = data => {
 $("#search-all-resources").submit( event => {
   event.preventDefault()
   const input = $("#search").val()
-
-  $("#resources_found").empty()
-
   ajaxResources(input).then(res => {
+    $("#resources_found").empty()
     for (let resource of res) {
       renderResource(resource);
     }

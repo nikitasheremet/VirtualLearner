@@ -100,14 +100,14 @@ function getStars(rating, userRating) {
 
   // Add all the filled whole stars
   for (var i = rating; i >= 1; i--)
-  stars.push(`<i class="fa fa-star" aria-hidden="true icon-large" style="color:gold"></i>&nbsp;`);
+  stars.push(`<i class="fa fa-star" aria-hidden="true icon-large" style="color:gold;font-size:20px"></i>&nbsp;`);
 
   // If there is a half a star, append it
-  if (i == .5) stars.push(`<i class="fa fa-star-half-o icon-large" aria-hidden="true" style="color:gold"></i>&nbsp;`);
+  if (i == .5) stars.push(`<i class="fa fa-star-half-o icon-large" aria-hidden="true" style="color:gold;font-size:20px"></i>&nbsp;`);
 
   // Fill the empty stars
   for (let i = (3 - rating); i >= 1; i--)
-  stars.push(`<i class="fa fa-star-o icon-large" aria-hidden="true" style="color:gold"></i>&nbsp;`);
+  stars.push(`<i class="fa fa-star-o icon-large" aria-hidden="true" style="color:gold;font-size:20px"></i>&nbsp;`);
 
 
   for (i in stars) {
@@ -117,7 +117,7 @@ function getStars(rating, userRating) {
   console.log(stars[0].slice(0,-12));
   for (let i = userRating-1; i >= 0; i--) {
     console.log(i);
-    stars[i] = stars[i].slice(0,-12) +';-webkit-text-stroke: 1px blue;font-size:20px' + stars[i].slice(-12);
+    stars[i] = stars[i].slice(0,-12) +';-webkit-text-stroke: 1px blue;' + stars[i].slice(-12);
   }
   return stars.join('');
   }

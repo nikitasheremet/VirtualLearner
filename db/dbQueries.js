@@ -256,6 +256,7 @@ const queryGetUsersRating = (data) => {
 };
 
 exports.queryGetUsersRating = queryGetUsersRating
+
 const queryDeleteResource = id => {
   const queryString = `DELETE FROM resources WHERE resources.id = $1 AND user_id = $2;`;
   //! Hard coded user_id
