@@ -43,6 +43,7 @@ const displayAndMakeBackButton = (res) => {
 const clickCategory = (data) => {
   myCategoriesList.off();
   clickedCategory = data.currentTarget.children[1].children[0].innerHTML
+  $(".header h3").html(clickedCategory);
   // console.log(clickedCategory, "clicked category")
   if (clickedCategory === "Liked") {
     usersLikes = ajaxUsersLikes()
@@ -53,8 +54,8 @@ const clickCategory = (data) => {
     ajaxCategoryResources(clickedCategory).then(res => {
       displayAndMakeBackButton(res)
       //Listens for delete click and rerenders resources
-        $(function() {$(".container").on("click", ".btn", function(data) {
-          const resourceId = data.originalEvent.path[3].classList[1]
+        $(function() {$("body").on("click", ".btn", function(data) {
+          const resourceId = data.originalEvent.path[2].classList[1]
           ajaxDeleteResource(resourceId).then(() => {
             ajaxCategoryResources(clickedCategory).then((res) => {
             displayAndMakeBackButton(res)
