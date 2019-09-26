@@ -52,6 +52,7 @@ body #my-categories-list .my-categories {
 }
 body #my-categories-list .my-categories img {
   width: 100%;
+  height: 232px;
 }
 body .card {
   width: 100%;
