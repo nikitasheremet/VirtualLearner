@@ -22,6 +22,7 @@ const displayAndMakeBackButton = (res) => {
   }
   $(".show-all-resources").hide();
   $(".show-categories").hide();
+  $(".back-button").hide();
   myCategoriesList.html(output);
   $("#my-resources .home_buttons").prepend(`<button class=back-button><a href="/home" style="color:black"><img src = "/images/categories.svg" /></a></button>`)
 }
@@ -38,8 +39,17 @@ const clickCategory = (data) => {
     })
   } else {
     ajaxCategoryResources(clickedCategory).then(res => {
-      displayAndMakeBackButton(res);
+      displayAndMakeBackButton(res)
+        $(function() {$(".container").on("click", ".btn", function(data) {
+          const resourceId = data.originalEvent.path[2].classList[1]
+          ajaxDeleteResource(resourceId).then(() => {
+            ajaxCategoryResources(clickedCategory).then((res) => {
+            displayAndMakeBackButton(res)
+            })
+          })
+        })
     })
+  })
   }
 }
 
@@ -86,7 +96,6 @@ $("#my-resources").on("click", ".show-all-resources", (data) => {
       } else {
         // resource.thumbnail_photo = `http://api.screenshotlayer.com/api/capture?access_key=3f06297d1eae1c79319ab9edd2faeb56&url=${resource.url}&placeholer=1`
       }
-      // console.log(resource);
 
       if (resource.user_id !== res.ID) {
         output += generateResources(resource, "red")
@@ -96,6 +105,42 @@ $("#my-resources").on("click", ".show-all-resources", (data) => {
     }
     myCategoriesList.html(output);
   })
+
+  //On delete button click delete resource and reload updated db
+  $(function() {$(".container").on("click", ".btn", function(data) {
+    const resourceId = data.originalEvent.path[2].classList[1]
+    ajaxDeleteResource(resourceId).then(() => {
+        ajaxAllResources().then(res => {
+          let output = ""
+          for (resource of res.myResources) {
+            resource.isLiked = usersLikes.responseJSON.map(users => {
+              if(users.resource_id === resource.id) {
+                return "true"
+              } else {
+                return "false"
+              }
+            }).includes("true");
+            if (resource.url.match(/www\.youtube\./)) {
+            resource.thumbnail_photo = `https://img.youtube.com/vi/${resource.url.split('=')[1]}/hqdefault.jpg`
+            } else {
+              // resource.thumbnail_photo = `http://api.screenshotlayer.com/api/capture?access_key=3f06297d1eae1c79319ab9edd2faeb56&url=${resource.url}&placeholer=1`
+            }
+
+            if (resource.user_id !== res.ID) {
+              output += generateResources(resource, "red")
+            } else {
+              output += generateResources(resource)
+            }
+          }
+          myCategoriesList.html(output);
+        })
+      })
+    })
+  })
+
+
+
+
 })
 
 // On click For Show Categories Button

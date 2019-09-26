@@ -84,7 +84,9 @@ $(".container").on("submit", ".post-comment", function(event) {
 
 })
 
-$(".container").on("click", ".btn", function(data) {
-  const resourceId = data.originalEvent.path[3].classList[1]
-  ajaxDeleteResource(resourceId)
-})
+// $(".container").on("click", ".btn", function(data) {
+//   const resourceId = data.originalEvent.path[3].classList[1]
+//   ajaxDeleteResource(resourceId).then(() => {
+//     location.reload()
+//   })
+// })
