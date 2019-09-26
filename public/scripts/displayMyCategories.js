@@ -55,7 +55,7 @@ const clickCategory = (data) => {
       displayAndMakeBackButton(res)
       //Listens for delete click and rerenders resources
         $(function() {$("body").on("click", ".btn", function(data) {
-          const resourceId = data.originalEvent.path[2].classList[1]
+          const resourceId = data.originalEvent.path[3].classList[1]
           ajaxDeleteResource(resourceId).then(() => {
             ajaxCategoryResources(clickedCategory).then((res) => {
             displayAndMakeBackButton(res)
@@ -141,8 +141,8 @@ $("#my-resources").on("click", ".show-all-resources", (data) => {
   })
 
   //On delete button click delete resource and reload updated db
-  $(function() {$(".container").on("click", ".btn", function(data) {
-    const resourceId = data.originalEvent.path[2].classList[1]
+  $(function() {$("body").on("click", ".btn", function(data) {
+    const resourceId = data.originalEvent.path[3].classList[1]
     ajaxDeleteResource(resourceId).then(() => {
         ajaxAllResources().then(res => {
           let output = ""
@@ -215,8 +215,10 @@ $("body").on("click",".like-button",(data) => {
   const id = data.originalEvent.path[4].classList[1]
   const clickStatus = data.originalEvent.path[0].attributes[1].value;
   if (clickStatus === "false") {
+    $(`.${id} .like-button`).prop("src", "/images/red-liked.svg")
     $(`.${id} .like-button`).attr("data-cond","true");
     $(`.${id} .like-count`).css({"color":"red"})
+    console.log($(`.${id} .like-button`))
     ajaxAddLike(id).then(res => {
       // console.log(res);
     }).then(() => {
@@ -227,6 +229,7 @@ $("body").on("click",".like-button",(data) => {
     })
 
   } else {
+    $(`.${id} .like-button`).prop("src", "/images/like.svg")
     $(`.${id} .like-button`).attr("data-cond","false");
     $(`.${id} .like-count`).css({"color":"black"})
     ajaxDeleteLike(id).then(res => {

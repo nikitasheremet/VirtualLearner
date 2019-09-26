@@ -92,7 +92,14 @@ body .card {
 body .card .card-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: #fff;
+}
+body .card .card-header .card-title {
+  margin: 0;
+}
+body .card .card-header .red-liked {
+  width: 25px;
 }
 body .card .card-header .btn {
   padding: 0 6px;
