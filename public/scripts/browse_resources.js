@@ -1,6 +1,5 @@
 const renderResource = data => {
   const wall = $("#resources_found");
-  $("#resources_found").empty()
   data.isLiked = usersLikes.responseJSON.map(users => {
     filteredRating = userRatings.responseJSON.filter(obj => {
       return obj.resource_id === data.id
@@ -31,8 +30,8 @@ const renderResource = data => {
 $("#search-all-resources").submit( event => {
   event.preventDefault()
   const input = $("#search").val()
-
   ajaxResources(input).then(res => {
+    $("#resources_found").empty()
     for (let resource of res) {
       renderResource(resource);
     }

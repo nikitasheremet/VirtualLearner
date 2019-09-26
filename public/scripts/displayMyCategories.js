@@ -36,6 +36,7 @@ const displayAndMakeBackButton = (res) => {
   $(".back-button").hide();
   myCategoriesList.html(output);
   $("#my-resources .home_buttons").prepend(`<button class=back-button><a href="/home" style="color:black"><img src = "/images/categories.svg" /></a></button>`)
+  console.log("AAA")
 }
 
 // Clicking on a category calls the db and gets a list of resources belonging to that category,
@@ -43,6 +44,7 @@ const displayAndMakeBackButton = (res) => {
 const clickCategory = (data) => {
   myCategoriesList.off();
   clickedCategory = data.currentTarget.children[1].children[0].innerHTML
+  // console.log(clickedCategory, "clicked category")
   if (clickedCategory === "Liked") {
     usersLikes = ajaxUsersLikes()
       ajaxLikedResources().then(res2 => {
@@ -50,10 +52,15 @@ const clickCategory = (data) => {
     })
   } else {
     ajaxCategoryResources(clickedCategory).then(res => {
+
       displayAndMakeBackButton(res)
+        console.log("BBB")
         $(function() {$(".container").on("click", ".btn", function(data) {
-          const resourceId = data.originalEvent.path[2].classList[1]
+          // console.log(data);
+          const resourceId = data.originalEvent.path[3].classList[1]
+          console.log(resourceId);
           ajaxDeleteResource(resourceId).then(() => {
+            console.log("CCC")
             ajaxCategoryResources(clickedCategory).then((res) => {
             displayAndMakeBackButton(res)
             })
@@ -262,38 +269,4 @@ $("body").on("click", "i", (data) => {
     data.originalEvent.path[0].previousElementSibling.previousElementSibling.style.webkitTextStroke = "1px blue"
   }
 
-    // if (true) {
-    //   // console.log("a")
-    //   $(data.target.parentElement).children().each(function() {
-    //     this.style.webkitTextStroke = ""
-    //   })
-    //   previousRating = rating;
-    // } else {
-    //   // console.log("b")
-    //   $(data.target.parentElement).children().each(function() {
-    //     this.style.webkitTextStroke = ""
-    //   })
-    //   data.originalEvent.path[0].style.webkitTextStroke = "0.75px blue"
-    //   data.originalEvent.path[0].previousElementSibling.style.webkitTextStroke = "0.75px blue"
-    //   data.originalEvent.path[0].previousElementSibling.previousElementSibling.style.webkitTextStroke = "0.75px blue"
-    //   // previousRating = rating;
-    // }
-
-
-
 });
-
-
-// $("body").on("click", "fa fa-star-o", (data) => {
-//   alert('rating = ' + data.originalEvent.currentTarget.rating);
-//   alert('rating = ' + data.originalEvent.target.rating);
-//   alert('rating = ' + data.target.rating);
-//   alert('rating = ' + data.currentTarget.rating);
-
-// });
-
-
-
-// let rating = Number(data.originalEvent.path[0].attributes[0].nodeValue);
-// let resourceId = Number(data.originalEvent.path[0].attributes[1].nodeValue)
-// alert
