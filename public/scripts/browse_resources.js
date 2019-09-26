@@ -40,7 +40,6 @@ $("body").on("click", ".comment-bubble", function(data) {
   console.log(resourceId);
   console.log("click Data", data)
 
-  console.log("CLICK", data)
   $(this).parents(".card").find(".card-img-top").slideToggle()
   // console.log("toggle");
   $(this).parents(".card").find(".card-body").slideToggle()
@@ -61,8 +60,7 @@ $("body").on("submit", ".post-comment", function(event) {
   event.preventDefault();
 
   const commentTextarea = $(this).find("textarea")
-  const commentsList = $(".comments-list")
-
+  const commentsList = $(this).parent().find(".comments-list")
   let input = commentTextarea.val();
   //! userId to be determined cookie session
   const userId = 1

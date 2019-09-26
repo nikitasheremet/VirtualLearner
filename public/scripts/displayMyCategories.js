@@ -43,7 +43,7 @@ const displayAndMakeBackButton = (res) => {
 const clickCategory = (data) => {
   myCategoriesList.off();
   clickedCategory = data.currentTarget.children[1].children[0].innerHTML
-  $(".header h3").html(clickedCategory);
+  $(".header > h3").html(clickedCategory);
   // console.log(clickedCategory, "clicked category")
   if (clickedCategory === "Liked") {
     usersLikes = ajaxUsersLikes()
@@ -56,7 +56,10 @@ const clickCategory = (data) => {
       //Listens for delete click and rerenders resources
         $(function() {$("body").on("click", ".btn", function(data) {
           const resourceId = data.originalEvent.path[3].classList[1]
+<<<<<<< HEAD
           console.log(resourceId);
+=======
+>>>>>>> 9646dea17de6ff42eaac07773a364536564bcf0f
           ajaxDeleteResource(resourceId).then(() => {
             ajaxCategoryResources(clickedCategory).then((res) => {
             displayAndMakeBackButton(res)
@@ -103,7 +106,7 @@ ajaxCategories().then(res => {
 $("body").on("click", ".show-all-resources", (data) => {
   $(".show-all-resources").hide();
   $(".show-categories").show();
-  $(".header h3").html("My Resources");
+  $(".header > h3").html("My Resources");
 
   ajaxAllResources().then(res => {
     console.log(res);
@@ -142,7 +145,11 @@ $("body").on("click", ".show-all-resources", (data) => {
   })
 
   //On delete button click delete resource and reload updated db
+<<<<<<< HEAD
   $(function() {$(".container").on("click", ".btn", function(data) {
+=======
+  $(function() {$("body").on("click", ".btn", function(data) {
+>>>>>>> 9646dea17de6ff42eaac07773a364536564bcf0f
     const resourceId = data.originalEvent.path[3].classList[1]
     ajaxDeleteResource(resourceId).then(() => {
         ajaxAllResources().then(res => {
@@ -179,7 +186,7 @@ $("body").on("click", ".show-all-resources", (data) => {
 $("#my-resources").on("click", ".show-categories", (data) => {
   $(".show-categories").hide();
   $(".show-all-resources").show();
-  $(".header h3").html("My Categories");
+  $(".header > h3").html("My Categories");
   ajaxCategories().then(res => {
   let output = "";
   // console.log(res);
@@ -216,8 +223,10 @@ $("body").on("click",".like-button",(data) => {
   const id = data.originalEvent.path[3].classList[1]
   const clickStatus = data.originalEvent.path[0].attributes[1].value;
   if (clickStatus === "false") {
+    $(`.${id} .like-button`).prop("src", "/images/red-liked.svg")
     $(`.${id} .like-button`).attr("data-cond","true");
     $(`.${id} .like-count`).css({"color":"red"})
+    console.log($(`.${id} .like-button`))
     ajaxAddLike(id).then(res => {
       // console.log(res);
     }).then(() => {
@@ -228,6 +237,7 @@ $("body").on("click",".like-button",(data) => {
     })
 
   } else {
+    $(`.${id} .like-button`).prop("src", "/images/like.svg")
     $(`.${id} .like-button`).attr("data-cond","false");
     $(`.${id} .like-count`).css({"color":"black"})
     ajaxDeleteLike(id).then(res => {

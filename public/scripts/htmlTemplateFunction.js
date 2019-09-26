@@ -9,19 +9,20 @@ const generateTemplateCategory = (categoryName) => {
 }
 
 const generateResources = (resource, color = "black") => {
+  console.log(resource, "resources")
   let output =  `
   <div class="card ${resource.id}">
     <div class="card-header">
         <h4 class="card-title" style=color:${color}>${resource.title}</h5>`
 
-//If resource user_id is the same as logged in user add a delete button.
-//Hard coded user id
-if (resource.user_id === 1) {
-  output += `
-  <button type="button" class="btn btn-outline-danger">
-    <span aria-hidden="true">&times;</span>
-  </button>`
-}
+  //If resource user_id is the same as logged in user add a delete button.
+  //Hard coded user id
+  if (resource.user_id === 1) {
+    output += `
+    <button type="button" class="btn btn-outline-danger">
+      <span aria-hidden="true">&times;</span>
+    </button>`
+  }
 
   output += `
     </div>
@@ -33,8 +34,17 @@ if (resource.user_id === 1) {
     </div>
     <div class="card-footer">
       <div class="footer-top">
-        <div class="left-footer">
-          <img class=like-button data-cond=${resource.isLiked} src="/images/like.svg" alt="...">
+        <div class="left-footer">`
+
+  if (resource.isLiked) {
+    output += `
+    <img class ="like-button" data-cond=${resource.isLiked} src="/images/red-liked.svg" />`
+  } else {
+    output += `
+    <img class=like-button data-cond=${resource.isLiked} src="/images/like.svg" alt="...">`
+  }
+
+  output += `
           <span class=like-count style=color:${resource.isLiked ? "red" : "black"}>${resource.likes}</span>
           <img class="comment-bubble" src="/images/comment.svg" alt="...">
           <span>${resource.comments_count}</span>

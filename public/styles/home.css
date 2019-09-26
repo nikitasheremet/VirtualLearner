@@ -5,15 +5,34 @@ body .container {
   width: 100%;
   text-align: center;
 }
+body .container .search-form {
+  padding: 20px;
+}
+body .container .titles {
+  font-family: "Poppins", sans-serif;
+  text-align: left;
+  font-weight: bold-italic;
+}
 body .container .header {
   display: flex;
   justify-content: space-between;
+  padding: 10px;
 }
 body .container .header .home_buttons {
-  width: 20%;
+  width: 25%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+@media (min-width: 768px) {
+  body .container .header .home_buttons {
+    width: 20%;
+  }
+}
+@media (min-width: 1200px) {
+  body .container .header .home_buttons {
+    width: 18%;
+  }
 }
 body .container .header .home_buttons button {
   padding: 0;
@@ -27,7 +46,7 @@ body #my-categories-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 body #my-categories-list .my-categories {
   width: 45%;
@@ -37,13 +56,28 @@ body #my-categories-list .my-categories {
   border-radius: 15px;
   background-color: #fff;
 }
-@media (min-width: 600px) {
+@media (min-width: 768px) {
   body #my-categories-list .my-categories {
     width: 30%;
   }
 }
+@media (min-width: 992px) {
+  body #my-categories-list .my-categories {
+    width: 28%;
+  }
+}
+@media (min-width: 1200px) {
+  body #my-categories-list .my-categories {
+    width: 22%;
+  }
+}
 body #my-categories-list .my-categories img {
   width: 100%;
+<<<<<<< HEAD
+  height: 232px;
+=======
+  border-radius: 15px 15px 0px 0px;
+>>>>>>> 735ad83c3948f3099768cc53c1a413ea8b2d59dd
 }
 body .card {
   width: 100%;
@@ -52,15 +86,31 @@ body .card {
   box-shadow: 5px 10px 15px #adb5bd;
   border-radius: 15px;
 }
-@media (min-width: 600px) {
+@media (min-width: 768px) {
   body .card {
-    width: 45%;
+    width: 46%;
+  }
+}
+@media (min-width: 1200px) {
+  body .card {
+    width: 30%;
   }
 }
 body .card .card-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: #fff;
+}
+body .card .card-header .card-title {
+  margin: 0;
+}
+body .card .card-header .red-liked {
+  width: 25px;
+}
+body .card .card-header .btn {
+  padding: 0 6px;
+  height: 25px;
 }
 body .card .card-footer {
   background-color: #fff;
@@ -82,6 +132,9 @@ body .card .card-footer .footer-top .left-footer img {
   width: 20px;
 }
 body .card .card-footer .footer-top .left-footer img:hover {
+  cursor: pointer;
+}
+body .card .card-footer .footer-top i:hover {
   cursor: pointer;
 }
 body .card .comment-section {
