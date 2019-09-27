@@ -1,6 +1,23 @@
+<<<<<<< HEAD
+=======
 body {
   background-color: #F6F7FD;
+  position: relative;
 }
+body #scroll-to-top {
+  display: none;
+  float: right;
+  z-index: 1;
+  position: fixed;
+  width: 50px;
+  right: 1em;
+  bottom: 2em;
+}
+body #scroll-to-top:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+>>>>>>> 3fa07032add2c6916a1f5e46699b61de523f5f9f
 body .container {
   width: 100%;
   text-align: center;
@@ -11,7 +28,8 @@ body .container .search-form {
 body .container .titles {
   font-family: "Poppins", sans-serif;
   text-align: left;
-  font-weight: bold-italic;
+  font-weight: bolder;
+  font-size: 2em;
 }
 body .container .header {
   display: flex;
@@ -56,6 +74,9 @@ body #my-categories-list .my-categories {
   border-radius: 15px;
   background-color: #fff;
 }
+body #my-categories-list .my-categories:hover {
+  cursor: pointer;
+}
 @media (min-width: 768px) {
   body #my-categories-list .my-categories {
     width: 30%;
@@ -73,11 +94,11 @@ body #my-categories-list .my-categories {
 }
 body #my-categories-list .my-categories img {
   width: 100%;
-<<<<<<< HEAD
   height: 232px;
+<<<<<<< HEAD
 =======
   border-radius: 15px 15px 0px 0px;
->>>>>>> 735ad83c3948f3099768cc53c1a413ea8b2d59dd
+>>>>>>> 3fa07032add2c6916a1f5e46699b61de523f5f9f
 }
 body .card {
   width: 100%;
@@ -101,16 +122,6 @@ body .card .card-header {
   justify-content: space-between;
   align-items: center;
   background-color: #fff;
-}
-body .card .card-header .card-title {
-  margin: 0;
-}
-body .card .card-header .red-liked {
-  width: 25px;
-}
-body .card .card-header .btn {
-  padding: 0 6px;
-  height: 25px;
 }
 body .card .card-footer {
   background-color: #fff;

@@ -1,8 +1,26 @@
 $card-shadow: 5px 10px 15px #adb5bd
 
 body
+<<<<<<< HEAD
+  // background-color: #F6F7FD
+
+=======
   background-color: #F6F7FD
+  position: relative
+  #scroll-to-top
+    display: none
+    float: right
+    z-index: 1
+    position: fixed
+    width: 50px
+    right: 1em
+    bottom: 2em
+    &:hover
+      cursor: pointer
+      transform: scale(1.1)
+>>>>>>> 3fa07032add2c6916a1f5e46699b61de523f5f9f
   .container
+    // background-color: #F6F7FD
     // position: absolute
     width: 100%
     // height: 100%
@@ -12,7 +30,9 @@ body
     .titles
       font-family: 'Poppins', sans-serif
       text-align: left
-      font-weight: bold-italic
+      font-weight: bolder
+      font-size: 2em
+
     .header
       display: flex
       justify-content: space-between
@@ -44,6 +64,8 @@ body
       box-shadow: $card-shadow
       border-radius: 15px
       background-color: #fff
+      &:hover
+        cursor: pointer
       @media (min-width: 768px)
         width: 30%
       @media (min-width: 992px)
@@ -52,11 +74,11 @@ body
         width: 22%
       img
         width: 100%
-<<<<<<< HEAD
         height:232px
+<<<<<<< HEAD
 =======
         border-radius: 15px 15px 0px 0px
->>>>>>> 735ad83c3948f3099768cc53c1a413ea8b2d59dd
+>>>>>>> 3fa07032add2c6916a1f5e46699b61de523f5f9f
   .card
     width: 100%
     margin: 0.5em
@@ -83,7 +105,7 @@ body
       .btn
         padding: 0 6px
         height: 25px
->>>>>>> 735ad83c3948f3099768cc53c1a413ea8b2d59dd
+>>>>>>> 3fa07032add2c6916a1f5e46699b61de523f5f9f
     .card-footer
       background-color: #fff
       .footer-top
@@ -150,4 +172,6 @@ body
     input
       width: 80%
       border-radius: 5px
+
+
 

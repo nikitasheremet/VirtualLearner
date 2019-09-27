@@ -104,3 +104,22 @@ $("body").on("submit", ".post-comment", function(event) {
 //   })
 
 // });
+
+
+//"scroll-to-top" button appears on scroll down a certain window length.
+$(function() {
+  $(window).scroll(function() {
+    if ($(window).scrollTop() > 400) {
+      $("#scroll-to-top").show();
+    } else {
+      $("#scroll-to-top").hide();
+    }
+  });
+});
+
+//"scroll-to-top" button scrolls to top on click.
+$(function() {
+  $("#scroll-to-top").click(() => {
+    $("html, body").scrollTop(0);
+  });
+});
