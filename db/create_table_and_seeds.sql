@@ -178,3 +178,19 @@ INSERT INTO ratings (user_id, resource_id, rating) VALUES (1, 18, 1);
 INSERT INTO ratings (user_id, resource_id, rating) VALUES (1, 27, 3);
 INSERT INTO ratings (user_id, resource_id, rating) VALUES (9, 12, 2);
 INSERT INTO ratings (user_id, resource_id, rating) VALUES (8, 11, 2);
+
+
+INSERT INTO comments (comment, user_id, resource_id) VALUES ('Amazing! Can you make a video on how to make your own??', 5, 8);
+INSERT INTO comments (comment, user_id, resource_id) VALUES ('Super helpful! Can''t wait to practice', 2, 8);
+INSERT INTO comments (comment, user_id, resource_id) VALUES ('I wish he was my triangle teacher!', 3, 8);
+
+INSERT INTO comments (comment, user_id, resource_id) VALUES ('Love this movie!', 6, 16);
+INSERT INTO comments (comment, user_id, resource_id) VALUES ('Thanks! So helpful', 5, 13);
+INSERT INTO comments (comment, user_id, resource_id) VALUES ('Don''t make promises you cant''t keep! Ha!', 2, 13);
+INSERT INTO comments (comment, user_id, resource_id) VALUES ('Bzzzzzzzz', 2, 12);
+INSERT INTO comments (comment, user_id, resource_id) VALUES ('Bzzzzzzzz', 5, 12);
+INSERT INTO comments (comment, user_id, resource_id) VALUES ('Mac n Screams!', 5, 2);
+
+
+
+
