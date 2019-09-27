@@ -102,6 +102,7 @@ const queryMyAll = (data) => {
     LEFT JOIN ratings ON res.id = ratings.resource_id
     WHERE res.user_id = $1 OR likes.user_id = $2
     GROUP BY res.id
+    ORDER BY res.user_id
     ;`,values)
   .then(res => {
     // console.log(res.rows)
