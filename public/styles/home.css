@@ -233,7 +233,6 @@ body #search-all-resources {
   display: flex;
   justify-content: space-around;
   margin: 1em;
-  max-width: 500px;
 }
 body #search-all-resources input {
   border-radius: 5px;
