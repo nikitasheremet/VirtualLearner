@@ -7,10 +7,16 @@ const renderResource = data => {
           return "false"
         }
       }).includes("true");
+      if (data.url.match(/www\.youtube\./)) {
+      data.video = `<iframe width=100% height=100% src="https://www.youtube.com/embed/${data.url.split('=')[1]}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+    } else {
+        // data.thumbnail_photo = `http://api.screenshotlayer.com/api/capture?access_key=3f06297d1eae1c79319ab9edd2faeb56&url=${resource.url}&placeholer=1`
+    }
   console.log(data);
   wall.prepend(generateResources(data));
 
 }
+
 
 $("#search-all-resources").submit( event => {
   event.preventDefault()
@@ -31,8 +37,11 @@ $("body").on("click", ".comment-bubble", function(data) {
   const commentSection = $(this).parents(".card-footer").find(".comment-section")
   const commentsList = $(this).parents(".card-footer").find(".comments-list")
   const resourceId = data.originalEvent.path[4].classList[1]
+  console.log(resourceId);
+  console.log("click Data", data)
 
   $(this).parents(".card").find(".card-img-top").slideToggle()
+  // console.log("toggle");
   $(this).parents(".card").find(".card-body").slideToggle()
   commentsList.empty()
 
@@ -81,6 +90,7 @@ $("body").on("submit", ".post-comment", function(event) {
   })
 
 })
+
 
 //!LOAD TOP RESOURCES
 // $( document ).ready(function() {

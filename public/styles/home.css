@@ -19,6 +19,9 @@ body .container {
   width: 100%;
   text-align: center;
 }
+body .container .search-form {
+  padding: 20px;
+}
 body .container .titles {
   font-family: "Poppins", sans-serif;
   text-align: left;
@@ -84,6 +87,7 @@ body #my-categories-list .my-categories {
 }
 body #my-categories-list .my-categories img {
   width: 100%;
+  height: 232px;
   border-radius: 15px 15px 0px 0px;
 }
 body .card {
