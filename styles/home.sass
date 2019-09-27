@@ -21,7 +21,8 @@ body
       .input-group.mb-3
         box-shadow: 0px 20px 40px rgba(54, 72, 82, 0.15)
         background: #eaebee
-        width: 50%
+        @media (min-width: 768px)
+          width: 50%
         input#search
           height: 50px
           border: 0px
@@ -173,6 +174,8 @@ body
 
   #search-all-resources
     display: flex
+    flex-direction: row
+    flex-wrap: wrap
     justify-content: space-between
     margin: 1em
     input
