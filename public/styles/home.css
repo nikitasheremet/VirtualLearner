@@ -1,5 +1,19 @@
 body {
   background-color: #F6F7FD;
+  position: relative;
+}
+body #scroll-to-top {
+  display: none;
+  float: right;
+  z-index: 1;
+  position: fixed;
+  width: 50px;
+  right: 1em;
+  bottom: 2em;
+}
+body #scroll-to-top:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
 body .container {
   width: 100%;

@@ -2,6 +2,18 @@ $card-shadow: 5px 10px 15px #adb5bd
 
 body
   background-color: #F6F7FD
+  position: relative
+  #scroll-to-top
+    display: none
+    float: right
+    z-index: 1
+    position: fixed
+    width: 50px
+    right: 1em
+    bottom: 2em
+    &:hover
+      cursor: pointer
+      transform: scale(1.1)
   .container
     // position: absolute
     width: 100%
