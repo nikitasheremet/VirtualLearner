@@ -13,7 +13,7 @@ const generateResources = (resource, color = "black") => {
   let output =  `
   <div class="card ${resource.id}">
     <div class="card-header">
-        <h4 class="card-title" style=color:${color}>${resource.title}</h5>`
+        <h4 class="card-title">${resource.title}</h5>`
 
   //If resource user_id is the same as logged in user add a delete button.
   //Hard coded user id
@@ -22,6 +22,9 @@ const generateResources = (resource, color = "black") => {
     <button type="button" class="btn btn-outline-danger">
       <span aria-hidden="true">&times;</span>
     </button>`
+  } else if (resource.user_id !== 1 && resource.isLiked) {
+    output +=`
+    <img class ="like-button" data-cond=${resource.isLiked} src="/images/red-liked.svg" />`
   }
 
   output += `
