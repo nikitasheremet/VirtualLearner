@@ -68,11 +68,10 @@ INSERT INTO resources (user_id, url, title, description, category, thumbnail_pho
 
 INSERT INTO resources (user_id, url, title, description, category) VALUES (3,'https://www.fluentin3months.com/study-spanish/', 'Learn Spanish Fast', 'Be Fluent in 3 Months', 'Language');
 INSERT INTO resources (user_id, url, title, description, category) VALUES (4,'https://www.ranker.com/list/weird-languages/kellen-perry', 'Weird Languages','10 Strangest Languages', 'Language');
+INSERT INTO resources (user_id, url, title, description, category) VALUES (5,'https://www.youtube.com/watch?v=QGg8cIKobtQ', 'Play Guitar Like a Rockstart','Learn to play Guitar Like a Pro in 7 minutes', 'Music');
+INSERT INTO resources (user_id, url, title, description, category) VALUES (6,'https://www.youtube.com/watch?v=1jYg28lY0pA', 'How To Play The Triangle', 'How to play the triangle proffesionally', 'Music');
+INSERT INTO resources (user_id, url, title, description, category) VALUES (2,'http://thehappypassport.com/make-money-traveling/', 'Make Money While Travelling', 'How to get rich from travelling', 'Travel');
 
-INSERT INTO resources (user_id, url, title, description, category) VALUES (5,'https://www.youtube.com/watch?v=QGg8cIKobtQ', 'PLay Guitar Like a Rockstart','Learn to play Guitar Like a Pro in 7 minutes', 'Music');
-
-INSERT INTO resources (user_id, url, title, description, category, thumbnail_photo) VALUES (2,'https://www.youtube.com/watch?v=BuebC0CfD8E', 'Cutting an Onion', 'Best Way to Cut an Onion', 'Cooking', 'https://cdn.theatlantic.com/assets/media/img/mt/2015/05/shutterstock_247399801/lead_720_405.jpg?mod=1533691742');
-INSERT INTO resources (user_id, url, title, description, category, thumbnail_photo) VALUES (2,'https://www.youtube.com/watch?v=BuebC0CfD8E', 'Cutting an Onion', 'Best Way to Cut an Onion', 'Cooking', 'https://cdn.theatlantic.com/assets/media/img/mt/2015/05/shutterstock_247399801/lead_720_405.jpg?mod=1533691742');
 INSERT INTO resources (user_id, url, title, description, category, thumbnail_photo) VALUES (2,'https://www.youtube.com/watch?v=BuebC0CfD8E', 'Cutting an Onion', 'Best Way to Cut an Onion', 'Cooking', 'https://cdn.theatlantic.com/assets/media/img/mt/2015/05/shutterstock_247399801/lead_720_405.jpg?mod=1533691742');
 INSERT INTO resources (user_id, url, title, description, category, thumbnail_photo) VALUES (2,'https://www.youtube.com/watch?v=BuebC0CfD8E', 'Cutting an Onion', 'Best Way to Cut an Onion', 'Cooking', 'https://cdn.theatlantic.com/assets/media/img/mt/2015/05/shutterstock_247399801/lead_720_405.jpg?mod=1533691742');
 INSERT INTO resources (user_id, url, title, description, category, thumbnail_photo) VALUES (2,'https://www.youtube.com/watch?v=BuebC0CfD8E', 'Cutting an Onion', 'Best Way to Cut an Onion', 'Cooking', 'https://cdn.theatlantic.com/assets/media/img/mt/2015/05/shutterstock_247399801/lead_720_405.jpg?mod=1533691742');
