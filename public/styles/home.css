@@ -38,6 +38,14 @@ body .container .search-form .input-group.mb-3 .input-group-append button {
   color: white;
   border: 0px;
 }
+body .container .search-form .input-group.mb-3 .input-group-append {
+  background-color: red;
+  border-radius: 0px 10px 10px 0px;
+}
+body .container .search-form .input-group.mb-3 .input-group-append button {
+  color: white;
+  border: 0px;
+}
 body .container .titles {
   font-family: "Poppins", sans-serif;
   text-align: left;
@@ -79,6 +87,11 @@ body #my-categories-list {
   flex-wrap: wrap;
   justify-content: space-start;
 }
+@media (min-width: 768px) {
+  body #my-categories-list {
+    margin-left: 0.5em;
+  }
+}
 body #my-categories-list .my-categories {
   width: 45%;
   margin: 1%;
@@ -109,7 +122,6 @@ body #my-categories-list .my-categories img {
   width: 50%;
   padding-top: 40px;
   padding-bottom: 20px;
-  height: 200px;
   border-radius: 15px 15px 0px 0px;
 }
 body .card {
@@ -124,9 +136,14 @@ body .card {
     width: 46%;
   }
 }
+@media (min-width: 992px) {
+  body .card {
+    width: 47%;
+  }
+}
 @media (min-width: 1200px) {
   body .card {
-    width: 30%;
+    width: 31%;
   }
 }
 body .card .card-header {
@@ -140,7 +157,7 @@ body .card .card-header {
 body .card .card-header .card-title {
   margin: 0;
 }
-body .card .card-header .red-liked {
+body .card .card-header img {
   width: 25px;
 }
 body .card .card-header .btn {
@@ -219,7 +236,6 @@ body #search-all-resources {
   max-width: 500px;
 }
 body #search-all-resources input {
-  width: 80%;
   border-radius: 5px;
 }
 

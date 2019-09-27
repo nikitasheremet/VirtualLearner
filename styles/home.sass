@@ -34,6 +34,12 @@ body
           button
             color: white
             border: 0px
+        .input-group-append
+          background-color: red
+          border-radius: 0px 10px 10px 0px
+          button
+            color: white
+            border: 0px
     .titles
       font-family: 'Poppins', sans-serif
       text-align: left
@@ -64,6 +70,8 @@ body
     flex-direction: row
     flex-wrap: wrap
     justify-content: space-start
+    @media (min-width: 768px)
+      margin-left: .5em
     .my-categories
       width: 45%
       margin: 1%
@@ -83,7 +91,6 @@ body
         width: 50%
         padding-top: 40px
         padding-bottom: 20px
-        height:200px
         border-radius: 15px 15px 0px 0px
   .card
     width: 100%
@@ -93,8 +100,10 @@ body
     border-radius: 15px
     @media (min-width: 768px)
       width: 46%
+    @media (min-width: 992px)
+      width: 47%
     @media (min-width: 1200px)
-      width: 30%
+      width: 31%
     .card-header
       display: flex
       justify-content: space-between
@@ -104,7 +113,7 @@ body
       border-bottom: 1px solid #f3f3f3
       .card-title
         margin: 0
-      .red-liked
+      img
         width: 25px
       .btn
         padding: 0 6px
@@ -174,7 +183,6 @@ body
     margin: 1em
     max-width: 500px
     input
-      width: 80%
       border-radius: 5px
 
 
