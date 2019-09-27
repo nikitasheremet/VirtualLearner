@@ -118,3 +118,10 @@ const ajaxTopResources = () => {
     url: `/db/top-resources`
   })
 }
+
+const ajaxGetProfilePic = () => {
+  return $.ajax({
+    method: "GET",
+    url: `/db/get-profile-pic`
+  })
+}
