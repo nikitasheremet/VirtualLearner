@@ -102,6 +102,7 @@ const queryMyAll = (data) => {
     LEFT JOIN ratings ON res.id = ratings.resource_id
     WHERE res.user_id = $1 OR likes.user_id = $2
     GROUP BY res.id
+    ORDER BY res.user_id
     ;`,values)
   .then(res => {
     // console.log(res.rows)
@@ -274,8 +275,8 @@ const queryTopResources = () => {
   LEFT JOIN comments ON resources.id = comments.resource_id
   LEFT JOIN ratings ON resources.id = ratings.resource_id
   GROUP BY resources.id
-  ORDER BY COUNT(DISTINCT likes.*)
-  LIMIT 20;`;
+  ORDER BY RANDOM()
+  LIMIT 9;`;
 
   return pool.query(queryString)
     .then((res) => {

@@ -30,7 +30,7 @@ const generateResources = (resource, color = "black") => {
   output += `
     </div>
       <a href="${resource.url}">
-        ${resource.video ? "<div style=height:300px>"+resource.video+"</div>" : "<img src=" + resource.thumbnail_photo + " class='card-img-top' alt='...'/>"}
+        ${resource.video ? "<div style=height:250px>"+resource.video+"</div>" : "<img src=" + resource.thumbnail_photo + " class='card-img-top' style='height:250px' alt='...'/>"}
       </a>
     <div class="card-body">
       <p class="card-text">${resource.description}</p>
