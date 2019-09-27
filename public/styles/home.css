@@ -70,6 +70,9 @@ body #my-categories-list .my-categories {
   border-radius: 15px;
   background-color: #fff;
 }
+body #my-categories-list .my-categories:hover {
+  cursor: pointer;
+}
 @media (min-width: 768px) {
   body #my-categories-list .my-categories {
     width: 30%;
