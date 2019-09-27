@@ -212,7 +212,7 @@ $("#my-resources").on("click", ".search-all-resources", (data) => {
 })
 
 $("body").on("click",".like-button",(data) => {
-  const id = data.originalEvent.path[3].classList[1]
+  const id = data.originalEvent.path[4].classList[1]
   const clickStatus = data.originalEvent.path[0].attributes[1].value;
   if (clickStatus === "false") {
     $(`.${id} .like-button`).prop("src", "/images/red-liked.svg")
