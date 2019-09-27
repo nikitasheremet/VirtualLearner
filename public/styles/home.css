@@ -1,6 +1,5 @@
 body {
   background-color: #F6F7FD;
-  position: relative;
 }
 body #scroll-to-top {
   display: none;
@@ -61,7 +60,7 @@ body #my-categories-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-start;
 }
 body #my-categories-list .my-categories {
   width: 45%;
