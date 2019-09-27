@@ -68,11 +68,12 @@ const generateResources = (resource, color = "black") => {
 }
 
 const createComment = data => {
+  console.log(data, data.profile_pic)
   return `
   <ul class="list">
     <li>
       <div>
-        <img src=${data.profile_pic}" />
+        <img src="${data.profile_pic}" />
       </div>
       <div>
         <p>${data.comment}</p>

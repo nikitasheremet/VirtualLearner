@@ -44,21 +44,21 @@ CREATE TABLE ratings (
 );
 
 -- USERS
-INSERT INTO users (first_name, last_name, email, password, profile_pic) VALUES ('Corah', 'G', 'corah@lighthouse.ca', '$2a$10$xOZ028dkAVxsER2fXNO33exiRkjOdhvJiAvvECGYuu/Y6JPu4ZSti', 'Golden-Retriever-puppy_01.jpg');
-INSERT INTO users (first_name, last_name, email, password) VALUES ('Johhny', 'M', 'johnny@lighthouse.ca', '$2a$10$xOZ028dkAVxsER2fXNO33exiRkjOdhvJiAvvECGYuu/Y6JPu4ZSti');
-INSERT INTO users (first_name, last_name, email, password) VALUES ('Nikita', 'S', 'nikita@lighthouse.ca', '$2a$10$xOZ028dkAVxsER2fXNO33exiRkjOdhvJiAvvECGYuu/Y6JPu4ZSti');
-INSERT INTO users (first_name) VALUES ('Prince');
-INSERT INTO users (first_name) VALUES ('Evon');
-INSERT INTO users (first_name) VALUES ('Nathanael');
-INSERT INTO users (first_name) VALUES ('Le');
-INSERT INTO users (first_name) VALUES ('Colleen');
-INSERT INTO users (first_name) VALUES ('Karol');
-INSERT INTO users (first_name) VALUES ('Isabelle');
-INSERT INTO users (first_name) VALUES ('Jaclyn');
-INSERT INTO users (first_name) VALUES ('Pia');
-INSERT INTO users (first_name) VALUES ('Joan');
-INSERT INTO users (first_name) VALUES ('Orpha');
-INSERT INTO users (first_name) VALUES ('Marybeth');
+INSERT INTO users (first_name, last_name, email, password, profile_pic) VALUES ('Corah', 'G', 'corah@lighthouse.ca', '$2a$10$xOZ028dkAVxsER2fXNO33exiRkjOdhvJiAvvECGYuu/Y6JPu4ZSti', '/images/avatar.svg');
+INSERT INTO users (first_name, last_name, email, password, profile_pic) VALUES ('Johhny', 'M', 'johnny@lighthouse.ca', '$2a$10$xOZ028dkAVxsER2fXNO33exiRkjOdhvJiAvvECGYuu/Y6JPu4ZSti', '/images/avatar3.svg');
+INSERT INTO users (first_name, last_name, email, password, profile_pic) VALUES ('Nikita', 'S', 'nikita@lighthouse.ca', '$2a$10$xOZ028dkAVxsER2fXNO33exiRkjOdhvJiAvvECGYuu/Y6JPu4ZSti', '/images/avatar4.svg');
+INSERT INTO users (first_name, profile_pic) VALUES ('Prince', '/images/avatar4.svg');
+INSERT INTO users (first_name, profile_pic) VALUES ('Evon', '/images/avatar4.svg');
+INSERT INTO users (first_name, profile_pic) VALUES ('Nathanael', '/images/avatar5.svg');
+INSERT INTO users (first_name, profile_pic) VALUES ('Le', '/images/avatar6.svg');
+INSERT INTO users (first_name, profile_pic) VALUES ('Colleen', '/images/avatar7.svg');
+INSERT INTO users (first_name, profile_pic) VALUES ('Karol', '/images/avatar8.svg');
+INSERT INTO users (first_name, profile_pic) VALUES ('Isabelle', '/images/avatar9.svg');
+INSERT INTO users (first_name, profile_pic) VALUES ('Jaclyn', '/images/avatar10.svg');
+INSERT INTO users (first_name, profile_pic) VALUES ('Pia', '/images/avatar11.svg');
+INSERT INTO users (first_name, profile_pic) VALUES ('Joan', '/images/avatar12.svg');
+INSERT INTO users (first_name, profile_pic) VALUES ('Orpha', '/images/avatar1.svg');
+INSERT INTO users (first_name, profile_pic) VALUES ('Marybeth', '/images/avatar2.svg');
 
 -- Resources
 INSERT INTO resources (user_id, url, title, description, category) VALUES (1,'https://www.youtube.com/watch?v=HHjftEZQxNc', 'Learn To Knit', 'Knitting for begginers', 'Science');
