@@ -77,7 +77,8 @@ INSERT INTO resources (user_id, url, title, description, category) VALUES (2,'ht
 INSERT INTO resources (user_id, url, title, description, category) VALUES (2,'https://thetechieguy.com/a-step-by-step-guide-how-to-hack-apple-and-amazon/', 'Hack Amazon and Apple', 'How to get my games and orders for free', 'Coding');
 INSERT INTO resources (user_id, url, title, description, category) VALUES (2,'https://en.wikipedia.org/wiki/Religion', 'What is religion', 'Understanding Religion', 'Religion');
 INSERT INTO resources (user_id, url, title, description, category) VALUES (2,'https://sites.google.com/site/steveoedekerkinfo/feature-films/bruce-almighty', 'Bruce Almighty Fan Site', 'Really good movie', 'Religion');
-INSERT INTO resources (user_id, url, title, description, category) VALUES (2, 'https://www.nytimes.com/guides/travel/how-to-pack-a-suitcase', 'How to Pack a Suitcase Like a Pro', 'Packing may seem simple, but it is a science with rules", "other');
+INSERT INTO resources (user_id, url, title, description, category) VALUES (2, 'https://www.nytimes.com/guides/travel/
+how-to-pack-a-suitcase', 'How to Pack a Suitcase Like a Pro', 'Packing may seem simple, but it is a science with rules', 'other');
 INSERT INTO resources (user_id, url, title, description, category) VALUES (1, 'https://www.dictionary.com/browse/other', 'What is the definition of other', 'Usually others. other persons or things', 'other');
 INSERT INTO resources (user_id, url, title, description, category) VALUES (3, 'https://www.youtube.com/watch?v=uBGl2BujkPQ', 'Science for Dummies', 'Introduction to Anatomy & Physiology: Crash Course A&P #1', 'science');
 INSERT INTO resources (user_id, url, title, description, category) VALUES (1, 'https://www.cbc.ca/news/technology/science-survey-1.5291291', 'Canadians trust in science falling, poll suggests', '44% consider scientists elitists and many discount science that doesnt align with personal beliefs', 'science');
@@ -88,7 +89,7 @@ INSERT INTO resources (user_id, url, title, description, category) VALUES (6,'ht
 INSERT INTO resources (user_id, url, title, description, category) VALUES (1, 'https://www.youtube.com/watch?v=j5PWMI_AGAg', 'Dean Unglert Reveals Why He Isnt On Engagement Level', 'Dean Unglert and Caelynn Miller-Keyes are taking things slow!', 'other');
 INSERT INTO resources (user_id, url, title, description, category) VALUES (2, 'https://www.nytimes.com/guides/travel/how-to-pack-a-suitcase', 'How to Pack a Suitcase Like a Pro', 'Packing may seem simple, but it is a science with rules', 'other');
 INSERT INTO resources (user_id, url, title, description, category) VALUES (1, 'https://www.dictionary.com/browse/other', 'What is the definition of other', 'Usually others. other persons or things', 'other');
-INSERT INTO resources (user_id, url, title, description, category) VALUES (3, 'https://www.youtube.com/watch?v=uBGl2BujkPQ', 'Science for Dummies', 'Introduction to Anatomy & Physiology: Crash Course A&P #1', 'science')
+INSERT INTO resources (user_id, url, title, description, category) VALUES (3, 'https://www.youtube.com/watch?v=uBGl2BujkPQ', 'Science for Dummies', 'Introduction to Anatomy & Physiology: Crash Course A&P #1', 'science');
 INSERT INTO resources (user_id, url, title, description, category, thumbnail_photo) VALUES (4,'https://www.coachmag.co.uk/fitness/5851/20-effective-health-and-fitness-tips', 'Great tips to keep fit', 'These are so helpful!', 'Health and Fitness', 'https://cdn.theatlantic.com/assets/media/img/mt/2015/05/shutterstock_247399801/lead_720_405.jpg?mod=1533691742');
 INSERT INTO resources (user_id, url, title, description, category, thumbnail_photo) VALUES (4,'https://www.shape.com/fitness/tips/our-25-all-time-best-workout-tips', 'Workout tips', 'Bulking season', 'Health and Fitness', 'https://cdn.theatlantic.com/assets/media/img/mt/2015/05/shutterstock_247399801/lead_720_405.jpg?mod=1533691742');
 INSERT INTO resources (user_id, url, title, description, category, thumbnail_photo) VALUES (2,'https://www.youtube.com/watch?v=LJ9CYzSaHvk', 'Gauchos playing pato', 'Looks fun.', 'Sports', 'https://cdn.theatlantic.com/assets/media/img/mt/2015/05/shutterstock_247399801/lead_720_405.jpg?mod=1533691742');
@@ -98,6 +99,78 @@ INSERT INTO resources (user_id, url, title, description, category, thumbnail_pho
 
 -- Likes
 INSERT INTO likes (user_id, resource_id) VALUES (1,4);
+INSERT INTO likes (user_id, resource_id) VALUES (1,1);
+INSERT INTO likes (user_id, resource_id) VALUES (2,2);
+INSERT INTO likes (user_id, resource_id) VALUES (3,1);
+INSERT INTO likes (user_id, resource_id) VALUES (1,2);
+INSERT INTO likes (user_id, resource_id) VALUES (5,2);
+INSERT INTO likes (user_id, resource_id) VALUES (1,3);
+INSERT INTO likes (user_id, resource_id) VALUES (6,3);
+INSERT INTO likes (user_id, resource_id) VALUES (1,4);
+INSERT INTO likes (user_id, resource_id) VALUES (1,5);
+INSERT INTO likes (user_id, resource_id) VALUES (3,5);
+INSERT INTO likes (user_id, resource_id) VALUES (1,6);
+INSERT INTO likes (user_id, resource_id) VALUES (5,6);
+INSERT INTO likes (user_id, resource_id) VALUES (1,7);
+INSERT INTO likes (user_id, resource_id) VALUES (2,8);
+INSERT INTO likes (user_id, resource_id) VALUES (3,9);
+INSERT INTO likes (user_id, resource_id) VALUES (4,10);
+INSERT INTO likes (user_id, resource_id) VALUES (1,11);
+INSERT INTO likes (user_id, resource_id) VALUES (1,12);
+INSERT INTO likes (user_id, resource_id) VALUES (1,13);
+INSERT INTO likes (user_id, resource_id) VALUES (7,14);
+INSERT INTO likes (user_id, resource_id) VALUES (7,15);
+INSERT INTO likes (user_id, resource_id) VALUES (1,15);
+INSERT INTO likes (user_id, resource_id) VALUES (9,16);
+INSERT INTO likes (user_id, resource_id) VALUES (1,16);
+INSERT INTO likes (user_id, resource_id) VALUES (1,17);
+INSERT INTO likes (user_id, resource_id) VALUES (10,18);
+INSERT INTO likes (user_id, resource_id) VALUES (1,18);
+INSERT INTO likes (user_id, resource_id) VALUES (2,19);
+INSERT INTO likes (user_id, resource_id) VALUES (1,19);
+INSERT INTO likes (user_id, resource_id) VALUES (1,20);
+INSERT INTO likes (user_id, resource_id) VALUES (12,20);
+INSERT INTO likes (user_id, resource_id) VALUES (3,21);
+INSERT INTO likes (user_id, resource_id) VALUES (7,22);
+INSERT INTO likes (user_id, resource_id) VALUES (8,22);
+INSERT INTO likes (user_id, resource_id) VALUES (1,23);
+INSERT INTO likes (user_id, resource_id) VALUES (2,23);
+INSERT INTO likes (user_id, resource_id) VALUES (9,23);
+INSERT INTO likes (user_id, resource_id) VALUES (10,23);
+INSERT INTO likes (user_id, resource_id) VALUES (3,23);
+INSERT INTO likes (user_id, resource_id) VALUES (11,23);
+INSERT INTO likes (user_id, resource_id) VALUES (1,24);
+INSERT INTO likes (user_id, resource_id) VALUES (2,29);
+INSERT INTO likes (user_id, resource_id) VALUES (10,29);
+INSERT INTO likes (user_id, resource_id) VALUES (1,25);
+INSERT INTO likes (user_id, resource_id) VALUES (1,25);
+INSERT INTO likes (user_id, resource_id) VALUES (9,25);
+INSERT INTO likes (user_id, resource_id) VALUES (2,25);
+INSERT INTO likes (user_id, resource_id) VALUES (3,26);
+INSERT INTO likes (user_id, resource_id) VALUES (4,26);
+INSERT INTO likes (user_id, resource_id) VALUES (5,26);
+INSERT INTO likes (user_id, resource_id) VALUES (6,26);
+INSERT INTO likes (user_id, resource_id) VALUES (8,26);
+INSERT INTO likes (user_id, resource_id) VALUES (7,26);
+INSERT INTO likes (user_id, resource_id) VALUES (9,27);
+INSERT INTO likes (user_id, resource_id) VALUES (10,27);
+INSERT INTO likes (user_id, resource_id) VALUES (1,27);
+INSERT INTO likes (user_id, resource_id) VALUES (11,27);
+INSERT INTO likes (user_id, resource_id) VALUES (3,28);
+INSERT INTO likes (user_id, resource_id) VALUES (4,28);
+INSERT INTO likes (user_id, resource_id) VALUES (5,29);
+INSERT INTO likes (user_id, resource_id) VALUES (8,29);
+INSERT INTO likes (user_id, resource_id) VALUES (9,29);
+INSERT INTO likes (user_id, resource_id) VALUES (10,30);
+INSERT INTO likes (user_id, resource_id) VALUES (11,31);
+INSERT INTO likes (user_id, resource_id) VALUES (2,31);
+INSERT INTO likes (user_id, resource_id) VALUES (3,31);
+INSERT INTO likes (user_id, resource_id) VALUES (4,31);
+INSERT INTO likes (user_id, resource_id) VALUES (5,31);
+INSERT INTO likes (user_id, resource_id) VALUES (6,29);
+INSERT INTO likes (user_id, resource_id) VALUES (7,29);
+
+
 
 --  Comments
 INSERT INTO comments (comment, user_id, resource_id) VALUES ('Every time I chop onion I can''t stop crying. Tips anyone??', 3, 4);
@@ -125,7 +198,7 @@ INSERT INTO comments (comment, user_id, resource_id) VALUES ('I cant believe thi
 INSERT INTO comments (comment, user_id, resource_id) VALUES ('????', 7, 4);
 INSERT INTO comments (comment, user_id, resource_id) VALUES (' wow how did you find this!!?', 7, 6);
 INSERT INTO comments (comment, user_id, resource_id) VALUES ('Thanks Karen for the share!', 8, 9);
-INSERT INTO comments (comment, user_id, resource_id) VALUES ('wowwww', 3, 32);
+INSERT INTO comments (comment, user_id, resource_id) VALUES ('wowwww', 3, 31);
 INSERT INTO comments (comment, user_id, resource_id) VALUES ('Please send me this to my gmail!', 2, 31);
 INSERT INTO comments (comment, user_id, resource_id) VALUES ('Wow we have the same interests ', 5, 30);
 INSERT INTO comments (comment, user_id, resource_id) VALUES ('DEAN!!!!!!!! DONT DO THIS', 7, 24);
@@ -144,6 +217,16 @@ INSERT INTO comments (comment, user_id, resource_id) VALUES ('NOOOOOOOOO', 6, 20
 INSERT INTO comments (comment, user_id, resource_id) VALUES ('THANK YOU!!!!', 11, 29);
 INSERT INTO comments (comment, user_id, resource_id) VALUES ('Hello - where did you even find this???', 2, 31);
 INSERT INTO comments (comment, user_id, resource_id) VALUES ('Amazing find', 1, 31);
+INSERT INTO comments (comment, user_id, resource_id) VALUES ('Amazing! Can you make a video on how to make your own??', 5, 8);
+INSERT INTO comments (comment, user_id, resource_id) VALUES ('Super helpful! Can''t wait to practice', 2, 8);
+INSERT INTO comments (comment, user_id, resource_id) VALUES ('I wish he was my triangle teacher!', 3, 8);
+INSERT INTO comments (comment, user_id, resource_id) VALUES ('Love this movie!', 6, 16);
+INSERT INTO comments (comment, user_id, resource_id) VALUES ('Thanks! So helpful', 5, 13);
+INSERT INTO comments (comment, user_id, resource_id) VALUES ('Don''t make promises you cant''t keep! Ha!', 2, 13);
+INSERT INTO comments (comment, user_id, resource_id) VALUES ('Bzzzzzzzz', 2, 12);
+INSERT INTO comments (comment, user_id, resource_id) VALUES ('Bzzzzzzzz', 5, 12);
+INSERT INTO comments (comment, user_id, resource_id) VALUES ('Mac n Screams!', 5, 2);
+
 
 -- Ratings
 INSERT INTO ratings (user_id, resource_id, rating) VALUES (1, 4, 2);
@@ -180,16 +263,6 @@ INSERT INTO ratings (user_id, resource_id, rating) VALUES (9, 12, 2);
 INSERT INTO ratings (user_id, resource_id, rating) VALUES (8, 11, 2);
 
 
-INSERT INTO comments (comment, user_id, resource_id) VALUES ('Amazing! Can you make a video on how to make your own??', 5, 8);
-INSERT INTO comments (comment, user_id, resource_id) VALUES ('Super helpful! Can''t wait to practice', 2, 8);
-INSERT INTO comments (comment, user_id, resource_id) VALUES ('I wish he was my triangle teacher!', 3, 8);
-
-INSERT INTO comments (comment, user_id, resource_id) VALUES ('Love this movie!', 6, 16);
-INSERT INTO comments (comment, user_id, resource_id) VALUES ('Thanks! So helpful', 5, 13);
-INSERT INTO comments (comment, user_id, resource_id) VALUES ('Don''t make promises you cant''t keep! Ha!', 2, 13);
-INSERT INTO comments (comment, user_id, resource_id) VALUES ('Bzzzzzzzz', 2, 12);
-INSERT INTO comments (comment, user_id, resource_id) VALUES ('Bzzzzzzzz', 5, 12);
-INSERT INTO comments (comment, user_id, resource_id) VALUES ('Mac n Screams!', 5, 2);
 
 
 
