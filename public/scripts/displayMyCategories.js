@@ -212,7 +212,10 @@ $("#my-resources").on("click", ".search-all-resources", (data) => {
 })
 
 $("body").on("click",".like-button",(data) => {
+<<<<<<< HEAD
   console.log("CLICK", $(this), data)
+=======
+>>>>>>> 97a726fafa67a7c4ca018f3ac930e267346adeaf
   const id = data.originalEvent.path[4].classList[1]
   const clickStatus = data.originalEvent.path[0].attributes[1].value;
   if (clickStatus === "false") {
