@@ -274,8 +274,8 @@ const queryTopResources = () => {
   LEFT JOIN comments ON resources.id = comments.resource_id
   LEFT JOIN ratings ON resources.id = ratings.resource_id
   GROUP BY resources.id
-  ORDER BY RAND()
-  LIMIT 20;`;
+  ORDER BY RANDOM()
+  LIMIT 9;`;
 
   return pool.query(queryString)
     .then((res) => {

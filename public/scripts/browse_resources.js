@@ -10,7 +10,7 @@ const renderResource = data => {
       if (data.url.match(/www\.youtube\./)) {
       data.video = `<iframe width=100% height=100% src="https://www.youtube.com/embed/${data.url.split('=')[1]}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
     } else {
-        data.thumbnail_photo = `http://api.screenshotlayer.com/api/capture?access_key=3f06297d1eae1c79319ab9edd2faeb56&url=${resource.url}&placeholder=1`
+        data.thumbnail_photo = `http://api.screenshotlayer.com/api/capture?access_key=3f06297d1eae1c79319ab9edd2faeb56&url=${data.url}&viewport=1440x900&width=250`
     }
   console.log(data);
   wall.prepend(generateResources(data));
@@ -98,6 +98,7 @@ $('#discover').on("click", (data) => {
   ajaxTopResources().then(res => {
     // console.log(res, "ajaxtopresources result")
   $("#resources_found").empty()
+  console.log(res);
 
     for (let resource of res) {
       renderResource(resource);
