@@ -1,7 +1,5 @@
-<<<<<<< HEAD
 body {
   background-color: #F6F7FD;
-  position: relative;
 }
 body #scroll-to-top {
   display: none;
@@ -16,8 +14,6 @@ body #scroll-to-top:hover {
   cursor: pointer;
   transform: scale(1.1);
 }
-=======
->>>>>>> 97a726fafa67a7c4ca018f3ac930e267346adeaf
 body .container {
   width: 100%;
   text-align: center;
@@ -64,7 +60,7 @@ body #my-categories-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-start;
 }
 body #my-categories-list .my-categories {
   width: 45%;
@@ -95,10 +91,7 @@ body #my-categories-list .my-categories:hover {
 body #my-categories-list .my-categories img {
   width: 100%;
   height: 232px;
-<<<<<<< HEAD
   border-radius: 15px 15px 0px 0px;
-=======
->>>>>>> 97a726fafa67a7c4ca018f3ac930e267346adeaf
 }
 body .card {
   width: 100%;
