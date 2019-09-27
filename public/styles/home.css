@@ -38,13 +38,8 @@ body .container .search-form .input-group.mb-3 .input-group-append button {
   color: white;
   border: 0px;
 }
-body .container .search-form .input-group.mb-3 .input-group-append {
-  background-color: red;
-  border-radius: 0px 10px 10px 0px;
-}
-body .container .search-form .input-group.mb-3 .input-group-append button {
-  color: white;
-  border: 0px;
+body .container .search-form .input-group.mb-3 .btn btn-outline-secondary {
+  margin-left: 30px;
 }
 body .container .titles {
   font-family: "Poppins", sans-serif;
