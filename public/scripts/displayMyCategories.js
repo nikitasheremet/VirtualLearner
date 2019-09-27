@@ -26,7 +26,7 @@ const displayAndMakeBackButton = (res) => {
     if (resource.url.match(/www\.youtube\./)) {
       resource.video = `<iframe width=100% height=100% src="https://www.youtube.com/embed/${resource.url.split('=')[1]}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
     } else {
-        // resource.thumbnail_photo = `http://api.screenshotlayer.com/api/capture?access_key=3f06297d1eae1c79319ab9edd2faeb56&url=${resource.url}&placeholer=1`
+        resource.thumbnail_photo = `http://api.screenshotlayer.com/api/capture?access_key=3f06297d1eae1c79319ab9edd2faeb56&url=${resource.url}&viewport=1440x900&width=250`
     }
     // https://img.youtube.com/vi/BuebC0CfD8E/hqdefault.jpg
     output += generateResources(resource)
@@ -128,7 +128,7 @@ $("body").on("click", ".show-all-resources", (data) => {
       if (resource.url.match(/www\.youtube\./)) {
       resource.video = `<iframe width=100% height=100% src="https://www.youtube.com/embed/${resource.url.split('=')[1]}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
     } else {
-        // resource.thumbnail_photo = `http://api.screenshotlayer.com/api/capture?access_key=3f06297d1eae1c79319ab9edd2faeb56&url=${resource.url}&placeholer=1`
+        resource.thumbnail_photo = `http://api.screenshotlayer.com/api/capture?access_key=3f06297d1eae1c79319ab9edd2faeb56&url=${resource.url}&viewport=1440x900&width=250`
     }
 
       if (resource.user_id !== res.ID) {
@@ -157,7 +157,7 @@ $("body").on("click", ".show-all-resources", (data) => {
             if (resource.url.match(/www\.youtube\./)) {
             resource.thumbnail_photo = `https://img.youtube.com/vi/${resource.url.split('=')[1]}/hqdefault.jpg`
             } else {
-              // resource.thumbnail_photo = `http://api.screenshotlayer.com/api/capture?access_key=3f06297d1eae1c79319ab9edd2faeb56&url=${resource.url}&placeholer=1`
+              resource.thumbnail_photo = `http://api.screenshotlayer.com/api/capture?access_key=3f06297d1eae1c79319ab9edd2faeb56&url=${resource.url}&viewport=1440x900&width=250`
             }
 
             if (resource.user_id !== res.ID) {
@@ -185,8 +185,8 @@ $("#my-resources").on("click", ".show-categories", (data) => {
   for (let cat of res) {
     output += generateTemplateCategory(cat.category);
   }
-    myCategoriesList.html(output);
-    myCategoriesList.append(generateTemplateCategory("Liked"))
+    myCategoriesList.html(generateTemplateCategory("Liked"))
+  myCategoriesList.append(output);
     $(".my-categories").on("click",(data) => {
     clickCategory(data);
     })

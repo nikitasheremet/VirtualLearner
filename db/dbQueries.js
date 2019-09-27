@@ -274,7 +274,7 @@ const queryTopResources = () => {
   LEFT JOIN comments ON resources.id = comments.resource_id
   LEFT JOIN ratings ON resources.id = ratings.resource_id
   GROUP BY resources.id
-  ORDER BY COUNT(DISTINCT likes.*)
+  ORDER BY RAND()
   LIMIT 20;`;
 
   return pool.query(queryString)
