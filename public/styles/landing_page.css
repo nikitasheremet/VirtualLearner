@@ -1,6 +1,6 @@
 /* Mobile Styles */
-.header{
-  background-color:#eaebee;
+.header {
+  background-color: #eaebee;
 }
 
 .login-container {
@@ -20,7 +20,7 @@
   font-weight: bold;
   font-size: 14px;
   color: black;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .input-fields {
@@ -30,7 +30,7 @@
 }
 
 .login-button {
-  background-color: #F80D20;
+  background-color: #f80d20;
   border-radius: 8px;
   border: 0px;
   width: 100%;
@@ -38,16 +38,16 @@
   height: 25px;
 }
 
-.login-button a{
-  color:white;
-  font-weight:bold;
-  font-family: 'Poppins', sans-serif;
+.login-button a {
+  color: white;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
 }
 
 textarea {
   resize: none !important;
   height: 120px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .account-space {
@@ -58,18 +58,17 @@ textarea {
   margin-bottom: 0px;
 }
 
-.sign-up-link{
+.sign-up-link {
   color: black;
   font-weight: bold;
   text-decoration-line: underline;
-  font-family: 'Poppins', sans-serif;
-
+  font-family: "Poppins", sans-serif;
 }
 
 .sign-up {
   width: 100%;
   text-align: center;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .logo {
@@ -79,11 +78,11 @@ textarea {
   background-position: bottom;
   margin-bottom: -13px;
   margin-left: auto;
-  margin-right:auto;
+  margin-right: auto;
   background-image: url("https://i.ibb.co/F0jFnkv/background-modfied.jpg");
 }
 
-.logo img{
+.logo img {
   width: inherit;
 }
 
@@ -92,7 +91,7 @@ textarea {
   margin-left: auto;
   margin-right: auto;
   padding-top: 20px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .center-text2 {
@@ -100,12 +99,12 @@ textarea {
   margin-left: auto;
   margin-right: auto;
   padding-top: 20px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .virtual-logo {
   margin-left: auto;
-  margin-right:auto;
+  margin-right: auto;
   /* height: 40px; */
   background-repeat: no-repeat;
   background-size: 276px 41px;
@@ -113,58 +112,56 @@ textarea {
   background-position: center;
 }
 
-
 .imageUpload {
-display: none;
+  display: none;
 }
 
-.profileImage{
-cursor: pointer;
+.profileImage {
+  cursor: pointer;
 }
 
 .profile-container {
-width: 150px;
-height: 150px;
-overflow: hidden;
--webkit-border-radius: 50%;
--moz-border-radius: 50%;
--ms-border-radius: 50%;
--o-border-radius: 50%;
-border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
 }
 
 .profile-container img {
-width: 150px;
-height: 150px;
+  width: 150px;
+  height: 150px;
 }
-
 
 .counter {
   float: right;
-  font-family: 'Bungee', cursive;
+  font-family: "Bungee", cursive;
 }
 
 .profile-pic {
   width: 100px;
   height: 100px;
-  padding:10px;
+  padding: 10px;
   border-radius: 20px;
 }
 
-.logout{
-  background-color: #F80D20;
+.logout {
+  background-color: #f80d20;
   border-radius: 8px;
   border: 0px;
   margin-top: 5px;
-  padding-right:5px;
+  padding-right: 5px;
   height: 38px;
   color: white;
-  width:100px;
-  font-family: 'Poppins', sans-serif;
+  width: 100px;
+  font-family: "Poppins", sans-serif;
 }
 
 .login-container2 {
-  margin-left:initial;
+  margin-left: initial;
   border-radius: 10px 0px 0px 10px;
   border-right: 1px #ebebeb solid;
   height: 100%;
@@ -180,14 +177,13 @@ height: 150px;
   padding-bottom: 20px;
 }
 
-
-@media only screen and (max-width: 1000px){
-  .left-text{
-    display:none;
+@media only screen and (max-width: 1000px) {
+  .left-text {
+    display: none;
   }
 
-  .login-button{
-    background-color: #F80D20;
+  .login-button {
+    background-color: #f80d20;
     border-radius: 8px;
     border: 0px;
     width: 100%;
@@ -195,20 +191,20 @@ height: 150px;
   }
 
   .resource {
-    font-weight:bold;
+    font-weight: bold;
     font-size: 28px;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
   }
 
   .login-button {
     color: white;
     height: 60px;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
   }
 
   .virtual-logo3 {
     margin-left: auto;
-    margin-right:auto;
+    margin-right: auto;
     height: 100px;
     background-repeat: no-repeat;
     background-size: 120px 70px;
@@ -229,87 +225,84 @@ height: 150px;
 
   .virtual-logo {
     margin-left: auto;
-    margin-right:auto;
+    margin-right: auto;
     height: 100px;
     background-repeat: no-repeat;
     background-size: 120px 70px;
     background-image: url("https://i.ibb.co/982Kcw9/VL.png");
-    background-position: center;
+    background-position: left;
   }
-
 }
 
-
-
 @media only screen and (min-width: 1000px) {
-  .center-text{
-    display:none;
-    font-family: 'Poppins', sans-serif;
+  .center-text {
+    display: none;
+    font-family: "Poppins", sans-serif;
   }
 
   .virtual-logo {
     margin-left: auto;
-    margin-right:auto;
+    margin-right: auto;
     height: 99px;
     background-repeat: no-repeat;
     background-size: 156px 99px;
     background-image: url("https://i.ibb.co/Ltsm5VK/Virtual-Learner-container.png");
     background-position: left;
-    margin-bottom:20px;
+    margin-bottom: 20px;
   }
 
   .virtual-small {
     margin-left: auto;
-    margin-right:auto;
+    margin-right: auto;
     height: 99px;
     background-repeat: no-repeat;
     background-size: 156px 99px;
     background-image: url("https://i.ibb.co/Ltsm5VK/Virtual-Learner-container.png");
     background-position: left;
-    margin-bottom:20px;
+    margin-bottom: 20px;
   }
 
   .logo {
-    display:none;
+    display: none;
   }
 
   .create-new {
-    font-weight:bold;
-    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
   }
 
   .desktop-container {
-      margin-top:5%;
-      height: 506px;
-      width: 1000px;
-      background-color: #F8F8F8;
-      border-radius:10px;
-      background-repeat: no-repeat;
-      background-size: 665px 508px;
-      background-position: right;
-      margin-left: auto;
-      margin-right:auto;
-      background-image: url("https://i.ibb.co/F0jFnkv/background-modfied.jpg");
-      box-shadow: 0px 28px 74px rgba(41, 52, 58, 0.11);
-    }
+    margin-top: 5%;
+    height: 506px;
+    width: 1000px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-size: 665px 508px;
+    background-position: right;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url("https://i.ibb.co/F0jFnkv/background-modfied.jpg");
+    box-shadow: 0px 28px 74px rgba(41, 52, 58, 0.11);
+  }
 
-    .desktop-container2 {
-      margin-top:5%;
-      height: 650px;
-      width: 1000px;
-      background-color: #ededed;
-      border-radius:10px;
-      background-repeat: no-repeat;
-      background-size: 665px 508px;
-      background-position: right;
-      margin-left: auto;
-      margin-right:auto;
-      background-image: url("https://i.ibb.co/F0jFnkv/background-modfied.jpg");
-      box-shadow: 0px 28px 74px rgba(41, 52, 58, 0.11);
-    }
+  .desktop-container2 {
+    margin-top: 5%;
+    height: 650px;
+    width: 1000px;
+    background-color: #ededed;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-size: 665px 508px;
+    background-position: right;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url("https://i.ibb.co/F0jFnkv/background-modfied.jpg");
+    box-shadow: 0px 28px 74px rgba(41, 52, 58, 0.11);
+  }
 
   .login-container {
-    margin-left:initial;
+    margin-left: initial;
     border-radius: 10px 0px 0px 10px;
     border-right: 1px #ebebeb solid;
     padding-bottom: 40px;
@@ -319,8 +312,9 @@ height: 150px;
 
   .virtual-logo2 {
     margin-left: auto;
-    margin-right:auto;
-    height: 40px;
+    margin-right: auto;
+    height: 50px;
+    width: 300px;
     background-repeat: no-repeat;
     background-size: 276px 41px;
     background-image: url("https://i.ibb.co/DM8Lr2d/Virtual-Learner.png");
@@ -329,7 +323,7 @@ height: 150px;
 
   .virtual-logo4 {
     margin-left: auto;
-    margin-right:auto;
+    margin-right: auto;
     height: 40px;
     background-repeat: no-repeat;
     background-size: 276px 41px;
@@ -338,7 +332,6 @@ height: 150px;
     margin-left: 30px;
     margin-top: 30px;
   }
-
 
   /* .login-container2 {
     margin-left:initial;
@@ -358,19 +351,19 @@ height: 150px;
   } */
 
   .resource {
-    font-weight:bold;
+    font-weight: bold;
     font-size: 28px;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
   }
 
   .login-button {
     color: white;
     height: 50px;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
   }
 
-  .left-text{
+  .left-text {
     text-align: left;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
   }
 }
