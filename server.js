@@ -1,4 +1,4 @@
-const database = require("./db/dbQueries");
+const database = require("./db/scripts/dbQueries");
 const databaseRoutes = require("./routes/databaseRoutes");
 // load .env data into process.env
 require("dotenv").config();
