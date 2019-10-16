@@ -1,9 +1,9 @@
+INSERT INTO likes (user_id, resource_id) VALUES (1,4);
 INSERT INTO likes (user_id, resource_id) VALUES (1,1);
 INSERT INTO likes (user_id, resource_id) VALUES (2,2);
 INSERT INTO likes (user_id, resource_id) VALUES (3,1);
 INSERT INTO likes (user_id, resource_id) VALUES (1,2);
 INSERT INTO likes (user_id, resource_id) VALUES (5,2);
-
 INSERT INTO likes (user_id, resource_id) VALUES (1,3);
 INSERT INTO likes (user_id, resource_id) VALUES (6,3);
 INSERT INTO likes (user_id, resource_id) VALUES (1,4);
@@ -17,7 +17,6 @@ INSERT INTO likes (user_id, resource_id) VALUES (3,9);
 INSERT INTO likes (user_id, resource_id) VALUES (4,10);
 INSERT INTO likes (user_id, resource_id) VALUES (1,11);
 INSERT INTO likes (user_id, resource_id) VALUES (1,12);
-
 INSERT INTO likes (user_id, resource_id) VALUES (1,13);
 INSERT INTO likes (user_id, resource_id) VALUES (7,14);
 INSERT INTO likes (user_id, resource_id) VALUES (7,15);
@@ -31,7 +30,6 @@ INSERT INTO likes (user_id, resource_id) VALUES (2,19);
 INSERT INTO likes (user_id, resource_id) VALUES (1,19);
 INSERT INTO likes (user_id, resource_id) VALUES (1,20);
 INSERT INTO likes (user_id, resource_id) VALUES (12,20);
-
 INSERT INTO likes (user_id, resource_id) VALUES (3,21);
 INSERT INTO likes (user_id, resource_id) VALUES (7,22);
 INSERT INTO likes (user_id, resource_id) VALUES (8,22);
@@ -45,7 +43,6 @@ INSERT INTO likes (user_id, resource_id) VALUES (1,24);
 INSERT INTO likes (user_id, resource_id) VALUES (2,29);
 INSERT INTO likes (user_id, resource_id) VALUES (10,29);
 INSERT INTO likes (user_id, resource_id) VALUES (1,25);
-
 INSERT INTO likes (user_id, resource_id) VALUES (1,25);
 INSERT INTO likes (user_id, resource_id) VALUES (9,25);
 INSERT INTO likes (user_id, resource_id) VALUES (2,25);
@@ -59,17 +56,16 @@ INSERT INTO likes (user_id, resource_id) VALUES (9,27);
 INSERT INTO likes (user_id, resource_id) VALUES (10,27);
 INSERT INTO likes (user_id, resource_id) VALUES (1,27);
 INSERT INTO likes (user_id, resource_id) VALUES (11,27);
-
 INSERT INTO likes (user_id, resource_id) VALUES (3,28);
 INSERT INTO likes (user_id, resource_id) VALUES (4,28);
 INSERT INTO likes (user_id, resource_id) VALUES (5,29);
 INSERT INTO likes (user_id, resource_id) VALUES (8,29);
 INSERT INTO likes (user_id, resource_id) VALUES (9,29);
 INSERT INTO likes (user_id, resource_id) VALUES (10,30);
-INSERT INTO likes (user_id, resource_id) VALUES (11,31);
-INSERT INTO likes (user_id, resource_id) VALUES (2,31);
-INSERT INTO likes (user_id, resource_id) VALUES (3,31);
-INSERT INTO likes (user_id, resource_id) VALUES (4,31);
-INSERT INTO likes (user_id, resource_id) VALUES (5,31);
-INSERT INTO likes (user_id, resource_id) VALUES (6,29);
+INSERT INTO likes (user_id, resource_id) VALUES (11,28);
+INSERT INTO likes (user_id, resource_id) VALUES (2,3);
+INSERT INTO likes (user_id, resource_id) VALUES (3,1);
+INSERT INTO likes (user_id, resource_id) VALUES (4,6);
+INSERT INTO likes (user_id, resource_id) VALUES (5,12);
+INSERT INTO likes (user_id, resource_id) VALUES (6,15);
 INSERT INTO likes (user_id, resource_id) VALUES (7,29);

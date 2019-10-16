@@ -1,3 +1,15 @@
-INSERT INTO users (email, password) VALUES ('corah@lighthouse.ca', '$2a$10$xOZ028dkAVxsER2fXNO33exiRkjOdhvJiAvvECGYuu/Y6JPu4ZSti');
-INSERT INTO users (email, password) VALUES ('johnny@lighthouse.ca', '$2a$10$xOZ028dkAVxsER2fXNO33exiRkjOdhvJiAvvECGYuu/Y6JPu4ZSti');
-INSERT INTO users (email, password) VALUES ('nikita@lighthouse.ca', '$2a$10$xOZ028dkAVxsER2fXNO33exiRkjOdhvJiAvvECGYuu/Y6JPu4ZSti');
+INSERT INTO users (first_name, last_name, email, password, profile_pic) VALUES ('Corah', 'G', 'corah@lighthouse.ca', '$2a$10$xOZ028dkAVxsER2fXNO33exiRkjOdhvJiAvvECGYuu/Y6JPu4ZSti', '/images/avatar.svg');
+INSERT INTO users (first_name, last_name, email, password, profile_pic) VALUES ('Johhny', 'M', 'johnny@lighthouse.ca', '$2a$10$xOZ028dkAVxsER2fXNO33exiRkjOdhvJiAvvECGYuu/Y6JPu4ZSti', '/images/avatar3.svg');
+INSERT INTO users (first_name, last_name, email, password, profile_pic) VALUES ('Nikita', 'S', 'nikita@lighthouse.ca', '$2a$10$xOZ028dkAVxsER2fXNO33exiRkjOdhvJiAvvECGYuu/Y6JPu4ZSti', '/images/avatar4.svg');
+INSERT INTO users (first_name, profile_pic) VALUES ('Prince', '/images/avatar4.svg');
+INSERT INTO users (first_name, profile_pic) VALUES ('Evon', '/images/avatar4.svg');
+INSERT INTO users (first_name, profile_pic) VALUES ('Nathanael', '/images/avatar5.svg');
+INSERT INTO users (first_name, profile_pic) VALUES ('Le', '/images/avatar6.svg');
+INSERT INTO users (first_name, profile_pic) VALUES ('Colleen', '/images/avatar7.svg');
+INSERT INTO users (first_name, profile_pic) VALUES ('Karol', '/images/avatar8.svg');
+INSERT INTO users (first_name, profile_pic) VALUES ('Isabelle', '/images/avatar9.svg');
+INSERT INTO users (first_name, profile_pic) VALUES ('Jaclyn', '/images/avatar10.svg');
+INSERT INTO users (first_name, profile_pic) VALUES ('Pia', '/images/avatar11.svg');
+INSERT INTO users (first_name, profile_pic) VALUES ('Joan', '/images/avatar12.svg');
+INSERT INTO users (first_name, profile_pic) VALUES ('Orpha', '/images/avatar1.svg');
+INSERT INTO users (first_name, profile_pic) VALUES ('Marybeth', '/images/avatar2.svg');
